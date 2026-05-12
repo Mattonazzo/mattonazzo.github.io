@@ -50,16 +50,17 @@ article li {
 article li:nth-of-type(2n+1) {color: darkblue; background-color: lightgreen;}
 article li:nth-of-type(2n+2) {color: darkgreen; background-color: lightblue;}
 nav ul {
-    display: flex;
+    display: flex;    /* horizontal layout */
     list-style: none;    /* remove dots */
     gap: 10px;           /* space between buttons */
     padding: 8px 16px;
     background-color: #333; /* background color all over the nav */
     margin: 0;
     justify-content: space-around; /* distribute buttons uniformly */
+    flex-wrap: wrap; /* wrap to next line if needed */
 }
 nav li a {
-    display: block;
+    display: inline-block;
     padding: 4px 8px;
     color: white;
     text-decoration: none;
