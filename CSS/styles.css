@@ -16,6 +16,10 @@ article h2 {
     color: chartreuse;
     background-color: crimson;
 }
+article {
+    padding: 10px;
+    background-color: rgb(204, 0, 255);
+}
 span {
     color: rgb(255, 153, 0);
     font-weight: bold;
@@ -33,6 +37,8 @@ dt {
     font-weight: bold;
     margin-top: 10px;
 }
+li:nth-of-type(2n+1) {color: darkblue; background-color: lightgreen;}
+li:nth-of-type(2n+2) {color: darkgreen; background-color: lightblue;}
 #github-link {
     color: rgb(255, 150, 14);
     font-weight: bold;
