@@ -39,6 +39,21 @@ dt {
 }
 li:nth-of-type(2n+1) {color: darkblue; background-color: lightgreen;}
 li:nth-of-type(2n+2) {color: darkgreen; background-color: lightblue;}
+nav ul {
+    display: flex;
+    list-style: none;    /* rimuove i pallini */
+    gap: 10px;           /* spazio tra i bottoni */
+    padding: 0;
+    margin: 0;
+    justify-content: space-around; /* distribuisce i bottoni uniformemente */
+}
+nav li a {
+    display: block;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+}
 nav a:hover::before {content: "<";}
 nav a:hover::after {content: ">";}
 dd {
