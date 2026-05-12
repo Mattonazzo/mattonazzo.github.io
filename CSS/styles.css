@@ -37,8 +37,18 @@ dt {
     font-weight: bold;
     margin-top: 10px;
 }
-li:nth-of-type(2n+1) {color: darkblue; background-color: lightgreen;}
-li:nth-of-type(2n+2) {color: darkgreen; background-color: lightblue;}
+article li {
+    padding: 5px;
+    margin: 5px;
+    /* inline blocks variant */
+    display: inline-block; 
+    box-sizing: border-box;  /* padding does not add to the total width */
+    /* impiled blocks variant */
+    /*display: block; 
+    width: fit-content;*/
+}
+article li:nth-of-type(2n+1) {color: darkblue; background-color: lightgreen;}
+article li:nth-of-type(2n+2) {color: darkgreen; background-color: lightblue;}
 nav ul {
     display: flex;
     list-style: none;    /* remove dots */
