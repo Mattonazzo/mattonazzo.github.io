@@ -21,7 +21,9 @@ span {
     font-weight: bold;
 }
 body {
-    font-family: 'OpenDyslexic-Regular', Arial, Helvetica, sans-serif;
+    font-family: 'OpenDyslexic-Regular', Georgia, Arial, Helvetica, sans-serif;
+    text-underline-offset: 4px;
+
     background-color: ivory;
     
     padding: 20px;
