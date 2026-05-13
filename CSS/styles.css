@@ -91,3 +91,14 @@ dd::after  { content: close-quote; }
     height: 30px;
     vertical-align: middle;
 }
+/* under 480px visualize in one column */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  article.left,
+  article.right {
+    width: 100%;
+  }
+}
