@@ -5,10 +5,8 @@
     font-family: 'OpenDyslexic-Regular';
     src: url('./fonts/OpenDyslexic-Regular.otf') format('opentype')
 }
-.contenitore::after {
-  content: "";
-  display: block;
-  clear: both;
+.container{
+  display: flex;
 }
 header, footer {
         background-color: #49a167;
@@ -22,15 +20,14 @@ article h2 {
     background-color: crimson;
 }
 article {
-    float: left;
     padding: 1%;
     margin:1%;
     background-color: rgb(204, 0, 255);
 }
-article.sinistra {
+article.left {
   width: 26%;
 }
-article.destra {
+article.right {
   width: 66%;
 }
 span {
