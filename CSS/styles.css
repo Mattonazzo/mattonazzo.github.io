@@ -5,6 +5,11 @@
     font-family: 'OpenDyslexic-Regular';
     src: url('./fonts/OpenDyslexic-Regular.otf') format('opentype')
 }
+.contenitore::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 header, footer {
         background-color: #49a167;
         padding: 20px;
@@ -17,8 +22,16 @@ article h2 {
     background-color: crimson;
 }
 article {
-    padding: 10px;
+    float: left;
+    padding: 1%;
+    margin:1%;
     background-color: rgb(204, 0, 255);
+}
+article.sinistra {
+  width: 26%;
+}
+article.destra {
+  width: 66%;
 }
 span {
     color: rgb(255, 153, 0);
@@ -57,7 +70,7 @@ nav ul {
     background-color: #333; /* background color all over the nav */
     margin: 0;
     justify-content: space-around; /* distribute buttons uniformly */
-    flex-wrap: wrap-reverse; /* wrap to next line if needed */
+    flex-wrap: wrap; /* wrap to next line if needed */
 }
 nav li a {
     display: inline-block;
