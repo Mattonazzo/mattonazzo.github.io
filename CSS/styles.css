@@ -41,11 +41,17 @@ header h1:hover::after {
     text-align: center;
 }
 h2 {
-  font-size: 1.1em;
-  font-weight: normal;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-  padding-bottom: 6px;
+    font-size: 1.1em;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding-bottom: 1;
+    display: inline-block;
+    background: linear-gradient(
+        to top,
+        rgba(247, 140, 0, 0.692),
+        transparent
+    );
 }
 hr {
     border: none;
@@ -81,7 +87,7 @@ body {
 }
 body * {
     background-color: #f8d490;
-    border-radius: 10px;
+    border-radius: 20px;
     line-height: 1.6;
 }
 .about {
@@ -104,13 +110,16 @@ body * {
 }
 .container section {
   display: flex;
+  gap: 10px; /* fixed distance between title and content */
   border-radius:0%;
   justify-content: space-between; /* fit the title to the left and the text to the right */
   align-items: center; /* Aligns both on top alto (optional) */
-  gap: 20px; /* fixed distance between title and content */
   margin-bottom: 20px; /* Space between sections */
   border-bottom: 2px solid #ffb056; /* Optional: separator */
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+}
+.container section:last-child {
+    border-bottom: none;
 }
 .container section h3 {
   flex-grow: 0; /*the element doesn't expand if ther isn't space enough*/
