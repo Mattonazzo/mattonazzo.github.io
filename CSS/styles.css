@@ -5,85 +5,110 @@
     font-family: 'OpenDyslexic-Regular';
     src: url('./fonts/OpenDyslexic-Regular.otf') format('opentype')
 }
-.container{
-  display: flex;
+/* justify mesurments about borders */
+* {
+    box-sizing: border-box;
 }
-header, footer {
-        background-color: #49a167;
-        padding: 20px;
-    }
-h1 {
+/* make links on same page going smooth */
+html {
+  scroll-behavior: smooth;
+}
+.container{
+  display: block;
+}
+header, footer, div {
+    padding: 20px;
+}
+header h1 {
+    font-size: 2.2em;
+    font-weight: normal;
+    letter-spacing: 1px;
     text-align: center;
 }
-article h2 {
-    color: chartreuse;
-    background-color: crimson;
+h2 {
+  font-size: 1.1em;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
 }
-article {
-    padding: 1%;
-    margin:1%;
-    background-color: rgb(204, 0, 255);
+hr {
+    border: none;
+    border-top: 3px solid rgba(0,0,0,0.15);
+    margin: 25px;
 }
-article.left {
-  width: 26%;
+nav {
+    display: flex;    /* horizontal layout */
+    list-style: none;    /* remove dots */
+    gap: 10px;           /* space between buttons */
+    padding: 8px 16px;
+    margin: 0;
+    justify-content: space-around; /* distribute buttons uniformly */
+    flex-wrap: wrap; /* wrap to next line if needed */
 }
-article.right {
-  width: 66%;
+nav a {
+    padding: 4px 8px;
+    color: black;
+    text-decoration: none;
 }
-span {
-    color: rgb(255, 153, 0);
-    font-weight: bold;
-}
+nav a:hover::before {content: "<";}
+nav a:hover::after {content: ">";}
 body {
-    font-family: 'OpenDyslexic-Regular', Georgia, Arial, Helvetica, sans-serif;
+    font-family: 'OpenDyslexic-Regular', Georgia, Arial, Helvetica, sans-serif, serif;
     text-underline-offset: 4px;
-
-    background-color: ivory;
     
-    padding: 20px;
-    margin: 10px;
+    max-width: 770px;
+    padding: 40px 24px;
+    margin: 0 auto;
+
+    background-image: url("../imgs/brick_wall.webp");
+    background-attachment: fixed;
 }
-dt {
-    font-weight: bold;
-    margin-top: 10px;
+body * {
+    background-color: #f8d490;
+    border-radius: 10px;
+    line-height: 1.6;
 }
-article li {
+.about {
+    padding: 5px 20px;
+    margin: 5px 0px;
+
+}
+.about li {
     padding: 5px;
     margin: 5px;
     /* inline blocks variant */
     display: inline-block; 
     box-sizing: border-box;  /* padding does not add to the total width */
+    border-radius: 10px;
+    background-color: rgb(202, 91, 26);
+    color: white;
     /* impiled blocks variant */
     /*display: block; 
     width: fit-content;*/
 }
-article li:nth-of-type(2n+1) {color: darkblue; background-color: lightgreen;}
-article li:nth-of-type(2n+2) {color: darkgreen; background-color: lightblue;}
-nav ul {
-    display: flex;    /* horizontal layout */
-    list-style: none;    /* remove dots */
-    gap: 10px;           /* space between buttons */
-    padding: 8px 16px;
-    background-color: #333; /* background color all over the nav */
-    margin: 0;
-    justify-content: space-around; /* distribute buttons uniformly */
-    flex-wrap: wrap; /* wrap to next line if needed */
+.container section {
+  display: flex;
+  justify-content: space-between; /* fit the title to the left and the text to the right */
+  align-items: center; /* Aligns both on top alto (optional) */
+  gap: 20px; /* fixed distance between title and content */
+  margin-bottom: 20px; /* Space between sections */
+  border-bottom: 1px solid #fcb954; /* Optional: separator */
+  padding-bottom: 10px;
 }
-nav li a {
-    display: inline-block;
-    padding: 4px 8px;
-    color: white;
-    text-decoration: none;
+.container section h3 {
+  flex-grow: 0; /*the element doesn't expand if ther isn't space enough*/
+  flex-shrink: 0; /* the element doesn't shrink if ther isn't space enough */
+  flex-basis: 20%; /* widht is 30% of parent's eritage */
+  margin: 0; /* Remove default margins for a better alignement */
 }
-nav a:hover::before {content: "<";}
-nav a:hover::after {content: ">";}
-dd {
-    quotes: "\201C" "\201D";
+.container section p {
+  flex: 1; /* paragraf takes the remaign space */
+  margin: 0;
+  text-align: left;
 }
-dd::before { content: open-quote; }
-dd::after  { content: close-quote; }
 #github-link {
-    color: rgb(255, 150, 14);
+    color: rgb(187, 44, 0);
     font-weight: bold;
 }
 #top-arrow {
@@ -95,10 +120,5 @@ dd::after  { content: close-quote; }
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-  }
-
-  article.left,
-  article.right {
-    width: 100%;
   }
 }

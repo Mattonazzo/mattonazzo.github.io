@@ -15,21 +15,18 @@
         <title>Matteo Antonazzo</title>
     </head>
     <body>
-        <header>
-            <h1 id="top">Matteo Antonazzo</h1>
+        <header  id="top">
             <nav>
-                <ul>
-                    <li><a id="github-link" href="https://github.com/Mattonazzo">
-                        My GitHub</a></li>
-                    <li><a href="#about" target="_self">Who am I?</a></li>
-                    <li><a href="#experience" target="_self">My programming experience</a></li>
-                    <li><a href="#contact" target="_self">Contact me</a></li>
-                </ul>
+                <a id="github-link" href="https://github.com/Mattonazzo">
+                    My GitHub</a>
+                <a href="#about" target="_self">Who am I?</a>
+                <a href="#experience" target="_self">My programming experience</a>
+                <a href="#contact" target="_self">Contact me</a>
             </nav>
+            <h1>Matteo Antonazzo</h1>
         </header>
         <hr />
-        <div class="container">
-        <article class="left">
+        <section class="about">
             <h2 id="about">&nbsp Who am I?
                 <a href="#top" target="_self">
                     <img id="top-arrow" src="./imgs/Top-Arrow-512px.png" alt="Top Arrow" />
@@ -46,65 +43,73 @@
                     <li>apprentice electrician on a construction site</li>
                 </ul>
             </p>
-            <p>I never had the opportunity to take an engineering degree.</p>
-            <p>My computer skills are mainly <q>amateur</q>.
+            <p>My computer skills are mainly amateur.
             <br />
             I was always fascinated by computers and what they can do.
-            But unfortunately, I have never had the right environment 
-            and motivation strong enough to learn programming no matter what,
-             because I did't beleave I was able of doing it.
-        </article>
-        <article class="right">
-            <h2 id="experience">&nbsp My programming experience 
-                <a href="#top" target="_self">
-                    <img id="top-arrow" src="./imgs/Top-Arrow-512px.png" alt="Top Arrow" />
-                </a>
-            </h2>
-            <dl>
-                <dt>Python</dt>
-                <dd>
-                    A few years ago, over my thirties at that time, I had the opportunity to learn 
-                    programming basics from a course at the engineering faculty, and I took it.
-                    <br />
-                    The course's program was about the basics of computer science, with a focus on 
-                    programming in <b>Python</b>, <u>version 3</u>. The course also included some basics of algorithms, 
-                    data structures and obviously Object Oriented Programming. I got a result of 25/30.
-                    <br />
-                    From that moment on, I have been learning programming by myself.
-                </dd>
-                <dt>C</dt>
-                <dd>
-                    I learned <b>C language</b>, following the text of professors Facchinetti, Larizza, Rubini and 
-                    using the text of Kernighan and Ritchie as a reference. 
-                    In this regard, as of May 2026, I wrote most of the Wikipedia page about scanf.
-                </dd>
-                <dt>Java</dt>
-                <dd>
-                    While winter was ending, I had the opportunity to follow a 140 hours course of
-                     <b>Java</b>, <u>version 25</u>, for one month, through Adecco and Formatemp (ending on <time datetime="2026-03-30 20:00">March 30, 2026</time>).
-                    The course also included some brief introductory parts on the graphical part of Swing
-                    and on databases with a brief mention of SQL. 
-                    A module regarding workplace safety was also included.
-                </dd>
-                <dt>AppScript</dt>
-                <dd>
-                    Using Google Sheets, I have also learned some basics of <b>AppScript</b> by myself, 
-                    to automate some operations I needed to do on my personal spreadsheets.
-                </dd>
-                <dt>Shell</dt>
-                <dd>
-                    Using <span style="color:darkred;font-weight:bold">linux</span> as my main operating system,
-                    I also got some experience with the <b>Shell command line</b>.
-                </dd>
-                <dt>HTML, CSS and JavaScript</dt>
-                <dd>
-                    <strong>In this precise moment, I am learning the basics of HTML, CSS and JavaScript</strong>,
-                    to be able to write this portfolio, and I'm <strong>using git and GitHub for the first time</strong> doing it.
-                    <br />
-                    So, if it looks like it came directly from a server stuck in early 2000 with a "peculiar" color scheme, now you know why.
-                </dd>
-            </dl>
-    </article>
+            Only in this very last year I had the opportunity to dive into this field,
+            after taking an university exam in basic computer science.
+            <br />
+            From that moment on, I have been learning programming by myself.
+        </section>
+        <hr>
+        <div class="container">
+        <h2 id="experience">&nbsp My programming experience 
+            <a href="#top" target="_self">
+                <img id="top-arrow" src="./imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+            </a>
+        </h2>
+        <section>
+            <h3>Python</h3>
+            <p>
+                This is my very first language I can say I learned, because of the university course I followed.
+                <br />
+                Other than programming in <strong>Python</strong>, <u>version 3</u>,
+                the course also included some basics of algorithms, 
+                data structures and obviously Object Oriented Programming.
+                I got a result of 25/30.
+            </p>
+        </section>
+        <section>
+            <h3>C</h3>
+            <p>
+                I learned <strong>C language</strong>, following the text of professors Facchinetti, Larizza, Rubini and 
+                using the text of Kernighan and Ritchie as a reference. 
+                In this regard, as of May 2026, I wrote most of the Wikipedia page about scanf.
+            </p>
+        </section>
+        <section>
+            <h3>Java</h3>
+            <p>
+                While this winter was ending, I had the opportunity to follow a 140 hours course of
+                    <strong>Java</strong>, <u>version 25</u>, for one and half month, through Adecco and Formatemp (ending on <time datetime="2026-03-30 20:00">March 30, 2026</time>).
+                The course also included some brief introductory parts on the graphical part of Swing
+                and on databases with a brief mention of SQL. 
+                A module regarding <strong>workplace safety</strong> was also included.
+            </p>
+        </section>
+        <section>
+            <h3>AppScript</h3>
+            <p>
+                Using Google Sheets, I have also learned some basics of <strong>AppScript</strong> by myself, 
+                to automate some operations I needed to do on my personal spreadsheets.
+            </p>
+        </section>
+        <section>
+            <h3>Shell</h3>
+            <p>
+                Using <strong>linux</strong> as my main operating system,
+                I also got some experience with the <b>Shell command line</b>.
+            </p>
+        </section>
+        <section>
+            <h3>HTML, CSS and JavaScript</h3>
+            <p>
+                <b>In this precise moment, I am learning the basics of HTML, CSS and JavaScript</b>,
+                to be able to write this portfolio, and I'm <b>using git and GitHub for the first time</b> doing it.
+                <br />
+                So, if it looks like it came directly from a server stuck in early 2000, now you know why.
+            </p>
+        </section>
     </div>
     <hr />
     <footer>
