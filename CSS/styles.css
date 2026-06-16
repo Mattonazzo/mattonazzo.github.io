@@ -58,14 +58,16 @@ hr {
     border-top: 3px solid rgba(202, 91, 26,0.15);
     margin: 25px;
 }
-nav {
-    display: flex;    /* horizontal layout */
+nav li{
+    display: inline-block;    /* horizontal layout */
     list-style: none;    /* remove dots */
-    gap: 10px;           /* space between buttons */
-    padding: 8px 16px;
+    gap: 5px;           /* space between buttons */
+    padding: 2px 4px;
     margin: 0;
     justify-content: space-around; /* distribute buttons uniformly */
-    flex-wrap: wrap; /* wrap to next line if needed */
+}
+nav label {
+    display:none;
 }
 nav a {
     padding: 4px 8px;
@@ -101,12 +103,12 @@ body * {
     /* inline blocks variant */
     display: inline-block; 
     box-sizing: border-box;  /* padding does not add to the total width */
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: rgb(190, 78, 13);
     color: white;
     /* impiled blocks variant */
-    /*display: block; 
-    width: fit-content;*/
+    /*display: block;
+    width: fit-content; */
 }
 .container section {
   display: flex;
@@ -132,6 +134,9 @@ body * {
   margin: 0;
   text-align: left;
 }
+.menu-check {
+  display: none; /* Hide the checkbox */
+}
 #github-link {
     color: rgb(187, 44, 0);
     font-weight: bold;
@@ -146,9 +151,28 @@ body * {
     padding: 1%;
     border-radius: 50%;
 }
-/* under 480px visualize in one column */
+/* for mobile version */
 @media (max-width: 768px) {
-  .container {
+    .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #ff9a27;
+    padding: 10px;
+  }
+
+  .nav-links {
+    list-style:none;
+    display: none;
     flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-check:checked ~ .nav-links {
+    display: flex;
+  }
+
+  #back-to-top {
+    background-color: #ff8e25;
   }
 }
