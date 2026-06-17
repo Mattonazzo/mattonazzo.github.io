@@ -56,8 +56,8 @@ header h1 {
   font-weight: normal;
   letter-spacing: 1px;
   text-align: center;
-  border-bottom: 2px solid #ffb056;
-  border-top: 2px solid #ffb056;
+  border-bottom: 3px solid #ffb056;
+  border-top: 3px solid #ffb056;
   position: relative;
   display:flex;
   flex-direction: column;
