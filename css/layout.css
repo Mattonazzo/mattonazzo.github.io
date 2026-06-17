@@ -1,0 +1,29 @@
+header, footer, div {
+    padding: 20px;
+}
+.container{
+  display: block;
+}
+.container section {
+  display: flex;
+  gap: 10px; /* fixed distance between title and content */
+  justify-content: space-between; /* fit the title to the left and the text to the right */
+  align-items: center; /* Aligns both on center (optional) */
+  margin-bottom: 20px; /* Space between sections */
+  border-bottom: 2px solid var(--accent); /* Optional: separator */
+  padding-bottom: 15px;
+}
+.container section:last-child {
+    border-bottom: none;
+}
+.container section h3 {
+  flex-grow: 0; /*the element doesn't expand if ther isn't space enough*/
+  flex-shrink: 0; /* the element doesn't shrink if ther isn't space enough */
+  flex-basis: 20%; /* widht is 30% of parent's eritage */
+  margin: 0; /* Remove default margins for a better alignement */
+}
+.container section p {
+  flex: 1; /* paragraf takes the remaign space */
+  margin: 0;
+  text-align: left;
+}

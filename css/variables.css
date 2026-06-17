@@ -1,0 +1,10 @@
+:root {
+    --bg-color: #f8d490;
+    --accent: #ffb056;
+    --accent-light-gold: rgb(252, 189, 107);
+    --accent-gold: rgb(247, 140, 0);
+    --accent-dark: rgb(190,78,13);
+    --link: #00695c;
+    --link-peculiar: rgb(187, 44, 0);
+    --visited: #682e2a;
+}

@@ -1,0 +1,11 @@
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    background-color: var(--accent-gold);
+    width:70px;
+    height: 70px;
+    padding: 1%;
+    border-radius: 50%;
+}

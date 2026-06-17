@@ -1,0 +1,51 @@
+header {
+  border-radius: 20px 20px 0px 0px;
+}
+header h1 {
+  font-size: 2.2em;
+  line-height: 1.2;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 3px solid var(--accent);
+  border-top: 3px solid var(--accent);
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  border-radius: 20px;
+}
+header h1:hover {
+    color: transparent;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+header h1:hover::before {
+    content: "Mattonazzo";
+    color: black;
+    display: block;
+
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    text-align: center;
+}
+header h1:hover::after {
+  content: "";
+  
+  position:absolute;
+  top:35%;
+  display: block;
+  width: 85px;
+  height: 85px;
+
+  margin: 0 auto;
+  
+  background-image: url("../../imgs/mattonazzo-apple-touch-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

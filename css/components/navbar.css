@@ -1,0 +1,41 @@
+nav li{
+    display: inline-block;    /* horizontal layout */
+    list-style: none;    /* remove dots */
+    gap: 5px;           /* space between buttons */
+    padding: 2px 4px;
+    margin: 0;
+    justify-content: space-around; /* distribute buttons uniformly */
+    line-height: 2;
+    text-align: center;
+}
+nav label {
+    display:none;
+}
+nav a {
+    padding: 4px 8px;
+    color: black;
+    text-decoration: none;
+}
+nav a:link {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:visited {
+  color: black;
+}
+#github-link {
+    color: var(--link-peculiar);
+    font-weight: bold;
+}
+.menu-check {
+  display: none; /* Hide the checkbox */
+}
+nav a:hover, #github-link:hover {
+  color: white;
+  background: linear-gradient(
+        to right,
+        transparent,
+        var(--accent-dark),
+        transparent);
+}

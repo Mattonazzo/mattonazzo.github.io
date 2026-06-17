@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'OpenDyslexic-Regular';
+    src: url('./fonts/OpenDyslexic-Regular.otf') format('opentype')
+}
+/* justify mesurments about borders */
+* {
+    box-sizing: border-box;
+}
+/* make links on same page going smooth */
+html {
+  scroll-behavior: smooth;
+}
+body {
+    font-family: 'OpenDyslexic-Regular', Georgia, Arial, Helvetica, sans-serif, serif;
+    text-underline-offset: 4px;
+    
+    max-width: 770px;
+    padding: 40px 24px;
+    margin: 0 auto;
+
+    background-image: url("../imgs/brick_wall.webp");
+    background-attachment: fixed;
+}
+body * {
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
