@@ -1,8 +1,9 @@
 # mattonazzo.github.io
-This repository came from a question: I want to learn HTML, CSS and JavaScript, so why not do it and learn git and GitHub too?
+This repository was born from a question: I want to learn HTML, CSS and JavaScript, so why not do it and learn git and GitHub too?
 
-This is the structure's site
+This is the site's structure:
 
+'''text
 /
 │
 ├── index.html
@@ -13,8 +14,8 @@ This is the structure's site
 │   │
 │   ├── base.css          # html, body, @font-face
 │   ├── layout.css        # container, section
-│   ├── main.css          # imports everthing except for pages
-│   ├── mobile.css        # when screen width is minor of 768px
+│   ├── main.css          # imports everything except for pages
+│   ├── mobile.css        # when screen width is less than 768px
 │   ├── typography.css    # link, h2, hr decorations
 │   ├── variables.css     # colors, fonts
 │   │
@@ -40,3 +41,4 @@ This is the structure's site
     ├── mattonazzo-apple-touch-icon.png
     ├── mattonazzo-favicon-32x32.png
     └── Top-Arrow-512px.png
+'''
