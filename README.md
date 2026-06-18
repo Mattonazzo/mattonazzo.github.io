@@ -3,7 +3,7 @@ This repository was born from a question: I want to learn HTML, CSS and JavaScri
 
 This is the site's structure:
 
-'''text
+‘‘‘text
 /
 │
 ├── index.html
@@ -41,4 +41,4 @@ This is the site's structure:
     ├── mattonazzo-apple-touch-icon.png
     ├── mattonazzo-favicon-32x32.png
     └── Top-Arrow-512px.png
-'''
+‘‘‘
