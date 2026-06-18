@@ -3,22 +3,40 @@ This repository came from a question: I want to learn HTML, CSS and JavaScript, 
 
 This is the structure's site
 
-css/
+/
 │
-├── main.css          # imports everthing
-├── variables.css     # colors, fonts
-├── base.css          # body, h1-h6, p, a, reset
-├── layout.css        # container, grid, section
+├── index.html
+├── LICENSE
+├── README.md
 │
-├── components/
-│   ├── navbar.css
-│   ├── buttons.css
-│   ├── cards.css
-│   └── footer.css
+├── css/
+│   │
+│   ├── base.css          # html, body, @font-face
+│   ├── layout.css        # container, section
+│   ├── main.css          # imports everthing except for pages
+│   ├── mobile.css        # when screen width is minor of 768px
+│   ├── typography.css    # link, h2, hr decorations
+│   ├── variables.css     # colors, fonts
+│   │
+│   ├── components/
+│   │   │
+│   │   ├── back-to-top.css
+│   │   ├── footer.css
+│   │   ├── header.css
+│   │   └── navbar.css
+│   │
+│   ├── fonts/
+│   │   │
+│   │   └── OpenDyslexic-Regular.otf
+│   │
+│   └── pages/
+│       │
+│       ├── home.css
+│       └── projects.css
 │
-├── fonts/
-│   └── OpenDyslexic-Regular.otf
-│
-└── pages/
-    ├── home.css
-    └── projects.css
+└── imgs/
+    │
+    ├── brick_wall.webp
+    ├── mattonazzo-apple-touch-icon.png
+    ├── mattonazzo-favicon-32x32.png
+    └── Top-Arrow-512px.png
