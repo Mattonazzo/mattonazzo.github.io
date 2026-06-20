@@ -27,3 +27,12 @@ header, footer, div {
   margin: 0;
   text-align: left;
 }
+.container img {
+    max-width: 100%;      /* remains inside parent's lenght  */
+    height: auto;         /* aspect ratio */
+    display: inline-block;
+
+    /* Optional: to have a grid */
+    /* width: 45%; */
+    /* margin: 2%; */
+}
