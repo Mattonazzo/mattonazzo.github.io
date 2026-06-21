@@ -12,35 +12,3 @@
     background-color: var(--accent-dark);
     color: white;
 }
-a.project-link{
-    padding: 5px;
-    margin: 5px;
-    display: inline-block;
-    box-sizing: border-box;  /* padding does not add to the total width */
-    border-radius: 12px;
-    background-color: var(--accent-dark);
-    color: white;
-    margin-left:auto;
-}
-a.project-link:link,
-a.project-link:visited,
-a.project-link:hover {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  background-color: var(--accent-dark);
-  border-radius: 12px;
-}
-
-a.project-link::after {
-    content: " →";
-    font-size:1.2em;
-    display: inline-block;
-}
-
-a.project-link:hover {
-    background-color: var(--link-peculiar);
-}
-a.project-link:hover::after {
-    transform: translateX(4px);
-}
