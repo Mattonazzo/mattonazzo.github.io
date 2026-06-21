@@ -50,4 +50,8 @@
   .container p {
     padding-top: 10px;
   }
+  .container section img {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
 }

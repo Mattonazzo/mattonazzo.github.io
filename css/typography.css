@@ -13,7 +13,7 @@ a:hover {
 }
 a.project-link{
     padding: 5px;
-    margin: 5px;
+    /*margin: 5px;*/
     display: inline-block;
     box-sizing: border-box;  /* padding does not add to the total width */
     border-radius: 12px;
@@ -33,7 +33,7 @@ a.project-link:hover {
 
 a.project-link::after {
     content: " →";
-    font-size:1.2em;
+    font-size:1.4em;
     display: inline-block;
 }
 

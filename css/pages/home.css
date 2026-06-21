@@ -1,14 +1,4 @@
 .about {
     padding: 5px 20px;
     margin: 5px 0px;
-
-}
-.about li {
-    padding: 5px;
-    margin: 5px;
-    display: inline-block; 
-    box-sizing: border-box;  /* padding does not add to the total width */
-    border-radius: 12px;
-    background-color: var(--accent-dark);
-    color: white;
 }
