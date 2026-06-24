@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- relative path to put at the beginning of links: ../ -->
+<html lang="en">
+    <head>
+        <!-- Meta tags for SEO and authorship -->
+        <meta charset="UTF-8" />
+        <meta name="author" content="Matteo Antonazzo">
+        <meta name="description" content="An interactive Python visualizer for topological sorting on Directed Acyclic Graphs, showing stack and order list step by step using a custom turtle-based graphics library.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="keywords" content="Python, Python Turtle, topological sort, directed acyclic graph, DAG, graph traversal, DFS, depth-first search, algorithm visualization, data structures, graph, stack, file parsing, computer science, Python project, software development, portfolio">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="icon" href="../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+        <base target="_blank" rel="noopener"/>
+        <title>Procedural Tree Generator</title>
+    </head>
+    <body id="top">
+        <a href="#top" target="_self">
+            <img id="back-to-top" src="../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+        </a>
+        <header>
+            <nav class="navbar">
+                <!-- Hidden Checkbox -->
+                <input type="checkbox" id="menu-check" class="menu-check">
+                
+                <!-- Using Hamburger character, label became a button -->
+                <label for="menu-check" class="menu-toggle">&#9776;</label>
+
+                <ul class="nav-links">
+                    <li><a id="github-link" href="https://github.com/Mattonazzo">
+                    My GitHub</a></li>
+                    <li><a href="../index.html" target="_self">Home</a></li>
+                    <li><a href="#overview" target="_self">Overview</a></li>
+                    <li><a href="#gallery" target="_self">Gallery</a></li>
+                    <li><a href="https://github.com/Mattonazzo/graph-sorting" target="_self">Project Page</a></li>
+                </ul>
+            </nav>
+            <h1>Graph Sorting</h1>
+        </header>
+        <hr />
+        <div class="container">
+        <h2 id="overview">Project Overview</h2>
+            <section>
+                <h3>Key Concepts</h3>
+                <ul class="brick-list">
+                    <li>Topological sorting</li>
+                    <li>Directed Acyclic Graphs (DAG)</li>
+                    <li>Graph traversal (DFS)</li>
+                    <li>Algorithm visualization</li>
+                    <li>Data structures (Graph, Stack)</li>
+                    <li>Python Turtle graphics</li>
+                    <li>File parsing</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Motivation</h3>
+                <div>
+                    <p>
+                    During my university studies, I found it difficult to visually follow the topological sorting algorithm.
+                    </p><p>
+                    The visualizations I found online were either too fast or did not display the stack and ordering list in the same way they had been presented during lectures.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h3>Implementation</h3>
+                <div>
+                    <p>
+                    I had already been working on a small vector graphics library written in Turtle for personal use, and I used it as the foundation for building a visualization that matched that lecture model exactly.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h3>Results and Observations</h3>
+                <div>
+                    <p>
+                    The result is an interactive program that loads graphs from files, verifies that they are DAGs (Directed Acyclic Graphs), and animates the topological sort step by step, displaying both the stack and the ordering list in real time.
+                    </p><p>
+                        The slow refresh rate is a known limitation of Turtle, which introduces overhead for every graphical operation (one of the reasons why the project is still under development).
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h3>Possible Future Improvements</h3>
+                <div>
+                    <ul>
+                        <li>Replace Turtle with a more performant graphics library (such as Pygame, direct Tkinter, or a web-based solution).</li>
+                        <li>Allow users to build graphs directly through the interface, without relying on a .txt file.</li>
+                        <li>Add additional DAG algorithms (e.g., shortest path or critical path algorithms).</li>
+                        <li>Provide manual control over the animation speed.</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3 id="gallery">
+                    Example Outputs
+                </h3>
+                <div>
+                    <video autoplay loop muted playsinline controls>
+                        <source src="../imgs/projects/graph-sorting/graph-sorting-example.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </section>
+        </div>
+        <hr />
+        <footer>
+            <p><small>🄯 2026 Matteo Antonazzo. All left reversed.</small></p>
+        </footer>
+    </body>
+</html>

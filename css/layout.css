@@ -16,8 +16,8 @@ header, footer {
 .container:last-child,
 .container section:last-child {
     border-bottom: none;
-    margin-bottom: none;
-    padding-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 .container section h3 {
   flex-grow: 0; /*the element doesn't expand if ther isn't space enough*/
@@ -33,13 +33,19 @@ header, footer {
   text-align: left;
 }
 .container section img {
-    max-width: 100%;      /* remains inside parent's lenght  */
-    height: auto;         /* aspect ratio */
-    display: inline-block;
+  max-width: 100%;      /* remains inside parent's lenght  */
+  height: auto;         /* aspect ratio */
+  display: inline-block;
 
-    /* Optional: to have a grid */
-    width: 45%; /**/
-    margin: 2%; /**/
+  /* Optional: to have a grid */
+  width: 45%; /**/
+  margin: 2%; /**/
+}
+.container section video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 1rem 0;
 }
 .brick-list li {
   padding: 5px;
