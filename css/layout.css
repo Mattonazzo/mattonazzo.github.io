@@ -1,6 +1,9 @@
 header, footer {
     padding: 20px;
 }
+footer p {
+  padding: 0 0 0 2rem;
+}
 .container{
   display: block;
   padding: 20px;
