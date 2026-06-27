@@ -33,7 +33,7 @@ a.project-link:hover {
 
 a.project-link::after {
     content: " →";
-    font-size:1.4em;
+    /*font-size:1.4em;*/
     display: inline-block;
 }
 

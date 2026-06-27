@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 848px) {
     .menu-toggle {
     display: block;
     cursor: pointer;
@@ -53,5 +53,11 @@
   .container section img {
     width: 100%;
     margin: 0 0 1rem 0;
+  }
+
+  .language-switch a {
+      top: 46px;
+      right: 30px;
+      background-color: var(--accent-gold);
   }
 }

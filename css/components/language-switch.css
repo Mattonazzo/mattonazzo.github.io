@@ -1,0 +1,16 @@
+.language-switch a {
+    position: absolute;
+    top: 40px;
+    right: 24px;
+    padding: 1%;
+    margin: 0 auto;
+    border-radius: 20%;
+    text-decoration: none;
+}
+.language-switch a:hover {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: var(--accent-dark);
+    border-radius: 12px;
+}
