@@ -20,6 +20,7 @@ a.project-link{
     background-color: var(--accent-dark);
     color: white;
     margin-left:auto;
+    white-space: nowrap;
 }
 a.project-link:link,
 a.project-link:visited,
@@ -43,6 +44,13 @@ a.project-link:hover {
 a.project-link:hover::after {
     transform: translateX(4px);
 }
+
+p:has(a.project-link) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 h2 {
     font-size: 1.1em;
     font-weight: normal;

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta tags for SEO and authorship -->
+        <meta charset="UTF-8" />
+        <meta name="author" content="Matteo Antonazzo">
+        <meta name="description" content="Explore my portfolio of hand-coded software projects. Featuring development tools, experiments, and solutions built to solve real-world problems.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="keywords" content="Matteo, Antonazzo, portfolio, software, programming, HTML, CSS, JavaScript, Python, C, Java, Shell, AppScript, Excel, Sheets, linux, OOP" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/pages/home.css">
+        <link rel="icon" href="imgs/mattonazzo-favicon-32x32.png" type="image/png">
+        <link rel="apple-touch-icon" sizes="180x180" href="imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+        <base target="_blank" rel="noopener"/>
+        <title>Projects | Matteo Antonazzo</title>
+    </head>
+    <body id="top">
+
+        <header>
+            <h1>Projects</h1>
+        </header>
+
+        <a href="#top" target="_self">
+            <img id="back-to-top" src="./imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+        </a>
+
+        <div class="language-switch">
+            <a href="./it/projects.html" target="_self">It 🇮🇹</a>
+        </div>
+
+        <!-- Hidden Checkbox -->
+        <input type="checkbox" id="menu-check" class="menu-check">
+
+        <!-- Lateral navigation menu -->
+        <aside id="sidebar">
+            <!-- "X" icon for closing menu on mobile view -->
+            <label for="menu-check" class="menu-close">✕</label>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a id="github-link" href="https://github.com/Mattonazzo">
+                    My GitHub</a></li>
+                    <li><a href="index.html" target="_self">Home</a></li>
+                    <li><a href="projects.html" target="_self" class="active-nav-link">Projects</a></li>
+                    <li><a href="notes.html" target="_self">Notes</a></li>
+                    <li><a href="index.html#contact" target="_self">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Using Hamburger character, label became a button -->
+        <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+        <main>
+            <section class="introduction">
+                <p>
+                    Welcome to my project showcase. 
+                    Each of these works was born out of a real-world need: 
+                    automating a process, deeply understanding a technology, 
+                    or solving a specific problem. I write code prioritizing cleanliness, 
+                    maintainability, and performance, without relying on unnecessary frameworks.
+                </p>
+            </section>
+            <hr />
+            <div class="container">
+                <h2 id="projects">
+                    Projects
+                </h2>
+                <section>
+                    <h3>
+                        Procedural tree generator<time datetime="2026-06-19"></time>
+                    </h3>
+                    <p>
+                        A recursive procedural tree generator built from scratch with 
+                        Python’s Turtle graphics.By leveraging randomized branching angles,
+                        deep recursion, and probabilistic math,the algorithm simulates
+                        natural growth patterns to generate completely unique, 
+                        organic-looking trees with every execution.
+                    </p>
+                    <a class="project-link"
+                            href="./projects/procedural-tree-generator.html" target="_self">
+                            See more</a>
+                </section>
+                <section>
+                    <h3>
+                        Graph Sorting Visualizer<time datetime="2026-06-24"></time>
+                    </h3>
+                    <p>
+                        An interactive Python application that visualizes topological 
+                        sorting on Directed Acyclic Graphs (DAGs).Built using a custom 
+                        Turtle-based graphics library, the engine dynamically demonstrates 
+                        stack behaviorand order-list updates step-by-step, making complex 
+                        graph algorithms intuitive to watch and learn.
+                    </p>
+                    <a class="project-link"
+                            href="./projects/graph-sorting.html" target="_self">
+                            See more</a>
+                </section>
+            </div>
+            <hr />
+            <footer>
+                <p><small>🄯 2026 Matteo Antonazzo. All left reversed.</small></p>
+            </footer>
+        </main>
+    </body>
+</html>

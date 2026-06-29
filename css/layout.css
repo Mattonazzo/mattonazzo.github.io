@@ -13,6 +13,13 @@ header, footer, section, article, .container {
     border-radius: 10px;
 }
 
+.introduction,
+#projects-preview,
+#notes-preview {
+    padding: 5px 20px;
+    margin: 5px 0px;
+}
+
 .container * {
   border-radius: 0;
 }

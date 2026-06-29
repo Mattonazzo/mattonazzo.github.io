@@ -16,20 +16,28 @@
         <title>Visualizzatore di Ordinamento su Grafi (DAG) con Python | Matteo Antonazzo</title>
     </head>
     <body id="top">
+            
+        <header>
+            <h1>Ordinamento visivo su Grafi</h1>
+        </header>
+
         <a href="#top" target="_self">
             <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
         </a>
+
         <div class="language-switch">
             <a href="../../projects/graph-sorting.html" target="_self">En 🇬🇧</a>
         </div>
-        <header>
-            <nav class="navbar">
-                <!-- Hidden Checkbox -->
-                <input type="checkbox" id="menu-check" class="menu-check">
-                
-                <!-- Using Hamburger character, label became a button -->
-                <label for="menu-check" class="menu-toggle">&#9776;</label>
 
+        <!-- Hidden Checkbox -->
+        <input type="checkbox" id="menu-check" class="menu-check">
+
+        <!-- Lateral navigation menu -->
+        <aside id="sidebar">
+            <!-- "X" icon for closing menu on mobile view -->
+            <label for="menu-check" class="menu-close">✕</label>
+            
+            <nav class="navbar">
                 <ul class="nav-links">
                     <li><a id="github-link" href="https://github.com/Mattonazzo">
                     Il mio GitHub</a></li>
@@ -39,76 +47,80 @@
                     <li><a href="https://github.com/Mattonazzo/graph-sorting" target="_self">Pagina del Progetto</a></li>
                 </ul>
             </nav>
-            <h1>Ordinamento visivo su Grafi</h1>
-        </header>
-        <hr />
-        <div class="container">
-        <h2 id="overview">Panoramica del Progetto</h2>
-            <section>
-                <h3>Concetti Chiave</h3>
-                <ul class="brick-list">
-                    <li>Ordinamento topologico</li>
-                    <li>Grafi aciclici diretti (DAG)</li>
-                    <li>Visita di grafi (DFS - Ricerca in profondità)</li>
-                    <li>Visualizzazione algoritmica</li>
-                    <li>Strutture dati (Grafi, Stack/Pila)</li>
-                    <li>Libreria grafica Turtle di Python</li>
-                    <li>Parsing di file</li>
-                </ul>
-            </section>
-            <section>
-                <h3>Motivazione</h3>
-                <div>
-                    <p>
-                    Durante i miei studi universitari, ho riscontrato alcune difficoltà nel seguire visivamente l'algoritmo di ordinamento topologico.
-                    </p><p>
-                    Le visualizzazioni che trovavo online erano troppo veloci o non mostravano lo stack e la lista di ordinamento nello stesso modo in cui venivano presentati a lezione.
-                    </p>
-                </div>
-            </section>
-            <section>
-                <h3>Implementazione</h3>
-                <div>
-                    <p>
-                    Stavo già lavorando per uso personale a una piccola libreria di grafica vettoriale scritta con Turtle; l'ho usata come base per creare una visualizzazione che riflettesse esattamente il modello spiegato a lezione.
-                    </p>
-                </div>
-            </section>
-            <section>
-                <h3>Risultati e Osservazioni</h3>
-                <div>
-                    <p>
-                        Il risultato è un programma interattivo che carica i grafi da file esterni, verifica che si tratti effettivamente di DAG (Grafi aciclici diretti) e anima l'ordinamento topologico passo dopo passo, mostrando sia lo stack che la lista di ordinamento in tempo reale.
-                    </p><p>
-                        Il basso refresh rate (frequenza di aggiornamento) è un limite noto di Turtle, che introduce un sovraccarico (overhead) per ogni operazione grafica (uno dei motivi per cui il progetto è tuttora in fase di sviluppo).
-                    </p>
-                </div>
-            </section>
-            <section>
-                <h3>Possibili Sviluppi Futuri</h3>
-                <div>
-                    <ul>
-                        <li>Sostituire Turtle con una libreria grafica più performante (come Pygame, Tkinter diretto o una soluzione web-based).</li>
-                        <li>Consentire agli utenti di creare i grafi direttamente tramite l'interfaccia, senza dipendere da un file .txt.</li>
-                        <li>Aggiungere altri algoritmi per i DAG (ad esempio, il calcolo del cammino minimo o del cammino critico).</li>
-                        <li>Fornire un controllo manuale sulla velocità dell'animazione.</li>
+        </aside>
+
+        <!-- Using Hamburger character, label became a button -->
+        <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+        <main>
+            <div class="container">
+            <h2 id="overview">Panoramica del Progetto</h2>
+                <section>
+                    <h3>Concetti Chiave</h3>
+                    <ul class="brick-list">
+                        <li>Ordinamento topologico</li>
+                        <li>Grafi aciclici diretti (DAG)</li>
+                        <li>Visita di grafi (DFS - Ricerca in profondità)</li>
+                        <li>Visualizzazione algoritmica</li>
+                        <li>Strutture dati (Grafi, Stack/Pila)</li>
+                        <li>Libreria grafica Turtle di Python</li>
+                        <li>Parsing di file</li>
                     </ul>
-                </div>
-            </section>
-            <section>
-                <h3 id="gallery">
-                    Esempi di Output
-                </h3>
-                <div>
-                    <video autoplay loop muted playsinline controls>
-                        <source src="../../imgs/projects/graph-sorting/graph-sorting-example.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </section>
-        </div>
-        <hr />
-        <footer>
-            <p><small>🄯 2026 Matteo Antonazzo. Tutti i rovesci riversati.</small></p>
-        </footer>
+                </section>
+                <section>
+                    <h3>Motivazione</h3>
+                    <div>
+                        <p>
+                        Durante i miei studi universitari, ho riscontrato alcune difficoltà nel seguire visivamente l'algoritmo di ordinamento topologico.
+                        </p><p>
+                        Le visualizzazioni che trovavo online erano troppo veloci o non mostravano lo stack e la lista di ordinamento nello stesso modo in cui venivano presentati a lezione.
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Implementazione</h3>
+                    <div>
+                        <p>
+                        Stavo già lavorando per uso personale a una piccola libreria di grafica vettoriale scritta con Turtle; l'ho usata come base per creare una visualizzazione che riflettesse esattamente il modello spiegato a lezione.
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Risultati e Osservazioni</h3>
+                    <div>
+                        <p>
+                            Il risultato è un programma interattivo che carica i grafi da file esterni, verifica che si tratti effettivamente di DAG (Grafi aciclici diretti) e anima l'ordinamento topologico passo dopo passo, mostrando sia lo stack che la lista di ordinamento in tempo reale.
+                        </p><p>
+                            Il basso refresh rate (frequenza di aggiornamento) è un limite noto di Turtle, che introduce un sovraccarico (overhead) per ogni operazione grafica (uno dei motivi per cui il progetto è tuttora in fase di sviluppo).
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Possibili Sviluppi Futuri</h3>
+                    <div>
+                        <ul>
+                            <li>Sostituire Turtle con una libreria grafica più performante (come Pygame, Tkinter diretto o una soluzione web-based).</li>
+                            <li>Consentire agli utenti di creare i grafi direttamente tramite l'interfaccia, senza dipendere da un file .txt.</li>
+                            <li>Aggiungere altri algoritmi per i DAG (ad esempio, il calcolo del cammino minimo o del cammino critico).</li>
+                            <li>Fornire un controllo manuale sulla velocità dell'animazione.</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h3 id="gallery">
+                        Esempi di Output
+                    </h3>
+                    <div>
+                        <video autoplay loop muted playsinline controls>
+                            <source src="../../imgs/projects/graph-sorting/graph-sorting-example.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </section>
+            </div>
+            <hr />
+            <footer>
+                <p><small>🄯 2026 Matteo Antonazzo. Tutti i rovesci riversati.</small></p>
+            </footer>
+        </main>
     </body>
 </html>
