@@ -12,7 +12,7 @@ a:hover {
   border-radius: 0px;
 }
 a.project-link{
-    padding: 5px;
+    padding: 5px 12px;
     /*margin: 5px;*/
     display: inline-block;
     box-sizing: border-box;  /* padding does not add to the total width */

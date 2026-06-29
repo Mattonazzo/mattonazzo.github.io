@@ -2,18 +2,27 @@
 <!-- level for relative links ../ -->
 <html lang="it">
     <head>
-        <!-- Meta tags for SEO and authorship -->
         <meta charset="UTF-8" />
-        <meta name="author" content="Matteo Antonazzo">
-        <meta name="description" content="Questo portfolio è partito come progetto personale mentre sto imparando in autonomia HTML, CSS, JavaScript, Git and GitHub.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <!-- Meta tags for SEO and authorship -->
+        <meta name="author" content="Matteo Antonazzo">
+
+        <title>Matteo Antonazzo</title>
+
+        <meta name="description" content="Questo portfolio è partito come progetto personale mentre sto imparando in autonomia HTML, CSS, JavaScript, Git and GitHub.">
         <meta name="keywords" content="Matteo, Antonazzo, portfolio, software, programming, HTML, CSS, JavaScript, Python, C, Java, Shell, AppScript, Excel, Sheets, linux, OOP" />
+
+        <!-- styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link rel="stylesheet" href="../css/main.css">
+
+        <!-- icon in tabs -->
         <link rel="icon" href="../imgs/mattonazzo-favicon-32x32.png" type="image/png">
         <link rel="apple-touch-icon" sizes="180x180" href="../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
-        <base target="_blank" rel="noopener"/>
-        <title>Matteo Antonazzo</title>
+  
+        <!-- default link behavior -->
+        <base target="_self" rel="noopener"/>
     </head>
     <body id="top">
 
@@ -21,12 +30,12 @@
             <h1>Matteo Antonazzo</h1>
         </header>
 
-        <a href="#top" target="_self">
+        <a href="#top">
             <img id="back-to-top" src="../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
         </a>
 
         <div class="language-switch">
-            <a href="../index.html" target="_self">En 🇬🇧</a>
+            <a href="../index.html">En 🇬🇧</a>
         </div>
 
         <!-- Hidden Checkbox -->
@@ -38,13 +47,14 @@
             <label for="menu-check" class="menu-close">✕</label>
             <nav class="navbar">
                 <ul class="nav-links">
-                    <li><a id="github-link" href="https://github.com/Mattonazzo">
-                    Il mio GitHub</a></li>
-                    <li><a href="#about" target="_self">Chi sono?</a></li>
-                    <li><a href="#skills" target="_self">Competenze tecniche</a></li>
-                    <li><a href="projects.html" target="_self">Progetti</a></li>
-                    <li><a href="notes.html" target="_self">Appunti</a></li>
-                    <li><a href="#contact" target="_self">Contact</a></li>
+                    <li><a id="github-link"
+                        href="https://github.com/Mattonazzo"
+                        target="_blank">
+                        Il mio GitHub</a>
+                    </li>
+                    <li><a href="projects.html">Progetti</a></li>
+                    <li><a href="notes.html">Appunti</a></li>
+                    <li><a href="#contact">Contatti</a></li>
                 </ul>
             </nav>
         </aside>
@@ -89,7 +99,7 @@
                 <p>
                     Ho imparato il <strong>linguaggio di programmazione C</strong> studiando i testi dei professori Facchinetti, Larizza e Rubini, e usando come punto di riferimento il celebre The C Programming Language di Kernighan e Ritchie.
                     <br>
-                    Ho scritto la <a href="https://it.wikipedia.org/wiki/Scanf">pagina di Wikipedia in italiano dedicata a scanf</a> 
+                    Ho scritto la <a href="https://it.wikipedia.org/wiki/Scanf" target="_blank">pagina di Wikipedia in italiano dedicata a scanf</a> 
                     alla fine del 2025 e, ad oggi, ne rimango il principale autore.
                 </p>
             </section>
@@ -130,69 +140,66 @@
             </section>
             </div>
             <hr />
-            <div class="container">
-                <h2 id="projects">
-                    Progetti
-                </h2>
-                <section>
-                    <h3>
-                        Generatore Procedurale di Alberi
-                    </h3>
-                    <p>
-                        Un generatore procedurale e ricorsivo di alberi, sviluppato da zero
-                        con la libreria grafica Turtle di Python.Sfruttando angoli di
-                        ramificazione casuali, ricorsione profonda e modelli matematici
-                        probabilistici,l'algoritmo simula i pattern di crescita naturali
-                            per generare alberi dall'aspetto organico, completamente unici
-                            a ogni esecuzione.
-                    </p>
+            <section id="projects-preview">
+                <h2>Progetti in primo piano</h2>
+                <p>Ecco alcuni dei miei progetti rilevanti
                     <a class="project-link"
-                            href="./projects/procedural-tree-generator.html" target="_self">
-                            Scopri di più</a>
-                </section>
-                <section>
-                    <h3>
-                        Ordinamento visivo su Grafi
-                    </h3>
-                    <p>
-                        Un'applicazione interattiva in Python che visualizza l'ordinamento 
-                        topologico su grafi aciclici diretti (DAG).Sviluppato utilizzando 
-                        una libreria grafica personalizzata basata su Turtle, il motore 
-                        dimostra in modo dinamicoil comportamento dello stack e gli 
-                        aggiornamenti della lista di ordinamento passo dopo passo, 
-                        rendendo intuitivida osservare e comprendere anche gli algoritmi 
-                        su grafi più complessi.
-                    </p>
-                    <a class="project-link"
-                            href="./projects/graph-sorting.html" target="_self">
-                            Scopri di più</a>
-                </section>
-            </div>
+                    href="./projects.html">
+                    Vedi tutti</a>
+                </p>
+                                            
+                <div class="container-grid">
+                    
+                    <a href="./projects/procedural-tree-generator.html">
+                        <div class="card">
+                            <h3>Generatore Procedurale di Alberi</h3>
+                            <p>
+                                Un generatore procedurale e ricorsivo di alberi, sviluppato da zero
+                                con la libreria grafica Turtle di Python.Sfruttando angoli di
+                                ramificazione casuali, ricorsione profonda e modelli matematici
+                                probabilistici,l'algoritmo simula i pattern di crescita naturali
+                                per generare alberi dall'aspetto organico, completamente unici
+                                a ogni esecuzione.
+                            </p>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </a>
+
+                    <a href="./projects/graph-sorting.html">
+                        <div class="card">
+                            <h3>Ordinamento visivo su Grafi</h3>
+                            <p>
+                                Un'applicazione interattiva in Python che visualizza l'ordinamento 
+                                topologico su grafi aciclici diretti (DAG).Sviluppato utilizzando 
+                                una libreria grafica personalizzata basata su Turtle, il motore 
+                                dimostra in modo dinamicoil comportamento dello stack e gli 
+                                aggiornamenti della lista di ordinamento passo dopo passo, 
+                                rendendo intuitivida osservare e comprendere anche gli algoritmi 
+                                su grafi più complessi.
+                            </p>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
             <hr />
-            <div class="container">
-                <h2 id="notes">
-                    Note di Studio
-                </h2>
-                <section>
-                    <h3>
-                        Persistenza degli oggetti e serializzazione in Java
-                    </h3>
-                    <p>
-                        La gestione della persistenza degli oggetti è un pilastro 
-                        fondamentale nello sviluppo di applicazioni robuste e scalabili. 
-                        Questo articolo fornisce una panoramica tecnica della serializzazione 
-                        in Java, analizzando il funzionamento interno dei meccanismi binari 
-                        e delle alternative testuali basate su JSON e XML. Vengono esaminate 
-                        le differenze pratiche tra le interfacce disponibili, i criteri di 
-                        controllo della versione, i casi d'uso specifici per ciascun formato 
-                        e le principali buone pratiche per garantire la sicurezza del codice 
-                        in ambienti di produzione.
-                    </p>
+            <section id="notes-preview">
+                <h2>Appunti di studio</h2>
+                <p>Ecco alcune delle mie dispense personali da me scritte durante lo studio della materia.
                     <a class="project-link"
-                            href="https://drive.google.com/file/d/1pI5U1OxgbFe8AQ974EtCuRCAHTaAZlFu/view?usp=sharing" target="_blank">
-                            Scopri di più</a>
-                </section>
-            </div>
+                    href="./notes.html">
+                    Guardale tutte</a>
+                </p>
+
+                <ul class="notes-list">
+                    <li>
+                    <time datetime="2026-06-25">25 Giugno 2026</time>
+                    <a href="https://drive.google.com/file/d/1pI5U1OxgbFe8AQ974EtCuRCAHTaAZlFu/view?usp=sharing"
+                    target="_blank"> La persistenza degli oggetti e la serializzazione in Java</a>
+                    </li>
+                </ul>
+            </section>
             <hr />
             <footer>
                 <h2 id="contact">Contatti</h2>

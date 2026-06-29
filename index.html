@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Meta tags for SEO and authorship -->
         <meta charset="UTF-8" />
-        <meta name="author" content="Matteo Antonazzo">
-        <meta name="description" content="This portfolio is a personal project started for practicing while learning HTML, CSS, JavaScript, Git and GitHub.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <!-- Meta tags for SEO and authorship -->
+        <meta name="author" content="Matteo Antonazzo">
+
+        <title>Matteo Antonazzo</title>
+
+        <meta name="description" content="This portfolio is a personal project started for practicing while learning HTML, CSS, JavaScript, Git and GitHub.">
         <meta name="keywords" content="Matteo, Antonazzo, portfolio, software, programming, HTML, CSS, JavaScript, Python, C, Java, Shell, AppScript, Excel, Sheets, linux, OOP" />
+
+        <!-- styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link rel="stylesheet" href="./css/main.css">
-        <link rel="stylesheet" href="./css/pages/home.css">
+
+        <!-- icon in tabs -->
         <link rel="icon" href="imgs/mattonazzo-favicon-32x32.png" type="image/png">
         <link rel="apple-touch-icon" sizes="180x180" href="imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
-        <base target="_blank" rel="noopener"/>
-        <title>Matteo Antonazzo</title>
+  
+        <!-- default link behavior -->
+        <base target="_self" rel="noopener"/>
     </head>
     <body id="top">
 
@@ -21,12 +29,12 @@
             <h1>Matteo Antonazzo</h1>
         </header>
 
-        <a href="#top" target="_self">
+        <a href="#top"">
             <img id="back-to-top" src="./imgs/Top-Arrow-512px.png" alt="Top Arrow" />
         </a>
 
         <div class="language-switch">
-            <a href="./it/index.html" target="_self">It 🇮🇹</a>
+            <a href="./it/index.html">It 🇮🇹</a>
         </div>
 
         <!-- Hidden Checkbox -->
@@ -38,13 +46,14 @@
             <label for="menu-check" class="menu-close">✕</label>
             <nav class="navbar">
                 <ul class="nav-links">
-                    <li><a id="github-link" href="https://github.com/Mattonazzo">
-                    My GitHub</a></li>
-                    <li><a href="#about" target="_self">Who am I?</a></li>
-                    <li><a href="#skills" target="_self">Technical Skills</a></li>
-                    <li><a href="projects.html" target="_self">Projects</a></li>
-                    <li><a href="notes.html" target="_self">Notes</a></li>
-                    <li><a href="#contact" target="_self">Contact</a></li>
+                    <li><a id="github-link"
+                        href="https://github.com/Mattonazzo"
+                        target="_blank">
+                        My GitHub</a>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </aside>
@@ -95,7 +104,7 @@
                         Larizza, and Rubini, while using The C Programming Language
                         by Kernighan and Ritchie as a reference.
                         <br>
-                        I wrote the <a href="https://it.wikipedia.org/wiki/Scanf">Italian Wikipedia article about scanf</a>
+                        I wrote the <a href="https://it.wikipedia.org/wiki/Scanf" target="_blank">Italian Wikipedia article about scanf</a>
                         at the end of 2025 and am still its main author today.
                     </p>
                 </section>
@@ -141,14 +150,13 @@
                 <h2>Featured Projects</h2>
                 <p>Here there is a selection of some relevant project
                     <a class="project-link"
-                    href="./projects.html"
-                    target="_self">
+                    href="./projects.html">
                     See all</a>
                 </p>
                                             
                 <div class="container-grid">
                     
-                    <a href="./projects/procedural-tree-generator.html" target="_self"" class="project-card">
+                    <a href="./projects/procedural-tree-generator.html">
                     <div class="card">
                         <h3>Procedural tree generator</h3>
                         <p>A recursive procedural tree generator built from scratch with 
@@ -160,7 +168,7 @@
                     </div>
                     </a>
 
-                    <a href="./projects/graph-sorting.html" target="_self">
+                    <a href="./projects/graph-sorting.html">
                     <div class="card">
                         <h3>Graph Sorting Visualizer</h3>
                         <p>An interactive Python application that visualizes topological 
@@ -177,18 +185,18 @@
             <hr />
             <section id="notes-preview">
                 <h2>Learning Notes - Italian</h2>
-                <p>Here some of my notes.
+                <p>Here is a small selection of the notes I took during my studies.
+                    Please note that they are written in Italian, as it is my native language.
                     <a class="project-link"
-                    href="./notes.html"
-                    target="_self">
+                    href="./notes.html">
                     See all</a>
                 </p>
 
                 <ul class="notes-list">
                     <li>
-                    <time datetime="2026-06-25">25 Giugno 2026</time>
+                    <time datetime="2026-06-25">25 June 2026</time>
                     <a href="https://drive.google.com/file/d/1pI5U1OxgbFe8AQ974EtCuRCAHTaAZlFu/view?usp=sharing"
-                    target="_blank"> Object persistency and serialization in Java</a>
+                    target="_blank" lang="it"> Object persistency and serialization in Java</a>
                     </li>
                 </ul>
             </section>

@@ -2,18 +2,27 @@
 <!-- relative path to put at the beginning of links: ../ -->
 <html lang="en">
     <head>
-        <!-- Meta tags for SEO and authorship -->
         <meta charset="UTF-8" />
-        <meta name="author" content="Matteo Antonazzo">
-        <meta name="description" content="A recursive procedural tree generator built with Python Turtle. Uses randomized branching, recursion, and probabilistic generation to create unique organic-looking trees.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <!-- Meta tags for SEO and authorship -->
+        <meta name="author" content="Matteo Antonazzo">
+
+        <title>Procedural Tree Generator | Matteo Antonazzo</title>
+
+        <!-- styles -->
+        <meta name="description" content="A recursive procedural tree generator built with Python Turtle. Uses randomized branching, recursion, and probabilistic generation to create unique organic-looking trees.">
         <meta name="keywords" content="Python, Python Turtle, procedural tree generator, recursive tree generator, procedural generation, recursion, fractal tree, computer graphics, turtle graphics, Python project, software development, portfolio">
+
+        <!-- icon in tabs -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link rel="stylesheet" href="../css/main.css">
+
         <link rel="icon" href="../imgs/mattonazzo-favicon-32x32.png" type="image/png">
         <link rel="apple-touch-icon" sizes="180x180" href="../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
-        <base target="_blank" rel="noopener"/>
-        <title>Procedural Tree Generator</title>
+
+        <!-- default link behavior -->
+        <base target="_self" rel="noopener"/>
     </head>
     <body id="top">
 
@@ -39,12 +48,17 @@
             
             <nav class="navbar">
                 <ul class="nav-links">
-                <li><a id="github-link" href="https://github.com/Mattonazzo">
-                My GitHub</a></li>
-                <li><a href="../index.html" target="_self">Home</a></li>
-                <li><a href="#overview" target="_self">Overview</a></li>
-                <li><a href="#gallery" target="_self">Gallery</a></li>
-                <li><a href="https://github.com/Mattonazzo/procedural-tree-generator" target="_self">Project Page</a></li>
+                    <li><a id="github-link"
+                        href="https://github.com/Mattonazzo"
+                        target="_blank">
+                        My GitHub</a>
+                    </li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../notes.html">Notes - Italian</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="https://github.com/Mattonazzo/procedural-tree-generator" target="_blank">Project Page</a></li>
                 </ul>
             </nav>
         </aside>
@@ -69,11 +83,16 @@
                     <h3>Motivation</h3>
                     <div>
                         <p>
-                        This project was created while I was learning recursion and procedural generation techniques in Python.
+                        This project was created while I was learning recursion and procedural generation
+                        techniques in Python.
                         </p><p>
-                        The initial idea came from a simple question: If I teach a computer how to draw a tree and each generated tree is unique, who should be considered the artist, the programmer or the machine?
+                        The initial idea came from a simple question: If I teach a computer how to draw a
+                        tree and each generated tree is unique, who should be considered the artist,
+                        the programmer or the machine?
                         </p><p>
-                        To explore this idea, I developed a recursive algorithm that generates organic-looking trees through randomized branching angles, variable branch lengths, and probabilistic growth rules.
+                        To explore this idea, I developed a recursive algorithm that generates organic-looking
+                        trees through randomized branching angles, variable branch lengths, and probabilistic
+                        growth rules.
                         </p>
                     </div>
                 </section>
@@ -81,9 +100,12 @@
                     <h3>Implementation</h3>
                     <div>
                         <p>
-                        The recursive process is controlled by progressively reducing branch length. Once branches become sufficiently short, the algorithm switches to leaf generation, guaranteeing termination.
+                        The recursive process is controlled by progressively reducing branch length.
+                        Once branches become sufficiently short, the algorithm switches to leaf generation,
+                        guaranteeing termination.
                         </p><p>
-                        The implementation prioritizes visual complexity over execution speed and was developed primarily as an exercise in recursion and procedural generation.
+                        The implementation prioritizes visual complexity over execution speed and was developed
+                        primarily as an exercise in recursion and procedural generation.
                         </p>
                     </div>
                 </section>
@@ -91,7 +113,9 @@
                     <h3>Results and Observations</h3>
                     <div>
                         <p>
-                        As you can see from the examples below, some trees appear more natural than others, regardless of the time required to generate them. During testing, I observed little correlation between execution time and the visual quality of the generated tree.
+                        As you can see from the examples below, some trees appear more natural than others,
+                        regardless of the time required to generate them. During testing, I observed little
+                        correlation between execution time and the visual quality of the generated tree.
                         </p>
                     </div>
                 </section>
@@ -99,7 +123,9 @@
                     <h3>Possible Future Improvements</h3>
                     <div>
                         <p>
-                        Because of the apparent lack of correlation between execution time and visual quality, a possible future improvement would be to introduce a time limit of 200 seconds, preventing excessively long generation times.
+                        Because of the apparent lack of correlation between execution time and visual quality,
+                        a possible future improvement would be to introduce a time limit of 200 seconds,
+                        preventing excessively long generation times.
                         </p>
                     </div>
                 </section>
