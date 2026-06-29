@@ -1,7 +1,8 @@
 .language-switch a {
+    background-color: var(--bg-color);
     position: absolute;
-    top: 40px;
-    right: 24px;
+    top: 34px;
+    right: 28px;
     padding: 1%;
     margin: 0 auto;
     border-radius: 20%;

@@ -1,50 +1,56 @@
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* o flex-start se vuoi a sinistra */
+#sidebar {
+    padding: 2rem 0;
+
+    grid-column: 1;
+    align-self: start; 
+    position: sticky;
+    top: 40px;
+
+    border-radius: 10px;
+
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-nav ul {
-    display: flex;
-    gap: 5px;
+
+#sidebar ul {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
 }
-nav li{
-    list-style: none;    /* remove dots */
-    padding: 2px 4px;
+
+#sidebar ul li {
     margin: 0;
-    line-height: 2;
-    text-align: center;
 }
-nav label {
-    display:none;
+
+#sidebar ul li a {
+    font-size: 1.1rem;
+    display: block;
+    padding: 0.8rem 2rem;
+    transition: color 0.3s ease;
 }
-nav a {
-    padding: 4px 8px;
-    color: black;
-    text-decoration: none;
-}
-nav a:link {
+
+#sidebar ul li a:link,
+#sidebar ul li a:visited {
   color: black;
   text-decoration: none;
   font-weight: 600;
 }
-nav a:visited {
-  color: black;
-}
-#github-link {
-    color: var(--link-peculiar);
-    font-weight: bold;
-}
-.menu-check {
-  display: none; /* Hide the checkbox */
-}
-nav a:hover, #github-link:hover {
+
+#sidebar ul li a:hover,
+#github-link:hover {
   color: white;
   background: linear-gradient(
         to right,
         transparent,
         var(--accent-dark),
         transparent);
+}
+
+.menu-check {
+    display: none;
+}
+
+.menu-toggle,
+.menu-close {
+  display: none; /* Hide the checkbox */
 }
