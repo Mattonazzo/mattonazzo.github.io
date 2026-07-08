@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- relative path to put at the beginning of links: ../ -->
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -8,16 +8,16 @@
         <!-- Meta tags for SEO and authorship -->
         <meta name="author" content="Matteo Antonazzo">
 
-        <title>Procedural Tree Generator | Matteo Antonazzo</title>
+        <title>Generatore Procedurale di Alberi con Python | Matteo Antonazzo</title>
 
-        <!-- styles -->
-        <meta name="description" content="A recursive procedural tree generator built with Python Turtle. Uses randomized branching, recursion, and probabilistic generation to create unique organic-looking trees.">
+        <meta name="description" content="Un generatore procedurale e ricorsivo di alberi, sviluppato da zero con la libreria grafica Turtle di Python.Sfruttando angoli di ramificazione casuali, ricorsione profonda e modelli matematici probabilistici,l'algoritmo simula i pattern di crescita naturali per generare alberi dall'aspetto organico, completamente unici a ogni esecuzione.">
         <meta name="keywords" content="Python, Python Turtle, procedural tree generator, recursive tree generator, procedural generation, recursion, fractal tree, computer graphics, turtle graphics, Python project, software development, portfolio">
 
-        <!-- icon in tabs -->
+        <!-- styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link rel="stylesheet" href="../css/main.css">
 
+        <!-- icon in tabs -->
         <link rel="icon" href="../imgs/mattonazzo-favicon-32x32.png" type="image/png">
         <link rel="apple-touch-icon" sizes="180x180" href="../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
 
@@ -27,15 +27,15 @@
     <body id="top">
 
         <header>
-            <h1>Procedural Tree Generator</h1>
+            <h1>Generatore Procedurale di Alberi</h1>
         </header>
-
-        <a href="#top" target="_self">
+        
+        <a href="#top">
             <img id="back-to-top" src="../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
         </a>
 
         <div class="language-switch">
-            <a href="../it/projects/procedural-tree-generator.html" target="_self">It 🇮🇹</a>
+            <a href="../en/projects/procedural-tree-generator.html">En 🇬🇧</a>
         </div>
 
         <!-- Hidden Checkbox -->
@@ -45,20 +45,20 @@
         <aside id="sidebar">
             <!-- "X" icon for closing menu on mobile view -->
             <label for="menu-check" class="menu-close">✕</label>
-            
+
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a id="github-link"
                         href="https://github.com/Mattonazzo"
                         target="_blank">
-                        My GitHub</a>
+                        Il mio GitHub</a>
                     </li>
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../projects.html">Projects</a></li>
-                    <li><a href="../notes.html">Notes - Italian</a></li>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="https://github.com/Mattonazzo/procedural-tree-generator" target="_blank">Project Page</a></li>
+                    <li><a href="../projects.html">Progetti</a></li>
+                    <li><a href="../notes.html">Appunti</a></li>
+                    <li><a href="#overview">Panoramica</a></li>
+                    <li><a href="#gallery">Galleria</a></li>
+                    <li><a href="https://github.com/Mattonazzo/procedural-tree-generator" target="_blank">Pagina del Progetto</a></li>
                 </ul>
             </nav>
         </aside>
@@ -68,64 +68,52 @@
 
         <main>
             <div class="container">
-            <h2 id="overview">Project Overview</h2>
+            <h2 id="overview">Panoramica del Progetto</h2>
                 <section>
-                    <h3>Key Concepts</h3>
+                    <h3>Concetti Chiave</h3>
                     <ul class="brick-list">
-                        <li>Recursion</li>
-                        <li>Procedural generation</li>
-                        <li>Randomized algorithms</li>
-                        <li>Python Turtle graphics</li>
-                        <li>Performance measurement</li>
+                        <li>Ricorsione</li>
+                        <li>Generazione procedurale</li>
+                        <li>Algoritmi randomizzati</li>
+                        <li>Libreria grafica Turtle di Python</li>
+                        <li>Misurazione delle prestazioni</li>
                     </ul>
                 </section>
                 <section>
-                    <h3>Motivation</h3>
+                    <h3>Motivazione</h3>
                     <div>
                         <p>
-                        This project was created while I was learning recursion and procedural generation
-                        techniques in Python.
+                        Questo progetto è nato mentre studiavo la ricorsione e le tecniche di generazione procedurale in Python.
                         </p><p>
-                        The initial idea came from a simple question: If I teach a computer how to draw a
-                        tree and each generated tree is unique, who should be considered the artist,
-                        the programmer or the machine?
+                        L'idea iniziale è scaturita da una domanda molto semplice: se insegno a un computer come disegnare un albero ed ogni albero generato è unico, chi dovrebbe essere considerato l'artista: il programmatore o la macchina?
                         </p><p>
-                        To explore this idea, I developed a recursive algorithm that generates organic-looking
-                        trees through randomized branching angles, variable branch lengths, and probabilistic
-                        growth rules.
+                        Per esplorare questo concetto, ho sviluppato un algoritmo ricorsivo che genera alberi dall'aspetto organico attraverso angoli di ramificazione casuali, lunghezze delle linee variabili e regole di crescita probabilistiche.
                         </p>
                     </div>
                 </section>
                 <section>
-                    <h3>Implementation</h3>
+                    <h3>Implementazione</h3>
                     <div>
                         <p>
-                        The recursive process is controlled by progressively reducing branch length.
-                        Once branches become sufficiently short, the algorithm switches to leaf generation,
-                        guaranteeing termination.
+                        Il processo ricorsivo viene controllato riducendo progressivamente la lunghezza dei rami. Quando i rami diventano sufficientemente corti, l'algoritmo passa alla generazione delle foglie, garantendo così la terminazione della funzione.
                         </p><p>
-                        The implementation prioritizes visual complexity over execution speed and was developed
-                        primarily as an exercise in recursion and procedural generation.
+                        L'implementazione dà priorità alla complessità visiva rispetto alla velocità di esecuzione ed è stata sviluppata principalmente come esercizio sulla ricorsione e sulla generazione procedurale.
                         </p>
                     </div>
                 </section>
                 <section>
-                    <h3>Results and Observations</h3>
+                    <h3>Risultati e Osservazioni</h3>
                     <div>
                         <p>
-                        As you can see from the examples below, some trees appear more natural than others,
-                        regardless of the time required to generate them. During testing, I observed little
-                        correlation between execution time and the visual quality of the generated tree.
+                        Come si può notare dagli esempi qui sotto, alcuni alberi appaiono più naturali di altri, indipendentemente dal tempo richiesto per generarli. Durante i test, ho riscontrato una scarsa correlazione tra il tempo di esecuzione e la qualità visiva dell'albero finale.
                         </p>
                     </div>
                 </section>
                 <section>
-                    <h3>Possible Future Improvements</h3>
+                    <h3>Possibili Sviluppi Futuri</h3>
                     <div>
                         <p>
-                        Because of the apparent lack of correlation between execution time and visual quality,
-                        a possible future improvement would be to introduce a time limit of 200 seconds,
-                        preventing excessively long generation times.
+                        A causa dell'evidente mancanza di correlazione tra tempo di esecuzione e resa visiva, un possibile sviluppo futuro potrebbe essere l'introduzione di un limite di tempo massimo di 200 secondi, per evitare tempi di generazione eccessivamente lunghi.
                         </p>
                     </div>
                 </section>
@@ -135,39 +123,39 @@
                     </h3>
                     <div>
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-01.png"
-                        alt="Generated tree example 1">
+                        alt="Esempio di albero generato 1">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-02.png"
-                        alt="Generated tree example 2">
+                        alt="Esempio di albero generato 2">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-03.png"
-                        alt="Generated tree example 3">
+                        alt="Esempio di albero generato 3">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-04.png"
-                        alt="Generated tree example 4">
+                        alt="Esempio di albero generato 4">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-05.png"
-                        alt="Generated tree example 5">
+                        alt="Esempio di albero generato 5">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-06.png"
-                        alt="Generated tree example 6">
+                        alt="Esempio di albero generato 6">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-07.png"
-                        alt="Generated tree example 7">
+                        alt="Esempio di albero generato 7">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-08.png"
-                        alt="Generated tree example 8">
+                        alt="Esempio di albero generato 8">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-09.png"
-                        alt="Generated tree example 9">
+                        alt="Esempio di albero generato 9">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-10.png"
-                        alt="Generated tree example 10">
+                        alt="Esempio di albero generato 10">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-11.png"
-                        alt="Generated tree example 11">
+                        alt="Esempio di albero generato 11">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-12.png"
-                        alt="Generated tree example 12">
+                        alt="Esempio di albero generato 12">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-13.png"
-                        alt="Generated tree example 13">
+                        alt="Esempio di albero generato 13">
                         <img src="../imgs/projects/Procedural-tree-generator/python-turtle-tree-14.png"
-                        alt="Generated tree example 14">
+                        alt="Esempio di albero generato 14">
                     </div>
                 </section>
             </div>
             <hr />
             <footer>
-                <p><small>🄯 2026 Matteo Antonazzo. All left reversed.</small></p>
+                <p><small>🄯 2026 Matteo Antonazzo. Tutti i rovesci riversati.</small></p>
             </footer>
         </main>
     </body>

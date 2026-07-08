@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- relative path to put at the beginning of links: ../ -->
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -8,9 +8,9 @@
         <!-- Meta tags for SEO and authorship -->
         <meta name="author" content="Matteo Antonazzo">
 
-        <title>Graph Sorting Visualizer | Matteo Antonazzo</title>
+        <title>Visualizzatore di Ordinamento su Grafi (DAG) con Python | Matteo Antonazzo</title>
 
-        <meta name="description" content="An interactive Python visualizer for topological sorting on Directed Acyclic Graphs, showing stack and order list step by step using a custom turtle-based graphics library.">
+        <meta name="description" content="Il mio progetto universitario (v0.1.0) per visualizzare l'ordinamento topologico sui grafi. Un'applicazione Python per seguire lo stack in tempo reale.">
         <meta name="keywords" content="Python, Python Turtle, topological sort, directed acyclic graph, DAG, graph traversal, DFS, depth-first search, algorithm visualization, data structures, graph, stack, file parsing, computer science, Python project, software development, portfolio">
 
         <!-- styles -->
@@ -25,9 +25,9 @@
         <base target="_self" rel="noopener"/>
     </head>
     <body id="top">
-
+            
         <header>
-            <h1>Graph Sorting</h1>
+            <h1>Ordinamento visivo su Grafi</h1>
         </header>
 
         <a href="#top">
@@ -35,7 +35,7 @@
         </a>
 
         <div class="language-switch">
-            <a href="../it/projects/graph-sorting.html">It 🇮🇹</a>
+            <a href="../en/projects/graph-sorting.html">En 🇬🇧</a>
         </div>
 
         <!-- Hidden Checkbox -->
@@ -51,14 +51,14 @@
                     <li><a id="github-link"
                         href="https://github.com/Mattonazzo"
                         target="_blank">
-                        My GitHub</a>
+                        Il mio GitHub</a>
                     </li>
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../projects.html">Projects</a></li>
-                    <li><a href="../notes.html">Notes - Italian</a></li>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="https://github.com/Mattonazzo/graph-sorting"  target="_blank">Project Page</a></li>
+                    <li><a href="../projects.html">Progetti</a></li>
+                    <li><a href="../notes.html">Appunti</a></li>
+                    <li><a href="#overview">Panoramica</a></li>
+                    <li><a href="#gallery">Galleria</a></li>
+                    <li><a href="https://github.com/Mattonazzo/graph-sorting" target="_blank">Pagina del Progetto</a></li>
                 </ul>
             </nav>
         </aside>
@@ -68,72 +68,61 @@
 
         <main>
             <div class="container">
-            <h2 id="overview">Project Overview</h2>
+            <h2 id="overview">Panoramica del Progetto</h2>
                 <section>
-                    <h3>Key Concepts</h3>
+                    <h3>Concetti Chiave</h3>
                     <ul class="brick-list">
-                        <li>Topological sorting</li>
-                        <li>Directed Acyclic Graphs (DAG)</li>
-                        <li>Graph traversal (DFS)</li>
-                        <li>Algorithm visualization</li>
-                        <li>Data structures (Graph, Stack)</li>
-                        <li>Python Turtle graphics</li>
-                        <li>File parsing</li>
+                        <li>Ordinamento topologico</li>
+                        <li>Grafi aciclici diretti (DAG)</li>
+                        <li>Visita di grafi (DFS - Ricerca in profondità)</li>
+                        <li>Visualizzazione algoritmica</li>
+                        <li>Strutture dati (Grafi, Stack/Pila)</li>
+                        <li>Libreria grafica Turtle di Python</li>
+                        <li>Parsing di file</li>
                     </ul>
                 </section>
                 <section>
-                    <h3>Motivation</h3>
+                    <h3>Motivazione</h3>
                     <div>
                         <p>
-                        During my university studies, I found it difficult to visually follow the topological
-                        sorting algorithm.
+                        Durante i miei studi universitari, ho riscontrato alcune difficoltà nel seguire visivamente l'algoritmo di ordinamento topologico.
                         </p><p>
-                        The visualizations I found online were either too fast or did not display the stack and
-                        ordering list in the same way they had been presented during lectures.
+                        Le visualizzazioni che trovavo online erano troppo veloci o non mostravano lo stack e la lista di ordinamento nello stesso modo in cui venivano presentati a lezione.
                         </p>
                     </div>
                 </section>
                 <section>
-                    <h3>Implementation</h3>
+                    <h3>Implementazione</h3>
                     <div>
                         <p>
-                        I had already been working on a small vector graphics library written in Turtle for
-                        personal use, and I used it as the foundation for building a visualization that matched
-                        that lecture model exactly.
+                        Stavo già lavorando per uso personale a una piccola libreria di grafica vettoriale scritta con Turtle; l'ho usata come base per creare una visualizzazione che riflettesse esattamente il modello spiegato a lezione.
                         </p>
                     </div>
                 </section>
                 <section>
-                    <h3>Results and Observations</h3>
+                    <h3>Risultati e Osservazioni</h3>
                     <div>
                         <p>
-                        The result is an interactive program that loads graphs from files, verifies that they
-                        are DAGs (Directed Acyclic Graphs), and animates the topological sort step by step,
-                        displaying both the stack and the ordering list in real time.
+                            Il risultato è un programma interattivo che carica i grafi da file esterni, verifica che si tratti effettivamente di DAG (Grafi aciclici diretti) e anima l'ordinamento topologico passo dopo passo, mostrando sia lo stack che la lista di ordinamento in tempo reale.
                         </p><p>
-                            The slow refresh rate is a known limitation of Turtle, which introduces overhead
-                            for every graphical operation (one of the reasons why the project is still under
-                            development).
+                            Il basso refresh rate (frequenza di aggiornamento) è un limite noto di Turtle, che introduce un sovraccarico (overhead) per ogni operazione grafica (uno dei motivi per cui il progetto è tuttora in fase di sviluppo).
                         </p>
                     </div>
                 </section>
                 <section>
-                    <h3>Possible Future Improvements</h3>
+                    <h3>Possibili Sviluppi Futuri</h3>
                     <div>
                         <ul>
-                            <li>Replace Turtle with a more performant graphics library (such as Pygame, direct
-                                Tkinter, or a web-based solution).</li>
-                            <li>Allow users to build graphs directly through the interface, without relying on
-                                a .txt file.</li>
-                            <li>Add additional DAG algorithms (e.g., shortest path or critical path
-                                algorithms).</li>
-                            <li>Provide manual control over the animation speed.</li>
+                            <li>Sostituire Turtle con una libreria grafica più performante (come Pygame, Tkinter diretto o una soluzione web-based).</li>
+                            <li>Consentire agli utenti di creare i grafi direttamente tramite l'interfaccia, senza dipendere da un file .txt.</li>
+                            <li>Aggiungere altri algoritmi per i DAG (ad esempio, il calcolo del cammino minimo o del cammino critico).</li>
+                            <li>Fornire un controllo manuale sulla velocità dell'animazione.</li>
                         </ul>
                     </div>
                 </section>
                 <section>
                     <h3 id="gallery">
-                        Example Outputs
+                        Esempi di Output
                     </h3>
                     <div>
                         <video autoplay loop muted playsinline controls>
@@ -144,7 +133,7 @@
             </div>
             <hr />
             <footer>
-                <p><small>🄯 2026 Matteo Antonazzo. All left reversed.</small></p>
+                <p><small>🄯 2026 Matteo Antonazzo. Tutti i rovesci riversati.</small></p>
             </footer>
         </main>
     </body>
