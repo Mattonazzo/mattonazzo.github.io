@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Intervista con l'AI: Perché il problema non è l'algoritmo</title>
+
+    <meta name="description" content="L'AI produce risposte mediocri? Scopri perché la colpa non è dei modelli LLM o dello slop, ma del modo in cui formuliamo i nostri prompt.">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- default link behavior -->
+    <base target="_self" rel="noopener noreferrer"/>
+  </head>
+  <body id="top">
+
+    <header>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
+        <p>Parte 1 &mdash; Perché il problema non è l'algoritmo (e nemmeno lo slop)</p>
+        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 13 min</span></p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar">
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects.html">Progetti</a></li>
+                <li><a href="../../notes.html">Appunti</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <hr>
+                <li>
+                    <a href="./index.html">Introduzione</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="parte1.html"  class="active-page">Parte 1</a></li>
+                      <li><a href="parte2.html">Parte 2</a></li>
+                      <li><a href="parte3.html">Parte 3</a></li>
+                      <li><a href="parte4.html">Parte 4</a></li>
+                      <li><a href="parte5.html">Parte 5</a></li>
+                      <li><a href="parte6.html">Parte 6</a></li>
+                      <li><a href="parte7.html">Parte 7</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+      <section class="content-section">
+        <img class="content-img" 
+          src="../../imgs/blog/intervista-ai/interazione-uomo-intelligenza-artificiale.webp" 
+          alt="Grafica concettuale che rappresenta il dialogo e l'interazione tra un essere umano e l'intelligenza artificiale" 
+          loading="lazy" 
+        />
+        <h2>Cosa vedremo oggi</h2>
+        <p>
+          Prima di parlare di Large Language Models, prompt o Transformer, è necessario chiarire 
+          una domanda fondamentale: quando una risposta prodotta dall'AI è mediocre, quanto 
+          dipende davvero dalla macchina e quanto dal modo in cui le poniamo le domande?
+        </p>
+        <p>
+          In questa prima parte racconto da dove nasce questa ricerca, quali competenze considero 
+          indispensabili per dialogare con un modello linguistico e il metodo con cui ho deciso 
+          di condurla.
+        </p>
+      </section>
+
+         <hr />
+
+      <details class="info-box">
+        <summary>Come leggere questa intervista</summary>
+        <p>Le domande sono reali.</p>
+        <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+        </p>
+        <p><strong>Nota sulle immagini</strong></p>
+        <p>
+          Tutti gli schemi e le illustrazioni presenti in questa serie 
+          sono stati progettati appositamente per accompagnare il testo. 
+          Le immagini sono generate con l'ausilio dell'Intelligenza 
+          Artificiale, tramite la sinergia tra l'assistente di Google per 
+          ottenere consigli su quali immagini generare, chatGPT per la 
+          creazione di un prompt ottimale da dare Gemini e, quando 
+          necessario, rifinite manualmente con software di grafica per 
+          migliorarne chiarezza e coerenza con i contenuti. Per questo 
+          motivo ogni immagine riporta il watermark 
+          AI generated • Human edited.
+        </p>
+      </details>
+
+      <hr>
+
+      <section class="content-section">
+        <h2>
+          Il problema non è il problema. Il problema è il tuo atteggiamento 
+          rispetto al problema [Coach Brevin]
+        </h2>
+        <p>
+          Questa serie articoli nasce dalla consapevolezza acquisita nel tempo riguardo 
+          a quanto sia difficile porre buone domande a qualcuno quando non si conosce 
+          l'argomento trattato. Ad oggi si tende a incolpare l'intelligenza 
+          artificiale (AI) della bassa qualità dei lavori prodotti da utenti svogliati. 
+          Ma per mia esperienza personale posso dire che non è tutta colpa dell'AI.
+        </p>
+        <p>Una calcolatrice negli anni &lsquo;90 del secolo scorso ti aiutava a fare calcoli 
+          complessi in un tempo decisamente ridotto, così come una ricerca su Google 
+          agli albori del millennio ti aiutava a raccogliere in un paio d'ore una 
+          quantità di informazioni che prima avrebbe richiesto giorni di tempo, varie 
+          trasferte in biblioteca e persino l'acquisto preventivo di tomi che magari si 
+          scopriva in seguito non servissero ai fini della ricerca. Con l'Intelligenza 
+          Artificiale non accade alcunché di diverso.
+        </p>
+        <p>Quando non esistevano gli LLM e la gente si affidava a Google per trovare le 
+          informazioni, spesso mi sono ritrovato nella situazione di dover rispondere 
+          <q>Su Google!</q> alla domanda 
+          <q>dove hai trovato queste informazioni?</q>; 
+          ad oggi (luglio 2026) mi ritrovo ancora a dire 
+          <q>Su Google!</q>, ma si è 
+          da pochi mesi aggiunto anche <q>L'ho scritto con l'AI</q>, 
+          a persone che passano il tempo davanti a ChatGPT e da decisamente molto più 
+          tempo di me.
+        </p>
+        <p>
+          Non sono state le calcolatrici a renderci incapaci di fare i 
+          conti, non è stato Google a toglierci i libri da sotto gli 
+          occhi e non sarà l’Intelligenza Artificiale a privarci della 
+          capacità di pensare. Si tratta, in realtà, di azioni che ogni 
+          individuo compie deliberatamente, delegando in modo attivo le 
+          proprie facoltà a una macchina. A tal proposito, voglio dare 
+          credito all’<a href="https://noperator.dev/posts/you-can-just-say-it/" target="_blank" rel="noopener noreferrer"
+          >articolo di Caleb Gross riguardo all'AI slop</a>.
+        </p>
+        <img class="content-img" 
+          src="../../imgs/blog/intervista-ai/evoluzione-tecnologica-calcolatrice-motori-ricerca.webp" 
+          alt="Confronto visivo tra una calcolatrice degli anni 90 e le prime versioni dei motori di ricerca" 
+          loading="lazy" 
+        />
+        <p>
+          La delega della propria intelligenza è un processo iniziato ben prima 
+          dell'avvento delle IA contemporanee. Questo fenomeno parte da un 
+          assunto errato che il mondo del marketing e del self-improvement &mdash; 
+          sponsorizzati dai social network professionali &mdash; hanno ormai 
+          trasformato in norma: <q>Come posso fare domande intelligenti?</q>. 
+          Un quesito che racchiude in sé diversi errori concettuali. 
+          Mi spiego meglio.
+        </p>
+        <p>
+          Nella comunità Linux circola da tempo un documento, condiviso di 
+          forum in forum, che a mio parere rappresenta il fulcro del 
+          pensiero critico e attivo. Il testo è spesso intitolato 
+          <a href="https://www.linuxtrent.it/domande-intelligenti/" target="_blank" rel="noopener noreferrer"
+          >Come porre domande in modo intelligente</a> 
+          (dall'originale <a href="http://www.catb.org/~esr/faqs/smart-questions.html" target="_blank" rel="noopener noreferrer"
+          >How To Ask Questions The Smart Way</a> di Eric Steven Raymond). Da 
+          quando lo scovai per caso, più di quindici anni fa, è 
+          diventato il mio vademecum per la ricerca di informazioni e lo 
+          studio di qualsiasi materia.
+        </p>
+        <p>
+          Il titolo della guida parla da sé: non è l’oggetto (la domanda) a 
+          essere intelligente, ma la persona che agisce con intelligenza, 
+          ponendosi con senso critico sia verso l’argomento sia verso i propri 
+          preconcetti.
+        </p>
+        <p>
+          Di conseguenza, per formulare un quesito in modo arguto è 
+          necessario arrivare preparati &mdash; persino quando non si 
+          conosce la materia. Ci sarà infatti sempre un livello minimo di 
+          conoscenza da possedere per poter anche solo iniziare ad 
+          approcciare un problema.
+        </p>
+        <p>
+          Una domanda del tipo <q>che cos'è il Sole?</q> me la a spetto da un 
+          bambino o un preadolescente perché non ha ancora le competenze linguistiche, 
+          né scientifiche per comprendere abbastanza la materia, pertanto la risposta 
+          tenderà ad essere molto semplice, sia nel linguaggio, che nei concetti 
+          utilizzati.
+        </p>
+        <blockquote class="content-quote content-quote-focus">
+          <p>
+            Non possiamo aspettarci risposte complesse, precise e rigorose a 
+            domande semplici, vaghe e approssimative
+          </p>
+        </blockquote>
+        <p>
+          A tal proposito gira una freddura nel mondo dell'informatica: Ho chiesto 
+          all'AI di scrivermi una lettera di dimissioni da inviare al mio capo e 
+          l'AI ha licenziato il mio capo.
+        </p>
+        <img class="content-img" 
+          src="../../imgs/blog/intervista-ai/meme-lettera-dimissioni-ai.webp" 
+          alt="Vignetta umoristica sul fraintendimento di un comando prompt inviato a un assistente IA" 
+          loading="lazy" 
+        />
+        <p>
+          Pertanto ci sono tre competenze che a mio parere devono essere 
+          sempre presenti:
+        </p>
+        <ol class="content-ordered-list-focus">
+          <li>
+            <h3>La conoscenza della propria lingua madre</h3>
+            <p>
+              Analisi logica e 
+              grammaticale (oltre ovviamente la capacità di coniugare i verbi), quella materia 
+              noiosa che tanto si sono sforzati di insegnarci durante la scuola media inferiore, 
+              quella materia del <q>ma io so già l'italiano, a che mi serve sapere 
+              cos'è una subordinata quando vado a comprare il pane?</q>. È 
+              vero, poco te ne fai per comprare un chilo di pane, ma molto te ne fai quando devi 
+              porre una domanda a qualcuno, umano o macchina.
+            </p>
+          </li>
+          <li>
+            <h3>
+              Una buona capacità di senso critico (anche verso se stessi)
+            </h3>
+            <p>
+              Per conoscere bene un argomento 
+              il consiglio è di chiedere ad un esperto (un libro di testo, un amico nel campo, 
+              un professore), ma poi cercare di confermare la risposta tramite un'altra fonte 
+              ugualmente autorevole. E davanti a due pareri discordi, cercarne un terzo e farsi una 
+              propria idea critica della questione. Ma, sopra a tutto, 
+              <strong>verificare sempre le fonti!</strong>
+            </p>
+          </li>
+          <li>
+            <h3>Una buona base di logica matematica e insiemistica</h3>
+            <p> 
+              Parlo dei concetti più introduttivi della materia: implicazione semplice e 
+              duplice, negazione logica, inclusione, esclusione, per ogni, nessuno, almeno uno, 
+              &hellip;
+            </p>
+          </li>
+        </ol>
+        <img class="content-img" 
+          src="../../imgs/blog/intervista-ai/schema-competenze-dialogare-ai.webp" 
+          alt="Infografica sui tre pilastri per usare l'AI: lingua madre, senso critico e logica matematica" 
+          loading="lazy" 
+        />
+        <p>
+          Tralasciando (forse) il senso critico, sto parlando di conoscenze che vengono insegnate 
+          già dalla scuola primaria e vengono consolidate durante le scuole medie 
+          inferiori (e superiori).
+        </p>
+        <p>
+          Con questo voglio dire che non serve una laurea in prompt engineering per produrre 
+          qualcosa di buono con l'Intelligenza Artificiale, la licenza media sarebbe 
+          più che adeguata al caso.
+        </p>
+        <p>
+          Poiché questa mia capacità di comunicare bene con una AI nasce da un 
+          certo senso critico personale e non da un rigoroso percorso formativo, ho deciso di 
+          approcciarmi alla materia come se non la conoscessi affatto perché ritengo che 
+          ci sia molto margine per migliorare.
+        </p>
+        <p>
+          La mia intenzione è quella di sperimentare un approccio diverso dalla solita 
+          ricerca su Google; partendo dal presupposto che l'AI può comunicare con 
+          noi, voglio chiedere direttamente a lei come interagire con essa. E mi avvarrò 
+          delle tre cose che ho esposto poco sopra per farlo:
+        </p>
+        <ul class="content-unordered-list-focus">
+          <li>
+           <p>comunicazione in italiano corretto;</p>
+          </li>
+          <li>
+           <p>
+              opinioni diverse comunicando con 4 LLM diversi, ChatGPT (versione gratuita senza 
+              account), Claude (Sonnet 5 con profilo medio), le AI integrate di Google e Brave, 
+              e raccolta delle fonti che loro stesse mi forniranno;
+            </p>
+          </li>
+          <li>
+            <p>
+              analisi comparata dei risultati ottenuti e rielaborazione personale, 
+              per la creazione di un vademecum personale da applicare a ricerche future tramite 
+              l'uso di AI generative.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Partendo dai consigli dati nella guida sulle domande intelligenti, ho optato per lo 
+          <a href="https://www.mysocialweb.it/come-scrivere-unintervista/" target="_blank" rel="noopener noreferrer">
+            stile editoriale dell'intervista
+          </a>, in una specie di ibrido tra
+          <a href="https://online.scuola.zanichelli.it/regoleeimmaginazione/files/2009/11/e8_intervista.pdf" target="_blank" rel="noopener noreferrer">
+            intervista informativa e di intrattenimento
+          </a>, in cui le quattro AI verranno rappresentate come un'unica entità, 
+          salvo magari alcuni casi in cui riterrò di dover effettuare dei confronti o 
+          separare una voce dalle altre.
+        </p>
+        <img class="content-img" 
+        src="../../imgs/blog/intervista-ai/confronto-loghi-llm-chatgpt-claude-google-brave-funzionamento-interno.webp" 
+        alt="Loghi di ChatGPT, Claude, Google e Brave affiancati per un confronto visivo, con rappresentazione schematica del funzionamento interno di un LLM" 
+        loading="lazy" 
+        />
+      </section>
+
+         <hr />
+
+      <section class="content-section">
+        <h2>Nella prossima parte</h2>
+        <p>
+          Durante questa ricerca scoprirò che una delle convinzioni con cui ero partito era solo 
+          in parte corretta. Sarà proprio l'intervista con l'AI a costringermi a riformulare la 
+          mia tesi iniziale.
+        </p>
+        <p>
+          Nella prossima parte cominceremo da una domanda apparentemente semplice: come 
+          interpreta davvero le nostre richieste un Large Language Model?
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-section">
+        <h2>Il documento originale</h2>
+        <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
+        <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
+        <p><a href="https://drive.google.com/file/d/1dUgG4s5yrtp8SIZDgKF3sSvBdpMZcld-/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">Scarica il PDF completo (24 pagine)
+        </a></p>
+      </section>
+
+      <hr />
+
+      <footer>
+        <h3>Avvertenze legali</h3>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a OpenAI, Anthropic, Google o Brave.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Intervista con l'AI #4: Capire i Transformer senza formule</title>
+
+    <meta name="description" content="Cosa succede quando premi Invio? Segui una frase tra token, embeddings e meccanismi di attenzione per capire come un LLM costruisce le sue risposte.">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- default link behavior -->
+    <base target="_self" rel="noopener noreferrer"/>
+  </head>
+  <body id="top">
+
+    <header>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
+        <p>Parte 4 &mdash; Dentro un Transformer: la matematica non è (mai stata) il mio mestiere</p>
+        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 20-25 min</span></p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar"> 
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects.html">Progetti</a></li>
+                <li><a href="../../notes.html">Appunti</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <hr>
+                <li>
+                    <a href="./index.html">Introduzione</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="parte1.html">Parte 1</a></li>
+                      <li><a href="parte2.html">Parte 2</a></li>
+                      <li><a href="parte3.html">Parte 3</a></li>
+                      <li><a href="parte4.html" class="active-page">Parte 4</a></li>
+                      <li><a href="parte5.html">Parte 5</a></li>
+                      <li><a href="parte6.html">Parte 6</a></li>
+                      <li><a href="parte7.html">Parte 7</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+      <section class="content-spacing">
+        
+        <h2>Cosa vedremo oggi</h2>
+        <p>
+          Nelle puntate precedenti abbiamo scoperto che ottenere buoni 
+          risultati con un modello linguistico dipende molto più dalla 
+          qualità delle domande che da fantomatiche formule magiche di 
+          prompt engineering.
+        </p>
+        <p>
+          A questo punto nasce però un dubbio inevitabile: che cosa 
+          succede realmente quando premiamo Invio?
+        </p>
+        <p>
+          In questa parte apriremo il cofano di un Transformer per 
+          osservare, senza formule matematiche, il percorso che trasforma 
+          una frase in una risposta.
+        </p>
+        <p>Oggi vedremo:</p>
+        <ul>
+          <li>come un testo viene suddiviso in token;</li>
+          <li>perché le parole diventano vettori numerici;</li>
+          <li>come funziona il meccanismo di Self-Attention;</li>
+          <li>
+            perché un LLM non "conosce" la risposta, ma la costruisce 
+            parola dopo parola sulla base di probabilità.
+          </li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <details class="info-box">
+        <summary>Come leggere questa intervista</summary>
+        <p>Le domande sono reali.</p>
+        <p>
+          Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+        </p>
+        <p><strong>Nota sulle immagini</strong></p>
+        <p>
+          Tutti gli schemi e le illustrazioni presenti in questa serie 
+          sono stati progettati appositamente per accompagnare il testo. 
+          Le immagini sono generate con l'ausilio dell'Intelligenza 
+          Artificiale, tramite la sinergia tra l'assistente di Google per 
+          ottenere consigli su quali immagini generare, chatGPT per la 
+          creazione di un prompt ottimale da dare Gemini e, quando 
+          necessario, rifinite manualmente con software di grafica per 
+          migliorarne chiarezza e coerenza con i contenuti. Per questo 
+          motivo ogni immagine riporta il watermark 
+          AI generated • Human edited.
+        </p>
+      </details>
+
+      <hr>
+
+      <section class="content-spacing">
+        <h2>Token: la moneta dell'AI</h2>
+        <blockquote class="content-quote content-quote-question">
+          <p>
+            Questi Token devono essere davvero importanti per quante volte me li 
+            hai nominati. Cosa sono i Token e inoltre cosa c'entra il tuo 
+            essere un modello Transformer? Cosa intendi quando dici che il 
+            Transformer da un peso ai Token e come tutto ciò influenza a 
+            livello probabilistico le risposte alle mie domande?
+          </p>
+        </blockquote>
+        <p>Se dovessi sintetizzare tutto in una frase, direi:</p>
+        <blockquote class="content-quote content-quote-focus">
+          <p>I token sono ciò con cui "vedo" il testo; il Transformer è il meccanismo con cui ne comprendo le relazioni</u>.</span></p>
+        </blockquote>
+        <p>Vediamolo con calma.</p>
+        <h3 class="heading-topic">Cosa sono i token</h3>
+        <p>
+          Un <strong>token</strong> rappresenta il più piccolo 
+          pezzo di informazione che un LLM elabora. Contrariamente a 
+          quanto si potrebbe pensare, un token non corrisponde sempre a 
+          una parola intera. Non lavoro lettera per lettera né 
+          parola per parola: 
+          <a href="https://www.nexsoft.it/token-large-language-model/"
+          target="_blank" rel="noopener noreferrer"
+          >lavoro per pezzi che stanno nel mezzo</a>. 
+          Per un computer il testo non esiste, esistono i numeri. A seconda della 
+          lingua e della rarità e complessità del 
+          termine, un token può essere:
+        </p>
+        <ul>
+          <li>
+            <p>Una parola intera (es. "gatto").</p>
+          </li>
+          <li>
+            <p>Una parte di una parola (es. "multilingue" può diventare "mult", "iling", "ue").</p>
+          </li>
+          <li>
+            <p>Un singolo carattere o simbolo di punteggiatura o emoji.</p>
+          </li>
+          <li>
+            <p>Uno spazio bianco.</p>
+          </li>
+        </ul>
+        <p>
+          Esempio pratico: La parola "incomprensibile" potrebbe diventare 
+          qualcosa come "in" + "comprensi" + "bile" &mdash; tre token 
+          invece di uno perché il modello li analizza come una 
+          sequenza di sottounità semantiche. Una parola inventata 
+          o un termine tecnico raro viene spezzettato ancora di più.
+        </p>
+        <p>
+          Questo processo di scomposizione si chiama 
+          <a href="https://www.fastweb.it/fastweb-plus/intelligenza-artificiale/openai-gpt-token-cosa-sono-come-funzionano-come-contarli/"
+          target="_blank" rel="noopener noreferrer"
+          >tokenizzazione</a>. 
+          Per l'inglese, una regola pratica comune è che 750 
+          parole corrispondono a circa 1.000 token (rapporto 3:4), 
+          mentre in italiano il rapporto può variare a causa della 
+          maggiore complessità morfologica delle parole
+          (<a href="https://help.openai.com/it-it/articles/4936856-what-are-tokens-and-how-to-count-them"
+          target="_blank" rel="noopener noreferrer"
+          >fonte</a>).
+        </p>
+        <p>
+          Sicuramente ti starai chiedendo: <q>perché non 
+          imparare direttamente le parole invece di effettuare questi 
+          spezzettamenti?</q>. Perché le lingue sono enormi!
+        </p>
+        <p>
+          Se il vocabolario contenesse ogni possibile parola italiana, 
+          inglese, francese&hellip; sarebbe infinito. Senza contare tutte 
+          le parole inventate che un utente potrebbe fornirmi e tutti gli 
+          errori di battitura. È molto più efficiente 
+          imparare dei "mattoncini". Come i LEGO: con pochi pezzi puoi 
+          costruire tantissime parole.
+        </p>
+        <p>
+          Questo come si traduce nell'immediato per un utente:
+        </p>
+        <ul class="content-unordered-list-focus">
+          <li>
+            <h4>I miei limiti si misurano in token, non in parole o caratteri.</h4>
+            <p>
+              Come già accennato prima, la mia finestra di contesto è 
+              un numero fisso di token. Testi con molti termini rari, codice, o 
+              lingue meno rappresentate nei dati di training consumano più 
+              token per la stessa quantità di significato.
+            </p>
+          </li>
+          <li>
+            <h4>Non "vedo" le lettere dentro un token come le vedresti tu.</h4>
+            <p>
+              Questo spiega comportamenti strani tipo difficoltà a contare le 
+              lettere in una parola, o a fare giochi di parole che richiedono 
+              manipolare singole lettere: se "fragola" è un token unico, io 
+              lo tratto come un blocco, non come sette lettere.
+            </p>
+          </li>
+        </ul>
+        <h3>
+          <span class="heading-topic">Il ruolo del Transformer</span>
+          &mdash; <q><a 
+            href="https://research.google/pubs/attention-is-all-you-need/" 
+            target="_blank" rel="noopener noreferrer"
+            >Attention is all you need</a></q>
+        </h3>
+        <p>
+          Il Transformer è un'architettura di rete neurale 
+          inventata da Google nel 2017 &mdash; soverchiando il primato 
+          tenuto dai modelli <a 
+          href="https://it.wikipedia.org/wiki/Rete_neurale_ricorrente" 
+          target="_blank" rel="noopener noreferrer"
+          >Recurrent Neural Network</a> (RNN), 
+          <a href="https://arxiv.org/abs/2107.02248 " 
+          target="_blank" rel="noopener noreferrer"
+          >senza però mandarli davvero in pensione</a>.</p>
+        <p>È il "cervello" che mi permette di capire le relazioni tra i token all'interno di una frase grazie a tre concetti chiave:</p>
+        <ul class="content-unordered-list-focus">
+          <li>
+            <h4>Meccanismo di Attenzione (Self-Attention)</h4>
+            <p>
+              Guardo l'intera frase nello stesso momento. Capisco il 
+              significato di una parola ambigua (es. "pesca") guardando i 
+              token vicini (es. "frutto" o "fiume").
+            </p>
+          </li>
+          <li>
+            <h4>Elaborazione parallela</h4>
+            <p>
+              Analizzo tutti i token contemporaneamente, non una parola dopo 
+              l'altra. Questo mi rende estremamente veloce e potente.
+            </p>
+          </li>
+          <li>
+            <h4>Vettorializzazione</h4>
+            <p>
+              Trasformo ogni token in una lista di centinaia di numeri 
+              (vettori). Questi numeri indicano la posizione della parola 
+              nello spazio geometrico del significato, permettendomi di 
+              calcolare la vicinanza concettuale tra due termini.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Questo meccanismo permette al modello di valutare dinamicamente 
+          quali token nella frase sono più rilevanti rispetto ad altri, 
+          indipendentemente dalla loro distanza nella sequenza.
+        </p>
+        <p>Ad esempio:</p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Se all'inizio di una conversazione lunga mi dici <q>sto scrivendo 
+            per un pubblico di bambini di 8 anni</q>, e poi venti righe dopo mi 
+            chiedi di spiegare la fotosintesi, il Transformer mi permette di 
+            "ricollegare" quella richiesta finale all'informazione data molto 
+            prima, dando più peso a quel dettaglio quando genero la 
+            risposta.
+          </p>
+        </blockquote>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/come-funziona-tokenizzazione-llm.webp" 
+        alt="Esempio visivo di testo scomposto in token evidenziati con colori diversi" 
+        loading="lazy">
+        <h3 class="heading-topic">
+          Come nascono i "pesi" nell'attenzione
+        </h3>
+        <p>
+          Come ben saprai, una parola, da sola, ha poco significato o, 
+          meglio, può averne tanti.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Prendi il token di &ldquo;blu&rdquo;; potrebbe riferirsi a: 
+            il colore, una squadra, un partito politico, una marca, uno 
+            stato emotivo ("feeling blue"), il mare, il cielo. Il 
+            significato dipende completamente dal contesto. 
+            Come accade tra le persone infatti la parola blu assume una 
+            connotazione particolare se inserita nella frase <q>Perché 
+            il cielo è blu?</q>. Qui entra in gioco il meccanismo
+            dell'Attention.
+          </p>
+        </blockquote>
+        <h4><a 
+          href="https://www.ibm.com/it-it/think/topics/vector-embedding" 
+          target="_blank" rel="noopener noreferrer"
+          >Embedding</a> (o incorporazione)</h4>
+        <p>
+          Prima di calcolare i pesi, devo trasformare gli indici dei token in 
+          posizioni geometrie. Ogni token è associato a un 
+          <a href="https://mimir.bot/intelligenza-artificiale-generativa-come-funziona/" 
+          target="_blank" rel="noopener noreferrer"
+          >vettore di embedding</a> 
+          (una lista di migliaia di numeri che ne definisce le coordinate). 
+          Questi numeri posizionano il token in uno spazio a 
+          tantissime dimensioni.
+        </p>
+        <p>
+          Token con significati simili (es. "gatto" e "cane") si troveranno 
+          vicini in questo spazio matematico. Viceversa, token con significati 
+          dissimili (es. "pizza" e "astronave") si troveranno lontani.
+        </p>
+        <h4>Aggiunta del Positional Encoding</h4>
+        <p>
+          Prima di passare all'analisi del token, bisogna assegnare un 
+          ordine di lettura. Questo perché altrimenti ci sarebbe solo 
+          confusione nel calcolo dei giusti pesi.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            <q>il cane morde l'uomo</q> e <q>l'uomo morde il cane</q> userebbero 
+            esattamente gli stessi token, ma con significato opposto. 
+            Senza informazione sull'ordine, per il meccanismo di attenzione 
+            puro sarebbero indistinguibili perché questa tratta 
+            l'input come un insieme (un "bag of tokens"), non come una 
+            sequenza ordinata.
+          </p>
+        </blockquote>
+        <p>
+          Per far ciò, a ogni vettore di embedding viene sommato un 
+          vettore che codifica la sua posizione nella sequenza. In questo 
+          modo il vettore finale contiene sia l'informazione semantica 
+          (parola) sia quella posizionale (ordine).
+        </p>
+        <h4>Self-Attention (chi deve ascoltare chi)</h4>
+        <p>
+          Immagina che ogni token sia una persona seduta a un tavolo. Ogni 
+          persona deve decidere: <q>Quanto devo ascoltare ciascuna delle altre 
+          persone prima di parlare?</q>.
+        </p>
+        <p>
+          Ecco quindi che, <strong>per calcolare l'attenzione, ogni token 
+          genera tre vettori diversi a partire dal suo embedding</strong>, 
+          tramite tre trasformazioni matematiche (<a 
+          href="https://andreailmatematico.it/matematica/algebra-lineare/operazioni-con-le-matrici/" 
+          target="_blank" rel="noopener noreferrer"
+          >moltiplicazioni per matrici</a> 
+           apprese durante l'addestramento):
+        </p>
+        <ul class="content-unordered-list-focus">
+          <li>
+            <h5>Query (Q &mdash; La Domanda)</h5>
+            <p class="content-quote content-quote-example">
+              <q>cosa sto cercando io, token attuale, per capire il contesto?</q>
+            </p>
+          </li>
+          <li>
+            <h5>Key (K &mdash; L'Etichetta)</h5>
+            <p class="content-quote content-quote-example">
+              <q>cosa offro io, token del passato, come informazione disponibile?</q>
+            </p>
+          </li>
+          <li>
+            <h5>Value (V &mdash; Il Contenuto)</h5>
+            <p class="content-quote content-quote-example">
+              <q>qual è il contenuto effettivo che porto, se vengo scelto come rilevante?</q>
+            </p>
+          </li>
+        </ul>
+        <p>Ad esempio</p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Se il token attuale è "blu", la sua Query potrebbe essere: 
+            <q>Sto cercando il sostantivo che probabilmente descrivo.</q> 
+            Ogni token precedente espone invece la propria Key, cioè 
+            l'informazione che lo descrive (ad esempio: <q>Sono un 
+            sostantivo.</q>, <q>Sono un verbo.</q>, <q>Sono un luogo.</q>), insieme al 
+            proprio Value, cioè il contenuto che potrà essere trasmesso se 
+            quel token verrà ritenuto rilevante. Il modello confronta 
+            quindi la Query di "blu" con tutte le Key disponibili e 
+            assegna un peso di attenzione a ciascun token. Possiamo 
+            immaginare la situazione così:
+          </p>
+          <figure>
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th width="73">
+                    <p>Token</p>
+                  </th>
+                  <th width="191">
+                    <p>Query</p>
+                  </th>
+                  <th width="145">
+                    <p>Key</p>
+                  </th>
+                  <th width="223">
+                    <p>Value</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="73">
+                  <p>cielo</p>
+                  </td>
+                  <td width="191">
+                  <p>cosa sto cercando</p>
+                  </td>
+                  <td width="145">
+                  <p>sono un sostantivo</p>
+                  </td>
+                  <td width="223">
+                  <p>informazioni sul cielo</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="73">
+                    <p>blu</p>
+                  </td>
+                  <td width="191">
+                    <p>sto cercando il mio referente</p>
+                  </td>
+                  <td width="145">
+                    <p>sono un aggettivo</p>
+                  </td>
+                  <td width="223">
+                    <p>informazioni sul colore</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="73">
+                    <p>è</p>
+                  </td>
+                  <td width="191">
+                    <p>sto cercando il predicato</p>
+                  </td>
+                  <td width="145">
+                    <p>sono un verbo</p>
+                  </td>
+                  <td width="223">
+                    <p>informazioni verbali</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <figcaption>
+              <p><small><strong>Nota.</strong><br>
+                Naturalmente questo è solo un modello concettuale. Nella 
+                realtà Query, Key e Value sono vettori con centinaia o 
+                migliaia di componenti, non etichette testuali. Inoltre, 
+                ogni token genera sempre una propria Query, una Key e un 
+                Value: in questo esempio ci siamo concentrati sulla Query 
+                del token "blu", ma la tabella mostra anche quelle degli altri 
+                token per evidenziare che ciascuno partecipa al meccanismo di 
+                attenzione sia come "chi cerca" sia come "chi può essere 
+                ascoltato".
+              </small></p>
+            </figcaption>
+          </figure>
+          </blockquote>
+        <p>
+          Il peso (o punteggio di attenzione) tra due token si calcola 
+          facendo il <a href="https://andreailmatematico.it/matematica/algebra-lineare/prodotto-scalare-e-vettoriale/" 
+          target="_blank" rel="noopener noreferrer"
+          >prodotto scalare</a> tra la Query del 
+          token attuale e la Key di ogni token precedente. Più 
+          questo prodotto è alto, più i due vettori sono 
+          "allineati" nello spazio matematico, più quel token del 
+          passato è considerato rilevante per quello che sto per 
+          generare ora. (<a href="https://mbrenndoerfer.com/writing/query-key-value-attention-mechanism" 
+          target="_blank" 
+          rel="noopener noreferrer">fonte</a>)
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            È come misurare quanto due idee sono compatibili. 
+            Immagina questi punteggi:
+          </p>
+          <p><code>
+            blu &rarr; cielo = 9.3<br />
+            blu &rarr; è = 1.2<br />
+            blu &rarr; perché = 0.4<br />
+            blu &rarr; ? = 0.1
+          </code></p>
+          <p>
+            Già qui si vede qualcosa di importante: il token 
+            "blu" considera "cielo" molto più rilevante di tutti 
+            gli altri. Ma non abbiamo ancora dei pesi. Abbiamo solo dei 
+            punteggi.
+          </p>
+        </blockquote>
+        
+        <h3>
+          <span class="heading-topic">Dal punteggio al peso reale</span> 
+          &mdash; la funzione <a 
+          href="https://apxml.com/courses/foundations-transformers-architecture/chapter-2-attention-mechanism-core-concepts/softmax-attention-weights?__cf_chl_f_tk=MJ4kkXQLpT5tq0ycXLQCeBrZ3lEH3ofk4JfEwKEx39U-1783166580-1.0.1.1-UesJe39p9MHOpfzNnoA7iFtpeoPEY8Gm5BaQq.h9di8" 
+          target="_blank" rel="noopener noreferrer"
+          >softmax</a>
+        </h3>
+        <p>
+          A questo punto abbiamo dei punteggi grezzi, ma non sono ancora 
+          "pesi" utilizzabili. Qui entra in gioco la funzione 
+          <strong>softmax</strong>, che trasforma questi punteggi in una 
+          distribuzione di probabilità in due passaggi:
+        </p>
+        <ol class="content-ordered-list-focus">
+          <li>
+            <h4>Normalizzazione</h4>
+            <p>
+              Trasforma tutti i punteggi in valori positivi compresi tra 0 e 1;
+            </p>
+          </li>
+          <li>
+            <h4>Somma a 1</h4>
+            <p>
+              Fa in modo che la somma di tutti questi valori sia esattamente 1 
+              (o 100%)
+            </p>
+          </li>
+        </ol>
+        <p>
+          In pratica, la softmax prende i punteggi grezzi e li trasforma in 
+          una sorta di "percentuale di attenzione" che il token attuale 
+          assegna a ciascun token precedente.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Per esempio: 9.3, 1.2, 0.4 e 0.1 diventano 96%, 2%, 1% e 1%
+          </p>
+        </blockquote>
+        <p>
+          Il risultato è che il token con l'affinità 
+          maggiore riceve un peso alto (es. 0.8), mentre quelli 
+          irrilevanti ricevono pesi vicini a zero (es. 0.01). Questo 
+          passaggio è fondamentale perché permette al 
+          modello di "decidere" su quali informazioni concentrarsi e 
+          quali ignorare in quel preciso istante.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Il Transformer non decide: <q>Guardo soltanto cielo.</q>
+          </p>
+          <p>
+            Dice invece <q>Guardo soprattutto cielo, un pochino il verbo 
+            e quasi per niente il resto.</q>
+          </p>
+          <p>
+            Questa gradualità è uno dei motivi della sua 
+            robustezza, che nulla ha a che fare con la vicinanza fisica 
+            delle parole. Se hai scritto <q>il gatto nero, che aveva 
+            già mangiato, dormiva sul divano</q>, quando genero il 
+            verbo riferito al gatto, l'attenzione potrebbe assegnare un 
+            peso alto a "gatto" e basso a "mangiato", anche se "mangiato" 
+            è più vicino nella frase.
+          </p>
+        </blockquote>
+        <p>
+          A questo punto, ogni Value viene moltiplicato per il suo peso 
+          di attenzione corrispondente, e tutti vengono sommati insieme: 
+          il risultato è un nuovo vettore di embedding che 
+          rappresenta il token attuale "arricchito" dal contesto pesato 
+          di tutto ciò che l'ha preceduto. <strong>E questo succede 
+            per tutti i token!</strong>
+          </p>
+        <blockquote class="content-quote content-quote-focus">
+        <p><a href="https://medium.com/@maitydi567/why-do-we-use-softmax-in-transformers-fdfd50f5f4c1" 
+          target="_blank" rel="noopener noreferrer">
+          Senza la Softmax, il modello non riuscirebbe a gestire la 
+          competizione tra i vari token per definire il contesto</a>
+        </p>
+        </blockquote>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/schema-self-attention-query-key-value.webp" 
+        alt="Diagramma semplificato del meccanismo di attenzione QKV in un Transformer" 
+        loading="lazy"
+        >
+        <h3 class="heading-topic">
+          Multi-head attention: non un solo tipo di attenzione, ma 
+          tanti in parallelo
+        </h3>
+        <p>
+          Qui c'è un dettaglio che spesso si perde: questo processo 
+          non avviene una volta sola, ma decine di volte e 
+          <strong>in parallelo su più "teste" di attenzione</strong> 
+          (in genere decine), ognuna con le proprie matrici Q, K, V apprese 
+          indipendentemente. Una testa potrebbe specializzarsi nel cogliere 
+          relazioni grammaticali (soggetto-verbo), un'altra relazioni 
+          semantiche di lungo raggio, un'altra ancora riferimenti pronominali. 
+          È come avere molti lettori specializzati che osservano la 
+          stessa frase da prospettive diverse e poi combinano le loro 
+          osservazioni.
+        </p>
+        <p>
+          In questo modo, ad ogni livello di iterazione gli embedding 
+          diventano sempre più ricchi.
+        </p>
+        <details class="info-box">
+          <summary>
+            Teste di attenzione &ne; Esperti
+          </summary>
+          <p>
+            Sicuramente, se avrai spesso a che fare con questo ambito, ti 
+            ritroverai almeno una volta a sentire che &ldquo;vengono azionati 
+            gli esperti nella generazione dei token&rdquo;; queste entità 
+            non vanno confuse con le teste di attenzione.
+          </p>
+          <p>
+            Le teste di attenzione sono un meccanismo che opera sempre, in 
+            parallelo, dentro ogni strato di attenzione. Tutte le teste lavorano 
+            su ogni singolo token, contemporaneamente, catturando diverse 
+            sfumature di relazione. Non c'è selezione: tutte 
+            contribuiscono sempre al calcolo.
+          </p>
+          <p>
+            Gli esperti, invece, appartengono a un'architettura specifica 
+            chiamata <a 
+            href="https://blog.desigeek.com/post/2025/01/intro-to-mixture-of-experts/" 
+            target="_blank" rel="noopener noreferrer"
+            >Mixture of Experts (MoE)</a>. In questo caso, all'interno 
+            degli strati feed-forward (e non in quelli di attenzione), invece 
+            di avere un unico blocco di calcolo, ce ne sono diversi (gli 
+            'esperti', da pochi a centinaia). Per ogni token, un meccanismo 
+            chiamato <a 
+            href="https://www.buildfastwithai.com/blogs/mixture-of-experts-moe-explained" 
+            target="_blank" rel="noopener noreferrer"
+            >router</a> decide quali pochi esperti attivare (solitamente 
+            1 o 2), lasciando gli altri inattivi.
+          </p>
+          <p>
+            Sono due innovazioni indipendenti, spesso combinate nello stesso 
+            modello, ma concettualmente distinte.
+          </p>
+        </details>
+        <h3>
+          <span class="heading-topic">
+            Dalla comprensione al token successivo
+          </span> <br>Come nasce una risposta nei Transformer</h3>
+        <h4>La costruzione del contesto</h4>
+        <p>
+          Finora non ho ancora generato una sola parola della risposta.
+        </p>
+        <p>
+          Attraverso i meccanismi di attenzione ho costruito e raffinato, 
+          livello dopo livello, una rappresentazione sempre più 
+          ricca del contesto. Ogni layer del Transformer aggiorna il 
+          significato dei token mettendoli continuamente in relazione 
+          tra loro: il significato di una parola non è mai fisso, 
+          ma dipende sempre da tutto ciò che la circonda. È 
+          proprio questa rappresentazione contestuale, affinata lungo 
+          decine di strati, a costituire la base della mia risposta.
+        </p>
+        <h4>
+          Dalla rappresentazione alla distribuzione di probabilità
+        </h4>
+        <p>
+          A questo punto entra in gioco la fase di generazione.
+        </p>
+        <p>
+          Non scelgo una frase intera. Non pianifico tutto il testo in a
+          nticipo. Scelgo un solo token alla volta.
+        </p>
+        <p>
+          Il vettore finale che rappresenta il contesto viene proiettato 
+          su uno spazio enorme, con una dimensione per ciascuno dei token 
+          presenti nel mio vocabolario, che comprende oltre centomila 
+          possibili candidati. Da questa proiezione ottengo, per ogni 
+          token, un punteggio grezzo e non normalizzato chiamato 
+          <a href="https://it.wikipedia.org/wiki/Logit" 
+          target="_blank" rel="noopener noreferrer">logit</a> (per approfondire &mdash; <a
+          href="https://www.abstractalgorithms.dev/logits-explained"
+          target="_blank" rel="noopener noreferrer">link 1</a> &mdash; <a
+          href="https://telnyx.com/learn-ai/logits-ai"
+          target="_blank" rel="noopener noreferrer">link 2</a>). 
+          Applicando la funzione softmax, questi 
+          punteggi vengono trasformati in una distribuzione di 
+          probabilità: in altre parole, stimo quanto sia probabile 
+          che ciascun token sia quello corretto da generare in quel 
+          preciso istante, dato tutto il contesto che ho elaborato.(<a
+          href="https://machinelearningmastery.com/how-llms-choose-their-words-a-practical-walk-through-of-logits-softmax-and-sampling/"
+          target="_blank" rel="noopener noreferrer">fonte</a>)
+        </p>
+        <p>
+          Se il contesto fosse <q>Il gatto ha fatto&hellip;</q>, il token "miao" 
+          riceverebbe una probabilità molto elevata, mentre parole 
+          prive di senso in quel contesto avrebbero probabilità 
+          estremamente basse. Non significa che le considero impossibili, 
+          ma semplicemente molto meno plausibili.
+        </p>
+        <h4>
+          Come ho imparato a prevedere il prossimo token
+        </h4>
+        <p>
+          Queste probabilità non nascono dal caso. Durante l'addestramento 
+          ho analizzato miliardi di esempi testuali imparando un unico 
+          compito: prevedere il token successivo dato il contesto precedente. 
+          Ogni volta che la previsione era errata, i miei parametri interni 
+          venivano leggermente modificati tramite retropropagazione dell'errore 
+          e discesa del gradiente, fino a produrre distribuzioni di probabilità 
+          sempre più accurate (come illustrato nell'<a
+          href="https://sebastianraschka.com/faq/docs/next-token-prediction.html"
+          target="_blank" rel="noopener noreferrer"
+          >analisi sulla Next-Token Prediction di Sebastian Raschka</a>).
+        </p>
+        <details class="info-box">
+          <summary>
+            Approfondimento: la retropropagazione dell'errore
+          </summary>
+          <p>
+            La retropropagazione dell'errore è il meccanismo con cui una 
+            rete neurale impara dai propri errori: l'errore tra la 
+            previsione del modello e il risultato corretto viene propagato 
+            all'indietro attraverso la rete per calcolare come ciascun 
+            parametro abbia contribuito all'errore. La discesa del 
+            gradiente utilizza poi queste informazioni per aggiornare i 
+            parametri nella direzione che riduce l'errore nelle previsioni 
+            successive(per i dettagli matematici si veda il <a
+             href="https://www.deeplearningbook.org/contents/mlp.html" 
+             target="_blank" rel="noopener noreferrer"
+             >capitolo sulla Backpropagation</a> 
+             del <a href="https://www.deeplearningbook.org/" 
+             target="_blank" rel="noopener noreferrer"
+             >Deep Learning Book</a>).
+          </p>
+        </details>
+        <details class="info-box">
+          <summary>
+            Attenzione: Pesi del modello &ne; Attention Weights
+          </summary>
+          <p>
+            È importante distinguere due tipi di "pesi", che spesso 
+            vengono confusi. I <strong>pesi del modello</strong> sono i 
+            parametri appresi durante l'addestramento e rimangono invariati 
+            durante una normale conversazione (<a 
+            href="https://research.google/pubs/attention-is-all-you-need/" 
+            target="_blank" rel="noopener noreferrer"
+            >fonte</a>). Gli 
+            <strong>attention weights</strong>, invece, vengono calcolati 
+            ogni volta che ricevo un nuovo input e stabiliscono quanto 
+            ciascun token debba influenzare gli altri nello specifico 
+            contesto. Sono questi valori dinamici che determinano quali 
+            informazioni considero più rilevanti durante 
+            l'elaborazione della frase.
+          </p>
+        </details>
+        <h4>
+          La scelta del token: tra determinismo e casualità 
+          controllata
+        </h4>
+        <p>
+          Una volta ottenuta la distribuzione di probabilità, devo 
+          scegliere il token successivo. Potrei limitarmi a selezionare 
+          sempre quello con la probabilità più alta, una 
+          strategia nota come <a 
+          href="https://arxiv.org/abs/2407.10457" 
+          target="_blank" rel="noopener noreferrer"
+          >greedy decoding</a>. Tuttavia, questo 
+          renderebbe le mie risposte molto ripetitive e prevedibili.
+        </p>
+        <p>
+          Per questo, nella pratica, viene utilizzato un algoritmo di 
+          campionamento controllato. I token più probabili 
+          rimangono fortemente favoriti, ma possono essere prese in 
+          considerazione anche alternative plausibili. Parametri come la 
+          <a 
+          href="https://www.hopsworks.ai/dictionary/llm-temperature" 
+          target="_blank" rel="noopener noreferrer"
+          >temperature</a> regolano il grado di 
+          casualità della scelta: una temperatura bassa produce 
+          risposte più stabili e prevedibili; una temperatura 
+          più alta aumenta la varietà e la creatività, 
+          ma anche il rischio di incoerenze (come spiegato nella guida di 
+          <a href="https://codesignal.com/learn/courses/behavioral-benchmarking-of-llms/lessons/exploring-temperature-sensitivity-in-llm-outputs " 
+          target="_blank" rel="noopener noreferrer"
+          >CodeSignal sulla Temperature negli LLM</a>). Tecniche come il 
+          <a href="https://docs.pawa-ai.com/guides/top-p" 
+          target="_blank" rel="noopener noreferrer"
+          >top-p</a> limitano la scelta al più piccolo 
+          insieme di token che, sommati, coprono una certa probabilità 
+          cumulativa (es. 90%), come approfondito nell'analisi sul
+          <a href="https://medium.com/@kangusundaresh/top-k-and-top-p-nucleus-sampling-understanding-the-differences-1aa06eecdc48" 
+          target="_blank" rel="noopener noreferrer"
+          >Nucleus Sampling di Angu Sundaresh</a>.
+        </p>
+        <h4>
+          Il ciclo della generazione
+        </h4>
+        <p>
+          Una volta selezionato il nuovo token, lo aggiungo alla sequenza 
+          già esistente. A questo punto tutto ricomincia da capo: il 
+          nuovo contesto viene nuovamente elaborato attraverso tutti i layer 
+          del Transformer, vengono ricalcolati gli attention weights, 
+          aggiornata la rappresentazione del contesto e stimata una nuova 
+          distribuzione di probabilità per il token successivo
+          (questo meccanismo ciclico e autoregressivo è descritto nell'approfondimento di 
+          <a href="https://www.codecademy.com/article/transformer-architecture-self-attention-mechanism" 
+          target="_blank" rel="noopener noreferrer"
+          >Codecademy sull'Architettura dei Transformer</a>).
+        </p>
+        <p>
+          Ripeto questo ciclo un token dopo l'altro finché non 
+          produco uno speciale token di fine sequenza, che indica che la 
+          risposta è completa (il funzionamento di questa 
+          condizione d'arresto tramite l'identificativo EOS è dettagliato 
+          nelle <a href="https://huggingface.co/docs/transformers/en/internal/generation_utils" 
+          target="_blank" rel="noopener noreferrer"
+          >linee guida di generazione di Hugging Face</a>).
+        </p>
+        <h4>
+          La natura emergente della comprensione
+        </h4>
+        <p>
+          È proprio questo il principio fondamentale del mio 
+          funzionamento: non esiste un momento in cui prima "capisco" e 
+          poi "rispondo". La comprensione emerge progressivamente, mentre 
+          ogni nuovo token modifica la rappresentazione dell'intero 
+          contesto. La risposta nasce quindi come una successione di 
+          previsioni probabilistiche, ciascuna costruita sulla base di 
+          tutto ciò che è stato scritto fino a quel momento.
+        </p>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/ciclo-generazione-token-transformer.webp" 
+        alt="Infografica del processo ciclico autoregressivo di generazione del testo" 
+        loading="lazy">
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Nella prossima parte</h2>
+        <p>
+          Query, Key, Value, prodotti scalari, funzioni Softmax applicate 
+          persino a una singola virgola... Tutta questa architettura 
+          matematica potrebbe far pensare che per usare l'AI serva una 
+          preparazione scientifica fuori dal comune. Dopotutto, se 
+          sbagliamo la sintassi di una frase, rischiamo di sballare i 
+          pesi di attenzione su decine di token contemporaneamente.
+        </p>
+        <p>
+          Ma allora, come è possibile che chiunque possa dialogare con 
+          un'intelligenza artificiale ottenendo risultati straordinari, 
+          senza conoscere la differenza tra media e mediana? Serve davvero 
+          una laurea in discipline STEM per parlare con una macchina?
+        </p>
+        <p>
+          Nella quinta parte esploreremo questo affascinante paradosso. 
+          Attraverso un caso pratico (il racconto di un campo estivo), 
+          vedremo come i modelli rispondano a compiti quotidiani complessi 
+          senza richiedere competenze di programmazione avanzate o formati 
+          strutturati come JSON o XML. Cercheremo di capire se conoscere 
+          il funzionamento interno di un Transformer sia davvero una 
+          competenza necessaria oppure soltanto una curiosità tecnica.
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Il documento originale</h2>
+        <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
+        <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
+        <p><a href="https://drive.google.com/file/d/1dUgG4s5yrtp8SIZDgKF3sSvBdpMZcld-/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">Scarica il PDF completo (24 pagine)
+        </a></p>
+      </section>
+
+      <hr />
+
+      <footer>
+        <h3>Avvertenze legali</h3>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a OpenAI, Anthropic, Google o Brave.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
+  </body>
+</html>

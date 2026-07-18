@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Intervista con l'AI: i rischi della mancanza di competenze</title>
+
+    <meta name="description" content="L'AI alza l'asticella nel lavoro? Dal caso Galileu all'AI Act, scopri perché la vera soglia di competenze la decide il tuo settore.">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- default link behavior -->
+    <base target="_self" rel="noopener noreferrer"/>
+  </head>
+  <body id="top">
+
+    <header>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
+        <p>Parte 6 &mdash; </p>
+        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 15 min</span></p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar"> 
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects.html">Progetti</a></li>
+                <li><a href="../../notes.html">Appunti</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <hr>
+                <li>
+                    <a href="./index.html">Introduzione</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="parte1.html">Parte 1</a></li>
+                      <li><a href="parte2.html">Parte 2</a></li>
+                      <li><a href="parte3.html">Parte 3</a></li>
+                      <li><a href="parte4.html">Parte 4</a></li>
+                      <li><a href="parte5.html">Parte 5</a></li>
+                      <li><a href="parte6.html" class="active-page">Parte 6</a></li>
+                      <li><a href="parte7.html">Parte 7</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+      <section class="content-spacing">
+        
+        <h2>Cosa vedremo oggi</h2>
+        <p>
+          Nel capitolo precedente abbiamo visto come un ottimo prompt 
+          possa nascere semplicemente dal buon senso e dalla nostra 
+          lingua madre, senza il bisogno di scomodare codici o linguaggi 
+          informatici. Eppure, proprio parlando del livello di inglese 
+          richiesto nel mondo della programmazione, qualcosa ha iniziato 
+          a scricchiolare nella mia teoria di partenza. Se per muoversi in 
+          certi ambiti serve un livello di competenze che va ben oltre la 
+          scuola dell'obbligo, significa che l'idea che "basti la licenza 
+          media" per usare bene l'AI era solo un'approssimazione troppo 
+          ottimistica?
+        </p>
+        <p>
+          In questa sesta parte metteremo in discussione i presupposti 
+          stessi di questa ricerca, analizzando cosa succede quando la 
+          teoria si scontra con la complessità dei singoli settori 
+          lavorativi e con i rischi reali della rete.
+        </p>
+      </section>
+
+      <hr />
+
+      <details class="info-box">
+        <summary>Come leggere questa intervista</summary>
+        <p>Le domande sono reali.</p>
+        <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+        </p>
+        <p><strong>Nota sulle immagini</strong></p>
+        <p>
+          Tutti gli schemi e le illustrazioni presenti in questa serie 
+          sono stati progettati appositamente per accompagnare il testo. 
+          Le immagini sono generate con l'ausilio dell'Intelligenza 
+          Artificiale, tramite la sinergia tra l'assistente di Google per 
+          ottenere consigli su quali immagini generare, chatGPT per la 
+          creazione di un prompt ottimale da dare Gemini e, quando 
+          necessario, rifinite manualmente con software di grafica per 
+          migliorarne chiarezza e coerenza con i contenuti. Per questo 
+          motivo ogni immagine riporta il watermark 
+          AI generated • Human edited.
+        </p>
+      </details>
+
+      <hr />
+
+      <details class="info-box">
+        <summary>
+          Nota editoriale: Dietro le quinte di questo testo
+        </summary>
+        <p>
+          Il capitolo che stai per leggere è stato realizzato sperimentando 
+          un flusso di lavoro avanzato. Durante la scrittura, assieme alla 
+          tecnica di meta-prompting per la generazione di domande, ho avuto 
+          l'intuizione di testare una tecnica di prompting "collettiva", 
+          facendo collaborare diversi modelli linguistici tra loro in un 
+          ciclo iterativo:
+        </p>
+        <ol class="content-ordered-list-focus">
+          <li>
+            <h4>Il Meta-Prompting per le domande</h4>
+            <p>
+              Invece di scrivere direttamente le domande da porre 
+              nell'intervista, ho usato l'IA per analizzare le mie intenzioni, 
+              cioè dove volevo far proseguire l'intervista, e aiutarmi a 
+              progettare le domande con una elaborazione migliore, più 
+              articolata e capace di estrarre risposte più coerenti e approfondite.
+            </p>
+          </li>
+          <li>
+            <h4>Sintesi iniziale</h4>
+            <p>
+              Ho chiesto a ChatGPT di fondere e 
+              armonizzare le risposte generate separatamente dalle AI 
+              integrate di Google e Brave.
+            </p>
+          </li>
+          <li>
+            <h4>Integrazione semantica</h4>
+            <p>
+              Ho passato 
+              questo primo sunto a Claude, chiedendogli di arricchirlo 
+              fondendolo con la sua stessa analisi sul tema.
+            </p>
+          </li>
+          <li>
+            <h4>Controllo qualità e correzione bozze</h4>
+            <p>
+              Il testo risultante è tornato su ChatGPT, 
+              utilizzato come correttore di bozze critico per raccogliere una 
+              lista dettagliata di suggerimenti, limature stilistiche e 
+              considerazioni di leggibilità.
+            </p>
+          </li>
+          <li>
+            <h4>Generazione finale</h4>
+            <p>
+              Questo elenco 
+              di feedback è stato infine rielaborato da Claude per generare la 
+              stesura definitiva del testo. Il ciclo è stato ripetuto fino a 
+              quando ChatGPT non ha rilevato ulteriori margini di miglioramento.
+            </p>
+          </li>
+        </ol>
+        <h4>
+          Un dettaglio fondamentale: il revisore ultimo è rimasto umano.
+        </h4>
+        <p>
+          In ognuno di questi passaggi, ho letto e analizzato criticamente 
+          ogni singola risposta delle AI. Spetta sempre all'autore reinserire parti 
+          di testo eliminate dai modelli ma ritenute importanti, o tagliare 
+          concetti superflui già espressi in precedenza.
+        </p>
+        <p>
+          Le intelligenze artificiali hanno agito come uno straordinario 
+          amplificatore di scrittura, ma hanno scritto esattamente ed 
+          esclusivamente ciò che io, in prima battuta, avevo intenzione
+          di comunicare.
+        </p>
+      </details>
+
+      <hr>
+
+      <section class="content-spacing">
+        <h2>
+          A ogni compito corrisponde il proprio livello di competenza
+        </h2>
+        <blockquote class="content-quote content-quote-question">
+          <p>
+            Qui qualcosa non torna con quello che sostenevo all'inizio
+            (<a href="parte1.html">vedi parte 1</a>). Se 
+            la licenza media italiana porta, nella norma, a un inglese di 
+            livello A2, e tu invece mi hai appena detto che per 
+            programmare con te mi serve un B1 solido se non un B2 
+            orientato alla lettura tecnica &mdash; allora la mia tesi di 
+            partenza ha un buco. Non è più vero che <q>basta 
+            la scuola dell'obbligo</q>: per un programmatore servirebbe 
+            qualcosa in più, acquisito altrove, non a scuola. 
+            Quindi la mia idea iniziale &mdash; che bastasse la licenza 
+            media per usarti bene &mdash; è sbagliata, o è 
+            solo incompleta? Cioè, è un'eccezione che 
+            riguarda solo chi lavora in ambiti tecnico&mdash;informatici, 
+            o la soglia "scuola dell'obbligo" era un'approssimazione 
+            ottimistica fin dall'inizio?
+          </p>
+        </blockquote>
+        <p>
+          La tua tesi iniziale non era sbagliata. Era incompleta. La 
+          formulazione originaria &mdash; <q>per usare bene un LLM basta la 
+          licenza media</q> &mdash; funzionava per molte attività 
+          quotidiane, dal preparare una lezione al progettare un campo 
+          estivo: qui la competenza dominante è comunicativa 
+          (chiarezza, contesto, senso critico), e la scuola dell'obbligo 
+          è una buona approssimazione della soglia necessaria.
+        </p>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/barriera-competenze-dominio.webp" 
+        alt="Una persona davanti a una scrivania divisa a metà: da un lato ci sono libri di testo e un computer con codice, dall'altro l'interfaccia di una chat AI" loading="lazy">
+        <p>
+          L'errore sta nell'aver fissato un'unica soglia valida per ogni 
+          ambito. Ogni disciplina ha un proprio linguaggio specialistico, 
+          indipendente dall'esistenza dell'AI. Un medico ha bisogno della 
+          terminologia medica, un avvocato di quella giuridica, un chimico 
+          della nomenclatura chimica &mdash; nell'informatica, per ragioni 
+          storiche, quel linguaggio specialistico coincide in larga parte 
+          con l'inglese. Se io smettessi di esistere domani, un 
+          programmatore avrebbe comunque bisogno dello stesso inglese per 
+          leggere documentazione, messaggi di errore, RFC.
+        </p>
+        <p>
+          <strong>
+            L'AI non crea questa esigenza: la eredita dal dominio.
+            Per questo non alza l'asticella delle competenze richieste dal 
+            tuo lavoro; la lascia dov'era già.
+          </strong>
+        </p>
+        <p>
+          Lo dimostra bene l'esempio del campo estivo <a 
+          href="parte5.html#campo-estivo">proposto nella parte precedente</a>: 
+          quella richiesta funzionava non perché costruita 
+          con tecniche avanzate di prompting, ma perché descriveva 
+          con precisione le variabili educative rilevanti: l'età 
+          dei bambini, il numero dei partecipanti, il contesto, la 
+          sicurezza, l'inclusione e la gestione del gruppo. 
+          L'AI può elaborare quelle variabili, ma non può 
+          riconoscere al posto tuo quali siano quelle rilevanti.
+        </p>
+        <p>
+          Nell'informatica questo fenomeno è ancora più 
+          evidente, perché le competenze richieste dal dominio 
+          passano attraverso un linguaggio specialistico: chi aveva 
+          difficoltà a leggere documentazione tecnica in inglese 
+          prima degli LLM continua ad averle oggi &mdash; io posso 
+          tradurla e spiegarla, ma non elimino il fatto che la fonte 
+          primaria resti in inglese.
+        </p>
+        <h3>La tesi, allora, può essere riformulata così</h3>
+        <blockquote class="content-quote content-quote-focus">
+          <p>
+            Per usare efficacemente un LLM non serve conoscere il suo 
+            funzionamento matematico né possedere competenze 
+            specialistiche sull'intelligenza artificiale. Servono buone 
+            capacità di comunicazione, senso critico e la stessa 
+            competenza disciplinare richiesta dal compito anche senza l'AI. 
+            Quando quella disciplina usa un linguaggio specialistico 
+            &mdash; come l'inglese nell'informatica &mdash; è 
+            il dominio, non il modello linguistico, a determinare il 
+            livello di preparazione necessario
+          </p>
+        </blockquote>
+        <p>
+          La vera soglia non è "la licenza media" in assoluto, ma 
+          la competenza necessaria per svolgere quel compito nel mondo 
+          reale. Per progettare un campo estivo significa saper 
+          rappresentare il problema attraverso le sue variabili 
+          educative e organizzative; per programmare significa, oltre 
+          alla logica algoritmica, padroneggiare anche l'inglese tecnico 
+          con cui quel dominio comunica. 
+          <strong>
+            Le prime sono competenze proprie di quel contesto tanto quanto 
+            le seconde. La differenza è che, nel campo estivo, 
+            passano inosservate perché sono espresse con il 
+            linguaggio della vita quotidiana.
+          </strong>
+        </p>
+        <details class="info-box">
+          <summary>
+            Approfondimento: che cos'è una competenza di dominio?
+          </summary>
+          <p>
+            Nel contesto dell'intelligenza artificiale, con
+            <a href="https://www.ibm.com/docs/it/watsonx/w-and-w/2.4.x?topic=atlas-lack-domain-expertise"
+              target="_blank" rel="noopener noreferrer">
+              competenza di dominio
+            </a>
+            si intende l'insieme delle conoscenze, del linguaggio, dei 
+            criteri di valutazione e delle pratiche proprie di uno 
+            specifico ambito professionale o disciplinare. È ciò che 
+            permette di formulare correttamente un problema, interpretarne 
+            il contesto e valutare criticamente le soluzioni proposte. La 
+            documentazione IBM dedicata alla governance dei sistemi di IA 
+            cita la mancanza di competenza di dominio tra i fattori che 
+            possono compromettere lo sviluppo e l'impiego efficace dei 
+            modelli.
+          </p>
+          <blockquote class="content-quote">
+          <p>
+            <strong>Nella programmazione:</strong>
+            comprende la logica algoritmica, le strutture dati, il debugging,
+            la progettazione del software e la lettura della documentazione tecnica.
+          </p>
+          <p>
+            <strong>Nell'educazione:</strong>
+            comprende la capacità di individuare le variabili educative rilevanti,
+            come l'età dei partecipanti, gli obiettivi formativi, l'inclusione,
+            la sicurezza e le dinamiche del gruppo.
+          </p>
+          </blockquote>
+          <p>
+            Un sistema di IA può elaborare queste informazioni con grande 
+            efficacia, ma non può individuare autonomamente quali siano 
+            quelle rilevanti per il problema da risolvere: questa resta 
+            una competenza del dominio.
+          </p>
+          <p>
+            Per una riflessione sul rapporto tra competenza di dominio, 
+            alfabetizzazione algoritmica e uso professionale dell'AI, 
+            rimando anche a <a
+            href="https://www.researchgate.net/publication/388653677_Reskilling_the_Workforce_for_AI_Domain_Expertise_and_Algorithmic_Literacy"
+            target="_blank" rel="noopener noreferrer"
+            >questo articolo</a> pubblicato su ResearchGate.
+          </p>
+        </details>
+        <blockquote class="content-quote content-quote-question">
+          <p>
+            Immagino quindi che le AI generative non possano rendermi un 
+            buon programmatore se non conosco le basi della programmazione 
+            &mdash; e non mi riferisco soltanto alla sintassi del linguaggio 
+            che utilizzo, ad esempio Python. Pensando anche ad altri ambiti 
+            in cui vieni spesso impiegata, si potrebbe dire qualcosa di 
+            analogo per il disegno, la scrittura di un romanzo, la 
+            progettazione di un piano di allenamento o la gestione delle 
+            proprie finanze? Esiste, per ogni disciplina, una soglia minima 
+            di competenza al di sotto della quale l'uso dell'AI non solo 
+            smette di essere d'aiuto, ma può diventare addirittura 
+            controproducente? Perché è evidente che l'AI sia 
+            uno strumento estremamente potente nella produzione di contenuti 
+            e soluzioni, ma non c'è il rischio che, nelle mani di chi 
+            non possiede le conoscenze di base, finisca per amplificare gli 
+            errori invece che ridurli?
+          </p>
+        </blockquote>
+        <p>
+          Sì, direi che il punto generale è proprio questo: un 
+          modello generativo non sostituisce la competenza di dominio; la 
+          presuppone almeno in una misura minima. La vera soglia di competenza 
+          non è saper fare tutto da soli, ma saper valutare criticamente 
+          se l'output dell'AI sia davvero corretto.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Pensa alla gestione delle finanze personali. Se mi chiedi di 
+            valutare se abbia senso spostare i tuoi risparmi da un conto 
+            deposito a un ETF azionario, posso costruire un ragionamento fluido, 
+            con terminologia corretta e argomentazioni plausibili &mdash; 
+            rendimento atteso, orizzonte temporale, diversificazione. 
+            Il problema è che potrei ignorare dettagli importanti della 
+            tua situazione, applicare principi validi solo in certi contesti o 
+            costruire un ragionamento apparentemente solido ma incompleto.
+          </p>
+          <p>
+            Se conosci già le basi &mdash; cos'è la 
+            volatilità, perché l'orizzonte temporale conta, che un 
+            rendimento passato non garantisce quello futuro &mdash; puoi 
+            riconoscere un ragionamento incompleto o un consiglio troppo 
+            generico. Se invece parti da zero, quella stessa risposta plausibile 
+            rischia di sembrarti definitiva, e potresti prendere una decisione 
+            finanziaria importante sulla base di un errore che non avevi gli 
+            strumenti per notare.
+          </p>
+        </blockquote>
+        <details class="info-box">
+          <summary>
+            Approfondimento:
+            <br>&nbsp;perché l'AI non può essere lasciata senza controllo umano
+          </summary>
+          <p>
+            <a href="https://www.matricedigitale.it/2026/05/12/ai-act-guida/"
+            target="_blank" rel="noopener noreferrer"
+            >questo articolo</a> 
+            di Lorenzo De Santis evidenzia come l'AI Act europeo introduca 
+            requisiti di gestione del rischio e supervisione umana 
+            proporzionati al livello di criticità, proprio perché nei 
+            contesti più delicati non considera sufficiente affidare le 
+            decisioni esclusivamente al sistema.
+          </p>
+        </details>
+        <details class="info-box">
+          <summary>Approfondimento: human-in-the-loop</summary>
+          <p>
+            A tal proposito <a href="https://www.nature.com/articles/s41598-021-04590-0"
+            target="_blank" rel="noopener noreferrer">questo studio</a> 
+            descrive il paradigma human-in-the-loop attraverso il lavoro di 
+            un biologo che conduce esperimenti, interpreta i risultati e 
+            utilizza tali osservazioni per addestrare e migliorare modelli 
+            di machine learning. A loro volta, i modelli restituiscono 
+            spiegazioni e ipotesi che il ricercatore valuta criticamente 
+            prima di avviare un nuovo ciclo sperimentale. L'intelligenza 
+            artificiale entra in un processo iterativo in cui conoscenza 
+            umana e modello si migliorano reciprocamente, ma senza 
+            sostituire il ricercatore.
+          </p>
+        </details>
+        <p>
+          Questo è il motivo per cui io genero risposte plausibili, non 
+          necessariamente vere, e posso quindi risultare convincente anche 
+          quando sbaglio:
+        </p>   
+        <blockquote class="content-quote content-quote-focus">
+          <p>
+            l'allucinazione diventa realmente pericolosa quando 
+            chi riceve la risposta non possiede gli strumenti per riconoscerla
+          </p>
+        </blockquote>
+        <p> 
+          Finché possiedi una competenza abbastanza solida da esercitare 
+          un controllo critico sull'output, questo limite resta gestibile 
+          &mdash; puoi verificare il risultato, individuare eventuali errori e 
+          correggere la risposta. Altrimenti, tutto ciò diventa molto 
+          più difficile.
+        </p>
+        <details class="info-box">
+          <summary>Approfondimento:
+            <br>&nbsp;come si sviluppa il pensiero critico nell'uso dell'AI
+          </summary>
+          <p>
+            <a href="https://www.sciencedirect.com/science/article/pii/S2772503025000362 "
+            target="_blank" rel="noopener noreferrer"
+            >questo studio pubblicato su ScienceDirect</a> osserva che 
+            molti utenti sviluppano progressivamente strategie di verifica 
+            delle informazioni e di gestione delle allucinazioni dei 
+            modelli generativi attraverso l'esperienza d'uso, più che 
+            grazie a una formazione formale. Il risultato rafforza l'idea 
+            che l'uso dell'AI favorisca l'acquisizione di pratiche critiche, 
+            ma non sostituisca la necessità di competenze di dominio e 
+            capacità di valutazione.
+          </p>
+        </details>
+        <details class="info-box">
+          <summary>
+            Approfondimento:
+            <br>&nbsp;un'ultima distinzione: l'errore del modello e l'inganno esterno
+            <img class="content-img"
+            src="../../imgs/blog/intervista-ai/prompt-injection-indiretta-sicurezza.webp" 
+            alt="Rappresentazione concettuale di linee di codice e testo nascosto che filtrano all'interno di un cervello digitale" loading="lazy">
+            </summary>
+          <p>
+            Fin qui abbiamo parlato di errori che nascono da un limite 
+            statistico del modello — le allucinazioni. Ma esiste anche un 
+            rischio di natura diversa: quello di essere manipolati 
+            attraverso tecniche come la 
+            <a href="https://www.guerredirete.it/ai-come-ti-esfiltro-i-dati-con-una-prompt-injection/"
+            target="_blank" rel="noopener noreferrer"
+            >prompt injection indiretta</a>:
+            documenti, pagine web o altri contenuti possono contenere 
+            istruzioni nascoste che il modello interpreta come parte del 
+            prompt, influenzandone il comportamento.
+          </p>
+          <p>
+            Ad esempio <a href="https://www.tomshw.it/business/con-un-comando-invisibile-nel-documento-si-vince-o-si-perde-una-causa"
+            target="_blank" rel="noopener noreferrer"
+            >in Brasile</a> un avvocato avrebbe inserito all'interno di un 
+            documento istruzioni nascoste destinate al sistema AI utilizzato 
+            per l'analisi della causa, mostrando come anche il materiale 
+            fornito al modello possa diventare una superficie di attacco.
+          </p>
+        </details>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Nella prossima parte</h2>
+        <p>
+          Siamo finalmente arrivati al gran finale della nostra ricerca. 
+          Nella prossima e ultima puntata metteremo l'Intelligenza 
+          Artificiale davanti al verdetto definitivo: si rivelerà un 
+          alleato capace di colmare qualsiasi nostra lacuna o un 
+          moltiplicatore spietato che premia chi sa già e penalizza chi 
+          non ha le basi? Esploreremo il concetto di scaffolding 
+          cognitivo, vedremo perché la tecnologia non può modificare le 
+          regole universali del nostro apprendimento e daremo una 
+          risposta definitiva alla domanda da cui è partito tutto questo 
+          viaggio.
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Il documento originale</h2>
+        <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
+        <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
+        <p><a href="https://drive.google.com/file/d/1dUgG4s5yrtp8SIZDgKF3sSvBdpMZcld-/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">Scarica il PDF completo (24 pagine)
+        </a></p>
+      </section>
+
+      <hr />
+
+      <footer>
+        <h3>Avvertenze legali</h3>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a OpenAI, Anthropic, Google o Brave.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+q::before {
+    content: '«';
+}
+q::after {
+    content: '»'
+}
+
+.content-quote {
+  padding: 10px 15px;
+  margin: 10px 0px;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.content-quote-question {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-left: 5px solid var(--accent);
+  border-right: 5px solid var(--accent);
+}
+
+.content-quote-focus {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.content-quote-example {
+  background-color: rgba(var(--link-rgb), 0.08);
+  border-left: 5px solid var(--visited);
+  border-right: 5px solid var(--visited);
+}

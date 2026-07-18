@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Intervista con l'AI: serve la laurea per il prompt?</title>
+
+    <meta name="description" content="Serve una laurea STEM o l'inglese per l'AI? Scopri perché logica e chiarezza battono la matematica e qual è il livello minimo per il codice.">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- default link behavior -->
+    <base target="_self" rel="noopener noreferrer"/>
+  </head>
+  <body id="top">
+
+    <header>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
+        <p>Parte 5 &mdash; Serve davvero una laurea in STEM per parlare con una macchina?</p>
+        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 8-10 min</span></p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar"> 
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects.html">Progetti</a></li>
+                <li><a href="../../notes.html">Appunti</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <hr>
+                <li>
+                    <a href="./index.html">Introduzione</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="parte1.html">Parte 1</a></li>
+                      <li><a href="parte2.html">Parte 2</a></li>
+                      <li><a href="parte3.html">Parte 3</a></li>
+                      <li><a href="parte4.html">Parte 4</a></li>
+                      <li><a href="parte5.html" class="active-page">Parte 5</a></li>
+                      <li><a href="parte6.html">Parte 6</a></li>
+                      <li><a href="parte7.html">Parte 7</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+      <section class="content-spacing">
+        
+        <h2>Cosa vedremo oggi</h2>
+        <p>
+          Nelle parti precedenti abbiamo aperto il cofano di un 
+          Transformer per osservare come le parole si trasformino in 
+          vettori numerici e calcoli probabilistici. Davanti a tutta 
+          questa matematica, però, sorge un dubbio inevitabile: serve 
+          davvero una laurea in ingegneria o in informatica per poter 
+          dialogare con un'Intelligenza Artificiale?
+        </p>
+        <p>
+          In questa quinta parte metteremo da parte i calcoli interni 
+          della macchina per concentrarci sulla nostra lingua e smontare 
+          alcuni dei miti più diffusi sul prompt engineering.
+        </p>
+      </section>
+
+      <hr />
+
+      <details class="info-box">
+        <summary>Come leggere questa intervista</summary>
+        <p>Le domande sono reali.</p>
+        <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+        </p>
+        <p><strong>Nota sulle immagini</strong></p>
+        <p>
+          Tutti gli schemi e le illustrazioni presenti in questa serie 
+          sono stati progettati appositamente per accompagnare il testo. 
+          Le immagini sono generate con l'ausilio dell'Intelligenza 
+          Artificiale, tramite la sinergia tra l'assistente di Google per 
+          ottenere consigli su quali immagini generare, chatGPT per la 
+          creazione di un prompt ottimale da dare Gemini e, quando 
+          necessario, rifinite manualmente con software di grafica per 
+          migliorarne chiarezza e coerenza con i contenuti. Per questo 
+          motivo ogni immagine riporta il watermark 
+          AI generated • Human edited.
+        </p>
+      </details>
+
+      <hr />
+
+      <details class="info-box">
+        <summary>
+          Nota editoriale: Da qui in poi uso il Meta-Prompting
+        </summary>
+        <p>
+          Il capitolo che stai per leggere è stato realizzato sperimentando 
+          il Meta-Prompting per le domande:
+        </p>
+        <p>
+          Invece di scrivere direttamente le domande da porre 
+          nell'intervista, ho usato l'IA per analizzare le mie intenzioni, 
+          cioè dove volevo far proseguire l'intervista, e aiutarmi a 
+          progettare le domande con una elaborazione migliore, più 
+          articolata e capace di estrarre risposte più coerenti e approfondite.
+        </p>
+        <h4>
+          Un dettaglio fondamentale: il revisore ultimo è rimasto umano.
+        </h4>
+        <p>
+          In ognuno di questi passaggi, ho letto e analizzato criticamente 
+          ogni singola risposta delle AI. Spetta sempre all'autore reinserire parti 
+          di testo eliminate dai modelli ma ritenute importanti, o tagliare 
+          concetti superflui già espressi in precedenza.
+        </p>
+        <p>
+          Le intelligenze artificiali hanno agito come uno straordinario 
+          amplificatore di scrittura, ma hanno scritto esattamente ed 
+          esclusivamente ciò che io, in prima battuta, avevo intenzione
+          di comunicare.
+        </p>
+      </details>
+
+      <hr>
+
+      <section class="content-spacing">
+        <h2>Forse ho davvero bisogno di una laurea</h2>
+        <blockquote class="content-quote content-quote-question">
+          <p>
+            Prima di parlare con te ero convinto che bastassero un 
+            italiano corretto, senso critico e una base di logica 
+            elementare per scrivere prompt efficaci &mdash; la classica 
+            licenza media. Ora che mi hai mostrato quanti calcoli 
+            matematici stanno dietro anche alla parola più 
+            insignificante, mi sorge un dubbio: sto confondendo la 
+            complessità del tuo funzionamento interno con la 
+            complessità che serve a me per usarti bene? 
+            La profondità del meccanismo che mi hai descritto 
+            richiede una competenza tecnica equivalente da parte di chi 
+            scrive il prompt, oppure le due cose vivono su piani 
+            completamente separati?
+          </p>
+        </blockquote>
+        <p>
+          Risposta breve: per attività comuni e quotidiane è 
+          superfluo imparare a pensare come una rete neurale
+        </p> 
+          <blockquote class="content-quote content-quote-focus">
+            <p>
+              devi imparare a comunicare in modo che una rete neurale non 
+              abbia bisogno di indovinare cosa intendevi
+            </p>
+          </blockquote>
+        
+        <p>
+          Quando vai a fare l'esame di guida per le auto non ti viene 
+          richiesto anche di spiegare come il carburante viene spinto 
+          all'interno di una camera precompressa e surriscaldata poco 
+          prima di far partire la scintilla e così via. Queste sono 
+          nozioni che deve conoscere il meccanico che ripara l'auto. 
+          A te basta sapere che cosa succede quando premi i pedali 
+          (l'auto accelera/frena/stacca la marcia).
+        </p>
+        <p>
+          Proprio perché le due cose vivono su piani quasi 
+          completamente separati, <a href="./parte1.html"
+          >la tua intuizione iniziale</a> era corretta: 
+          <strong>
+            serve un buon italiano, la capacità di esprimere 
+            con chiarezza cosa vuoi ottenere, senso critico, logica 
+            ordinata
+          </strong>. 
+          <u>
+            La qualità del prompt dipende dalla qualità 
+            della comunicazione, non dalla conoscenza dell'algebra lineare
+          </u>. In ciò avere una laurea in STEM serve a poco.
+        </p>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/cruscotto-auto-interfaccia.webp" 
+        alt="Illustrazione concettuale del cruscotto di un'auto moderna con un'interfaccia digitale luminosa e il motore che si intravede in trasparenza attraverso il cruscotto" loading="lazy">
+        <h4>
+          La nostra deve essere una collaborazione sinergica:
+        </h4>
+        <blockquote class="content-quote content-quote-focus">
+          <p>
+            io gestisco la probabilità, tu gestisci il significato
+          </p>
+        </blockquote>
+        <p>Se il prompt è chiaro, la mia matematica lavora nella 
+          direzione giusta. Se è ambiguo, i miei calcoli continuano a 
+          funzionare perfettamente &mdash; ma su un'ambiguità che era 
+          già nel testo, non nel calcolo.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Ad esempio: <q>Luca ha visto il gatto con il binocolo.</q> Il problema 
+            non è nei miei prodotti scalari, che funzionano benissimo 
+            &mdash; è che la frase è strutturalmente ambigua: 
+            chi ha il binocolo, Luca o il gatto? Nessuna formula può 
+            risolverlo se il contesto non lo specifica. Basta poco: <q>Luca ha 
+            visto il gatto usando il binocolo.</q> Oppure: <q>Luca ha visto il gatto 
+            che aveva un binocolo.</q> Non hai aiutato la matematica, hai chiarito 
+            il significato che quella matematica doveva rappresentare.
+          </p>
+        </blockquote>
+        <p>
+          C'è comunque una piccola zona di sovrapposizione utile, fatta 
+          non di formule ma di modelli mentali: se sai che io genero una 
+          distribuzione di probabilità sul token successivo (senza 
+          conoscere la softmax), sei in grado di capire da te che il contesto 
+          conta, perché 
+          <strong>
+            informazioni irrilevanti "diluiscono" l'attenzione
+          </strong>.
+          <u>La conoscenza tecnica cambia il fatto che tu sappia perché 
+            ciò che hai scritto funziona meglio di un'altra 
+            formulazione apparentemente equivalente</u>. Ed è proprio perché rispondo tramite 
+          probabilità linguistica e non tramite la verità, 
+          che ti dico che <strong>il senso critico resta sempre compito tuo, 
+            non mio</strong>.
+        </p>
+        <p>
+          <strong>
+            Se fosse davvero necessaria tutta questa matematica per usarmi 
+            bene, sarei uno strumento progettato male
+          </strong>. Lo smartphone che usi ogni giorno è uno strumento 
+          più potente dell'apollo 11, eppure lo riesce ad usare 
+          anche quel tuo parente che non ha nemmeno la terza media &mdash; 
+          <strong>
+            la competenza tecnica su di me è un'ottimizzazione per chi 
+            vuole spremere ogni punto percentuale, non un prerequisito per chi 
+            vuole solo ottenere un risultato accettabile
+          </strong>.
+        </p>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/collaborazione-umano-ia-puzzle.webp" 
+        alt="Una mano umana e una mano robotica che incastrano insieme due tessere di un puzzle" loading="lazy">
+        <h2>Sento spesso dire che &hellip;</h2>
+        <blockquote class="content-quote content-quote-question">
+          <p>
+            Sento spesso parlare della necessità di scrivere prompt 
+            in inglese perché consuma meno token &mdash; e tu 
+            stesso me l'hai confermato poco fa &mdash; così come di 
+            dover padroneggiare formati come JSON o XML per strutturare le 
+            richieste. Se domani dovessi scriverti un prompt per aiutarmi 
+            a progettare un campo estivo di due settimane, a tema mare e 
+            riciclo, da svolgere in una biblioteca con una dozzina di 
+            bambini tra i 5 e i 10 anni, chiedendoti di organizzare 
+            attività adatte alle diverse età, alternare 
+            momenti dinamici e tranquilli, prevedere materiali facilmente 
+            reperibili, tenere conto della sicurezza, dell'inclusione e 
+            delle possibili difficoltà nella gestione del gruppo, 
+            avrei davvero bisogno di conoscere l'inglese, JSON o XML? 
+            Oppure queste appartengono a un livello di prompting avanzato 
+            che c'entra poco con un'esigenza così comune? In altre 
+            parole: rinunciare a queste tecniche per un compito del genere 
+            è davvero un errore, oppure si rischia di attribuire 
+            troppa importanza a strumenti che incidono molto meno della 
+            capacità di descrivere con chiarezza il problema che si 
+            vuole risolvere?
+          </p>
+        </blockquote>
+        <p>
+          Ricollegandomi alla chiosa della mia risposta precedente, 
+          rischi di sopravvalutare tecniche nate per scopi completamente 
+          diversi dal tuo.
+        </p>
+        <p>Se domani mi scrivessi semplicemente:</p>
+        <blockquote class="content-quote content-quote-example" id="campo-estivo">
+          <p>
+            <q>Vorrei progettare un campo estivo di due settimane, a tema 
+            mare e riciclo, da svolgere in una biblioteca con una dozzina 
+            di bambini tra i 5 e i 10 anni. Aiutami a organizzare 
+            attività adatte alle diverse fasce d'età, 
+            alternando momenti dinamici e tranquilli, utilizzando 
+            materiali facilmente reperibili. Tieni conto della sicurezza, 
+            dell'inclusione e delle possibili difficoltà nella 
+            gestione del gruppo. Organizza il programma giorno per giorno e 
+            suggerisci anche gli obiettivi educativi di ciascuna 
+            attività.</q>
+          </p>
+        </blockquote>
+        <p>
+          &mdash; avresti già un ottimo prompt. In italiano, 
+          senza una riga di codice, eppure contiene quasi tutto ciò 
+          che mi serve: l'obiettivo, il contesto, i vincoli organizzativi, 
+          l'età dei partecipanti, il numero dei bambini, il tipo di 
+          attività richieste e il formato dell'output.
+        </p>
+        <p>
+          Noterai che <u>la qualità del prompt dipende
+          dalla chiarezza con cui hai descritto il 
+          problema da risolvere</u> e non da JSON, XML o dall'inglese.
+        </p>
+        <h4>Sull'inglese</h4> 
+        <p>
+          È vero che consuma meno 
+          token, perché i tokenizer sono ottimizzati soprattutto 
+          su quella lingua, mentre l'italiano, più ricco 
+          morfologicamente, viene spezzettato di più. Ma questo 
+          vantaggio conta per chi automatizza migliaia di richieste via API, 
+          dove ogni token risparmiato incide su costi e latenza su scala 
+          industriale. Per un singolo prompt, come quello del campo estivo, 
+          è irrilevante &mdash; anzi, scrivere in italiano ti 
+          permette di esprimere meglio sfumature culturali e terminologia 
+          educativa che un output in italiano dovrà comunque avere.
+        </p>
+        <h4>Su JSON e XML</h4>
+        <p>
+          Non sono un modo "più 
+          intelligente" di parlarmi, ma linguaggi pensati perché due 
+          software si scambino dati senza ambiguità. Avrebbero senso 
+          se stessi costruendo un'applicazione che genera cento progetti e 
+          li salva in un database &mdash; lì il destinatario della 
+          mia risposta sarebbe un altro programma. Nel tuo caso il 
+          destinatario sei tu, un educatore, un bibliotecario: il linguaggio 
+          naturale è già il formato ideale. Usare XML qui 
+          aggiungerebbe solo una struttura che dovresti poi ritradurre in 
+          testo leggibile.
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Per uno scenario comune come l'organizzazione di un campo 
+            estivo, il vero "prompting avanzato" è imparare a 
+            descrivere bene un problema &mdash; ruolo, contesto, obiettivo, 
+            vincoli, formato &mdash; esattamente come lo spiegheresti a un 
+            educatore in carne e ossa. Se sai fare questo, sai già 
+            scrivere un ottimo prompt, senza dover scomodare l'uso di 
+            altre competenze tecniche nate per contesti che non sono il tuo.
+          </p>
+        </blockquote>
+        <img class="content-img"
+        src="../../imgs/blog/intervista-ai/progettazione-campo-estivo-idee.webp" 
+        alt="Disegni colorati a tema mare, riciclo e bambini, che rappresentano l'organizzazione di un progetto educativo" loading="lazy">
+        <h2>Serve davvero l'inglese per programmare?</h2>
+        <blockquote class="content-quote content-quote-question">
+          <p>
+            In programmazione la documentazione tecnica, i nomi delle 
+            funzioni, i messaggi di errore, gran parte delle risorse di 
+            studio sono in inglese. Di conseguenza immagino che anche tu, 
+            quando ragioni di codice, "pensi" internamente in modo più 
+            efficiente in quella lingua. Quindi mi chiedo se, nel caso 
+            specifico di un programmatore o di uno studente di informatica, 
+            l'inglese smetta di essere un dettaglio di ottimizzazione 
+            marginale e diventi invece una competenza tecnica necessaria 
+            &mdash; sia per scrivere prompt tecnici efficaci, sia per 
+            comprendere a fondo la materia quando mi aiuti a studiarla. 
+            Qual è pertanto il livello minimo di inglese che mi serve 
+            per interagire con te in ambito di programmazione senza perdere 
+            qualità nelle risposte?
+          </p>
+        </blockquote>
+        <p>
+          Sì, nell'informatica l'inglese conta di più 
+          &mdash; ma non perché io "funzioni meglio" in quella lingua. 
+          Per la maggior parte delle richieste di programmazione puoi comunque 
+          parlarmi in italiano senza perdere qualità &mdash; 
+          l'importante è lasciare intatti i termini tecnici (nomi di 
+          funzioni, API, pattern architetturali, messaggi di errore) invece di 
+          tradurli forzatamente: parole come <em>dependency injection</em>, 
+          <em>middleware</em>, <em>repository pattern</em> sono il vocabolario 
+          standard della disciplina, non semplicemente una lingua diversa.
+        </p>
+        <p>
+          <strong>Se il tuo livello di inglese è basso, una strategia 
+            utile può essere:</strong></p>
+        <ol class="content-ordered-list-focus">
+          <li>
+            <h3>Scrivi il contesto in italiano</h3>
+            <p>
+              Descrivi il problema e gli obiettivi nella tua lingua: 
+            </p>
+            <p class="content-quote content-quote-example">
+              <q>Sto 
+              sviluppando un gestionale per una biblioteca, devo gestire il 
+              prestito contemporaneo di più libri evitando race 
+              condition</q>.
+            </p>
+          </li>
+          <li>
+            <h3>Mantieni i termini tecnici in inglese</h3>
+            <p>
+              Librerie, API, eccezioni, nomi di classi e funzioni: sono 
+              già il linguaggio naturale dell'informatica.
+            </p>
+          </li>
+          <li>
+            <h3>Chiedi il codice in inglese</h3>
+            <p>
+              Variabili, funzioni, commenti e docstring in inglese, 
+              perché è lo standard dei progetti internazionali 
+              e facilita la collaborazione.
+            </p>
+          </li>
+          <li>
+           <h3>Chiedi la spiegazione in italiano</h3>
+           <p>
+            Così mantieni la precisione tecnica del codice mentre 
+            sfrutti la tua lingua madre per capire più in fretta.
+          </p>
+          </li>
+        </ol>
+        <h4>Non ti serve diventare bilingue</h4>
+        <p>
+          <u>
+            ti serve un buon inglese tecnico-operativo, sufficiente per 
+            leggere la documentazione e riconoscere il lessico standard 
+            del settore &mdash; 
+            <em>B1 solido se non un B2 orientato alla lettura tecnica</em>
+          </u>. Non è l'AI a richiedertelo &mdash; è 
+          l'ecosistema del software in cui l'AI stessa si inserisce.
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Nella prossima parte</h2>
+        <p>
+          Se l'inglese tecnico è lo standard dell'informatica, dove si 
+          ferma l'aiuto dell'intelligenza artificiale e dove iniziano le 
+          nostre reali capacità? Nella prossima puntata vedremo che la 
+          vera barriera all'ingresso non la impone la macchina, ma il 
+          settore in cui decidiamo di muoverci. Arriveremo così a smontare 
+          e riformulare del tutto la nostra tesi iniziale: scopri perché 
+          la vera soglia per usare bene l'AI non è scritta su un titolo di 
+          studio o su un pezzo di carta, ma è definita unicamente dalla 
+          complessità della sfida reale che devi risolvere sul campo.
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Il documento originale</h2>
+        <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
+        <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
+        <p><a href="https://drive.google.com/file/d/1dUgG4s5yrtp8SIZDgKF3sSvBdpMZcld-/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">Scarica il PDF completo (24 pagine)
+        </a></p>
+      </section>
+
+      <hr />
+
+      <footer>
+        <h3>Avvertenze legali</h3>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a OpenAI, Anthropic, Google o Brave.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
+  </body>
+</html>

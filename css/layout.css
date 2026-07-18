@@ -7,17 +7,21 @@ main {
   box-sizing: border-box;
 }
 
-header, footer, section, article, .container {
-    background-color: var(--bg-color);
-    line-height: 1.6;
-    border-radius: 10px;
+header,
+footer,
+section,
+article,
+.container {
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  border-radius: 10px;
 }
 
-.introduction,
+.toc-section,
 #projects-preview,
 #notes-preview {
-    padding: 5px 20px;
-    margin: 5px 0px;
+  padding: 5px 20px;
+  margin: 5px 0px;
 }
 
 .container * {
@@ -43,9 +47,9 @@ header, footer, section, article, .container {
 .container:last-child,
 .container section:last-child,
 .container article:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .container section h3 {
@@ -79,13 +83,4 @@ header, footer, section, article, .container {
   height: auto;
   display: block;
   margin: 0 0 1rem 0;
-}
-.brick-list li {
-  padding: 5px;
-  margin: 5px;
-  display: inline-block; 
-  box-sizing: border-box;  /* padding does not add to the total width */
-  border-radius: 12px;
-  background-color: var(--accent-dark);
-  color: white;
 }

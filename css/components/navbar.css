@@ -36,8 +36,14 @@
   font-weight: 600;
 }
 
+#sidebar #github-link,
+#sidebar #github-link:link,
+#sidebar #github-link:visited {
+    color: var(--accent-dark);
+}
+
 #sidebar ul li a:hover,
-#github-link:hover {
+#sidebar #github-link:hover {
   color: white;
   background: linear-gradient(
         to right,
@@ -53,4 +59,11 @@
 .menu-toggle,
 .menu-close {
   display: none; /* Hide the checkbox */
+}
+
+#sidebar .sub-nav-links {
+    padding-left: 1rem;
+}
+#sidebar .active-page {
+    background: linear-gradient( to right, transparent, var(--accent), transparent );
 }

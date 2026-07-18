@@ -1,0 +1,44 @@
+/* main box */
+details.info-box {
+    background-color: var(--bg-color);
+    border: 2px solid var(--accent-dark);
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    padding: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden; 
+}
+
+details.info-box:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(190, 78, 13, 0.2);
+}
+
+/* clickable title */
+details.info-box summary {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;          /* hand pointer */
+    transition: background-color 0.2s ease;
+    user-select: none;
+    outline: none;
+}
+
+details.info-box summary:hover {
+    background-color: var(--accent-light-gold);
+}
+
+details.info-box > :not(summary) {
+    padding: 15px 20px;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #111;
+    background-color: rgba(255, 255, 255, 0.2); /* add a light overlay of white */
+}
+
+details.info-box summary + * {
+    border-top: 1px solid var(--accent-light-gold); /* separator */
+}

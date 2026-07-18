@@ -1,10 +1,31 @@
 :root {
-    --bg-color: #f8d490;
-    --accent: #ffb056;
+    --bg-color: rgb(248, 212, 144);
+    --bg-color-rgb: 248,212,144;
+
+    --accent: rgb(255,176,86);
+    --accent-rgb: 255,176,86;
+
     --accent-light-gold: rgb(252, 189, 107);
+    --accent-light-gold-rgb: 252,189,107;
+
     --accent-gold: rgb(247, 140, 0);
+    --accent-gold-rgb: 247,140,0;
+
     --accent-dark: rgb(190,78,13);
-    --link: #00695c;
+    --accent-dark-rgb: 190,78,13;
+
+    --accent-darkest: rgb(154, 71, 12);
+    --accent-darkest-rgb: 154,71,12;
+    
+    --link: rgb(0, 105, 92);
+    --link-rgb: 0, 105, 92;
+
+    --link-dark: rgb(2, 56, 48);
+    --link-dark-rgb: 2, 56, 48;
+
     --link-peculiar: rgb(187, 44, 0);
-    --visited: #682e2a;
+    --link-peculiar-rgb: 187,44,0;
+    
+    --visited: rgb(104, 46, 42);
+    --visited-rgb: 104,46,42;
 }

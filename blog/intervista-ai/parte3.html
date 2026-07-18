@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Intervista con l'AI: Come Scrivere Prompt Chiari e Efficaci</title>
+
+    <meta name="description" content="Guida pratica al prompt engineering. Scopri come usare Few-Shot, Chain of Thought e Meta Prompting per ottenere risposte migliori dalle AI senza errori.">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- default link behavior -->
+    <base target="_self" rel="noopener noreferrer"/>
+  </head>
+  <body id="top">
+
+    <header>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
+        <p>Parte 3 &mdash; Il prompt perfetto non esiste. Quello chiaro sì. (Guida pratica)</p>
+        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 13 min</span></p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar"> 
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects.html">Progetti</a></li>
+                <li><a href="../../notes.html">Appunti</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <hr>
+                <li>
+                    <a href="./index.html">Introduzione</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="parte1.html">Parte 1</a></li>
+                      <li><a href="parte2.html">Parte 2</a></li>
+                      <li><a href="parte3.html" class="active-page">Parte 3</a></li>
+                      <li><a href="parte4.html">Parte 4</a></li>
+                      <li><a href="parte5.html">Parte 5</a></li>
+                      <li><a href="parte6.html">Parte 6</a></li>
+                      <li><a href="parte7.html">Parte 7</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+      <section class="content-spacing">
+        
+        <h2>Cosa vedremo oggi</h2>
+        <p>
+          Nella parte precedente abbiamo iniziato a chiedere 
+          all'Intelligenza Artificiale come interpreta le nostre domande. 
+          La risposta, però, non si esaurisce con il funzionamento interno 
+          di un modello linguistico: prosegue ora sul piano pratico. 
+          Vedremo quali tecniche di prompt engineering funzionano davvero, 
+          quali errori sono più comuni e perché, nella maggior parte dei 
+          casi, la chiarezza vale più di qualsiasi formula "magica".
+        </p>
+      </section>
+
+      <hr />
+
+      <details class="info-box">
+        <summary>Come leggere questa intervista</summary>
+        <p>Le domande sono reali.</p>
+        <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+        </p>
+        <p><strong>Nota sulle immagini</strong></p>
+        <p>
+          Tutti gli schemi e le illustrazioni presenti in questa serie 
+          sono stati progettati appositamente per accompagnare il testo. 
+          Le immagini sono generate con l'ausilio dell'Intelligenza 
+          Artificiale, tramite la sinergia tra l'assistente di Google per 
+          ottenere consigli su quali immagini generare, chatGPT per la 
+          creazione di un prompt ottimale da dare Gemini e, quando 
+          necessario, rifinite manualmente con software di grafica per 
+          migliorarne chiarezza e coerenza con i contenuti. Per questo 
+          motivo ogni immagine riporta il watermark 
+          AI generated • Human edited.
+        </p>
+      </details>
+
+      <hr>
+
+      <section class="content-spacing">
+        <details class="info-box">
+          <summary>Nota editoriale</summary>
+          <p>
+            Questa è una risposta a una domanda che è stata suddivisa in due articoli 
+            per facilitarne la lettura. Se non hai letto la parte precedente, 
+            ti consiglio di iniziare da 
+            <a href="parte2.html"
+            >Parte 2 &mdash; Dietro lo schermo: come un LLM interpreta le tue domande</a>.
+          </p>
+        </details>
+        <h2>Cosa funziona davvero</h2>
+        <p>
+          Quello che segue è solo una breve infarinatura di quello 
+          che è utile nella preparazione di un prompt adeguato e 
+          come sempre, oltre la teoria data da qualche articolo che puoi 
+          trovare online, la pratica è poi ciò che consolida 
+          al meglio i concetti appresi. Inoltre queste sono pratiche che 
+          potrebbero diventare obsolete fra qualche anno, con 
+          l'evoluzione dei modelli.
+        </p>
+        <blockquote class="content-quote content-quote-focus">
+          <p>Rimanere aggiornato è molto importante in questo ambito</p>
+        </blockquote>
+        <img class="content-img"
+          src="../../imgs/blog/intervista-ai/confronto-prompt-vago-efficace-split-screen.webp" 
+          alt="Infografica comparativa split-screen: a sinistra l'esempio di un prompt vago errato e a destra la struttura di un prompt efficace ottimizzato" 
+          title="Confronto pratico: Prompt Vago vs Prompt Efficace"
+          loading="lazy"
+        >
+        <h3 class="topic-heading">
+          Essere specifico sul contesto e sull'obiettivo finale. Specificare 
+          formato e vincoli.
+        </h3>
+        <p>
+          Lunghezza, struttura, cosa includere/escludere, il formato di 
+          output desiderato (md, json, xml, txt, &hellip; ). Se non lo dici, 
+          scelgo io, e potrei sbagliare la tua intenzione.
+        </p>
+        <blockquote class="content-quote content-quote-focus">
+          <p>Più contesto = meno mie supposizioni</p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <h4>Cosa NON fare (Prompt Vago):</h4>
+          <p><q>Dammi una ricetta per cena con il pollo.</q></p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <h4>Cosa fare (Prompt Efficace):</h4>
+          <p><q>Suggeriscimi una ricetta svuota-frigo per una persona. Ho solo 
+            petto di pollo, zucchine e della feta. Ho poco tempo, quindi la 
+            preparazione deve richiedere meno di 20 minuti e una sola padella. 
+            Escludi ricette che richiedono l'uso del forno.</q></p>
+        </blockquote>
+        <h3>
+          <span class="topic-heading">Dare esempi</span>
+          <br><a href="https://www.ibm.com/it-it/think/topics/few-shot-prompting"
+            target="_blank" rel="noopener noreferrer">
+            Few-Shot Prompting
+          </a>
+        </h3>
+        <p>
+          Se vuoi un certo stile o formato, mostrami un esempio concreto. 
+          Imparo molto più velocemente da un esempio che dà una 
+          descrizione astratta. Meglio se poi gli esempi sono due o tre, nei 
+          quali mi mostri l'input e l'output desiderato. 
+          Gli esempi attivano pattern specifici nei miei parametri, 
+          mostrandomi esattamente lo stile, il formato e la logica che devo 
+          imitare. Ti mostro un esempio:
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            Esempio 1:
+            <br />Input: <q>Il cliente è arrabbiato per il ritardo.</q>
+            <br />Output: <q>Ci scusiamo sinceramente per l'attesa. 
+            Stiamo verificando subito la spedizione.</q>
+          </p>
+          <p>
+            Esempio 2:
+            <br />Input: <q>Il prodotto è arrivato rotto.</q>
+            <br />Output: <q>Siamo spiacenti per il danno. Procediamo 
+            immediatamente con la sostituzione gratuita.</q>
+          </p>
+          <p>Task:
+            <br />Input: <q>Ho ricevuto l'oggetto sbagliato.</q>
+            <br />Output:
+          </p>
+        </blockquote>
+        <img class="content-img"
+          src="../../imgs/blog/intervista-ai/schema-few-shot-prompting-input-output.webp" 
+          alt="Diagramma a blocchi del Few-Shot Prompting: struttura del flusso di esempi input e output per istruire l'intelligenza artificiale" 
+          title="Struttura logica del Few-Shot Prompting"
+          loading="lazy"
+        >
+        <h3>
+          <span class="topic-heading">
+            Chiedere ragionamento esplicito per problemi complessi
+          </span>
+          <br>
+          <a href="https://www.ibm.com/it-it/think/topics/chain-of-thoughts" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            Chain of Thought (CoT)
+          </a>
+        </h3>
+        <p>
+          Per problemi logici, matematici o complessi, non chiedere solo la 
+          risposta. Chiedimi di utilizzare un approccio a tappe con frasi del 
+          tipo 
+          <blockquote class="content-quote content-quote-example">
+            <q>ragiona passo passo</q>
+          </blockquote> 
+          oppure 
+          <blockquote class="content-quote content-quote-example">
+            <q>prima elenca i pro e contro, poi concludi</q>
+          </blockquote>
+          così da costringermi a generare token intermedi 
+          che fungono da "contesto aggiuntivo" per i passaggi successivi, 
+          riducendo gli errori di calcolo logico.
+        </p>
+        <p>
+          Questo porta con sé il vantaggio di non dover utilizzare 
+          esempi durante la richiesta (<a
+          href="https://www.ibm.com/it-it/think/topics/zero-shot-prompting" 
+          target="_blank" 
+          rel="noopener noreferrer">
+          Zero-Shot</a> CoT), sebbene questo poi 
+          risulti meno prestante nei risultati ottenuti rispetto all'uso 
+          di almeno un esempio (<a
+          href="https://www.architjn.com/blog/chain-of-thought-few-shot-prompting-technique" 
+          target="_blank" 
+          rel="noopener noreferrer">Few-Shot CoT</a>).
+        </p>
+        <img class="content-img"
+          src="../../imgs/blog/intervista-ai/confronto-ragionamento-chain-of-thought-ai.webp" 
+          alt="Confronto grafico tra risposta diretta errata e ragionamento passo dopo passo con Chain of Thought nei modelli linguistici" 
+          title="Funzionamento della Chain of Thought (CoT)"
+          loading="lazy"
+        >
+        <h3 class="topic-heading">Iterare invece di aspettarsi la perfezione al primo colpo.</h3>
+        <p>
+          Non parlarmi come se fossi Google. Rivolgiti a me piuttosto come a 
+          un collaboratore:
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <h4>dammi un primo output</h4>
+          <p>
+            dopo avermi chiesto una bozza di risposta, darmi alcuni pareri 
+            per migliorare il risultato, come <q>questo punto [&hellip;] 
+            non lo ritengo coerente con la richiesta che ti ho fatto</q> 
+            oppure <q>ottimo, non avevo pensato a questo aspetto, dimmi di 
+            più</q>.
+          </p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <h4>correggimi</h4>
+          <p>
+            <q>troppo lungo</q>, <q>tono più informale</q>, <q>manca X</q>.
+          </p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <h4>chiedimi un parere</h4>
+          <p>
+            <q>sto pensando Y</q>, <q>secondo te 
+            c'è qualcosa che non vedo?</q>;
+          </p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <h4>chiedimi una critica</h4>
+          <p>
+            invece di <q>dimmi se va bene</q>, usa <q>Smonta 
+            completamente questa idea</q>, <q>Trova tutti i punti 
+            deboli</q>. Questo riduce il rischio che io mi limiti a 
+            confermare le tue ipotesi.
+          </p>
+        </blockquote>
+        <h3 class="topic-heading">Role playing &mdash; Giocare di ruolo</h3>
+        <p>
+          Per aiutarmi a dare maggiore contesto e prospettiva sulle tue 
+          intenzioni, è decisamente di aiuto dirmi di interpretare un ruolo specifico con frasi 
+          del tipo:
+        </p>
+        <blockquote class="content-quote content-quote-example">
+          <p><q>Rispondi come un CTO</q></p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            <q>Sei in mio professore di Scienze delle costruzioni presso 
+            Ingegneria Industriale</q>
+          </p>
+        </blockquote>
+        <blockquote class="content-quote content-quote-example">
+          <p>
+            <q>Io sono un avvocato che deve difendere un cliente per 
+            un'accusa di furto con scasso e tu sei la pubblica accusa</q>
+          </p>
+        </blockquote>
+        <p>
+          Con queste richieste io non effettuo un cambio di identità, 
+          però mi aiuti a dare il giusto peso alle parole che dovrei 
+          usare, il che generalmente si traduce in una maggiore efficienza 
+          nel consumo dei token.
+        </p>
+        <h3 class="topic-heading">Duplicazione dell'input</h3>
+        <p>
+          Una tecnica emergente (<a
+            href="https://datasciocean.com/en/paper-intro/prompt-repetition/"
+            target="_blank"
+            rel="noopener noreferrer">Free Lunch</a>) confermata da <a
+              href="https://arxiv.org/abs/2512.14982"
+              target="_blank"
+              rel="noopener noreferrer"
+            >ricerche recenti</a>
+          (Google Research, fine 2025) suggerisce di <a
+            href="https://arxiv.org/abs/2309.06275"
+            target="_blank"
+            rel="noopener noreferrer"
+          >ripetere l'input o la richiesta due volte nel prompt</a>. 
+          Ciò migliora le prestazioni 
+          dei modelli non-reasoning aumentando il "peso" dell'istruzione nel 
+          contesto di attenzione, senza aumentare i tempi di risposta.
+        </p>
+        <p>
+          I modelli LLM moderni sono "decoder-only" e usano una maschera 
+          causale (vedono solo il passato). Ripetendo il prompt, i token 
+          nella seconda copia possono "vedere" e fare attenzione a tutti i 
+          token della prima copia. Questo permette al modello di creare 
+          rappresentazioni (chiave/valore) molto più ricche e 
+          consapevoli del contesto completo. E poiché la ripetizione 
+          avviene nella fase di precaricamento (elaborazione dell'input), 
+          che è altamente parallelizzabile sulla GPU, il tempo di 
+          risposta non aumenta in modo percepibile, a differenza di tecniche 
+          come il Chain-of-Thought che richiedono generazione di token 
+          aggiuntivi.
+        </p>
+        <img class="content-img"
+          src="../../imgs/blog/intervista-ai/funzionamento-duplicazione-input-modelli-decoder-only.webp" 
+          alt="Illustrazione tecnica della maschera causale in un modello LLM decoder-only con la tecnica della duplicazione dell'input" 
+          title="Maschera causale e duplicazione dell'input negli LLM"
+          loading="lazy"
+        >
+        <details class="info-box" open>
+          <summary>Nota editoriale</summary>
+          <p>
+            Fino a questo punto abbiamo visto tecniche che migliorano direttamente 
+            il prompt. Esiste però un approccio diverso: chiedere all'AI di 
+            aiutarti a costruire il prompt stesso.
+          </p>
+        </details>
+        <h3>
+          <span class="topic-heading">
+            Chiedermi di generare un prompt efficace
+          </span> 
+          <br><a href="https://arxiv.org/abs/2312.06562" target="_blank" rel="noopener noreferrer"
+          >Meta-Prompting</a> (fonte in preprint)
+        </h3>
+        <p>
+          Questa è una pratica molto efficace, ma solo se usata con 
+          coscienziosa cautela.
+        </p>
+        <p>In sintesi:</p>
+        <blockquote class="content-quote content-quote-focus">
+          <a
+          href="https://medium.com/design-bootcamp/the-intent-pipeline-why-most-prompt-guides-miss-how-people-actually-use-ai-861042c634d3"
+          target="_blank" rel="noopener noreferrer"
+          >Usi l'AI come un ottimizzatore tecnico della tua idea, 
+          ma senza delegare tutto quanto</a>
+        </blockquote>
+        <p>
+          Pensa a questo processo come a una collaborazione in due step:
+        </p>
+        <ol class="content-ordered-list-focus">
+          <li>
+            <h4>Tu fornisci la "materia prima"</h4>
+            <p>
+              Spieghi all'AI cosa vuoi ottenere, il contesto e l'obiettivo 
+              finale con le tue parole. Nessuno conosce il tuo scopo meglio 
+              di te.
+            </p>
+          </li>
+          <li>
+            <h4>L'IA fa l' "ingegnere"</h4>
+            <p>
+              Chiedile di trasformare la tua idea in un prompt tecnicamente 
+              perfetto. L'AI sa applicare formattazioni complesse (come tag XML o 
+              schemi JSON) e tecniche avanzate che riducono errori e token sprecati, 
+              cose che spesso gli umani trascurano.
+            </p>
+          </li>
+        </ol>
+        <p>Ad esempio:</p>
+        <blockquote class="content-quote content-quote-example">
+          <h4>Passo 1 &mdash; la materia prima che tu fornisci</h4>
+          <p>
+            <q>Devo scrivere un prompt per farmi generare un piano di allenamento. 
+            Sono un principiante, ho solo manubri a casa, posso allenarmi tre 
+            volte a settimana per 40 minuti. Voglio che il prompt sia ben 
+            strutturato, magari con ruolo e vincoli separati, ma non so bene 
+            come organizzarlo. Puoi scrivermelo tu?</q>
+          </p>
+          <h4>
+            Passo 2 &mdash; l'AI restituisce il prompt ottimizzato, 
+            non la risposta finale
+          </h4>
+          <p>
+            <q>Agisci come un personal trainer certificato specializzato in 
+            allenamento a corpo libero e con manubri per principianti.
+            <br />Contesto: sto iniziando da zero, non ho esperienza pregressa 
+            di allenamento strutturato.
+            <br />Vincoli: dispongo solo di un paio di manubri regolabili, 
+            posso allenarmi 3 volte a settimana, ogni sessione deve durare 
+            massimo 40 minuti inclusi riscaldamento e defaticamento.
+            <br />Obiettivo: costruire una routine progressiva di 4 settimane 
+            che sviluppi forza generale in sicurezza, evitando sovraccarichi.
+            <br />Formato: organizza la risposta settimana per settimana, con 
+            esercizi, serie, ripetizioni e tempo di recupero indicati per 
+            ciascun giorno.</q>
+          </p>
+        </blockquote>
+        <h4>Nota cosa è successo</h4>
+        <p>
+          Tu hai fornito lo scopo reale (principiante, attrezzatura limitata, 
+          tempo disponibile), e l'AI ha tradotto quello scopo in una struttura 
+          tecnica &mdash; ruolo, contesto, vincoli, obiettivo, formato &mdash; 
+          che tu stesso, nella richiesta grezza, avevi solo abbozzato senza 
+          organizzarla. Il vantaggio non è che l'AI "sappia meglio di 
+          te" cosa vuoi: è che sa vestire la tua intenzione con la 
+          struttura che, come abbiamo visto, produce risposte più 
+          precise.
+        </p>
+          <h4>Il rischio da evitare è delegare tutto</h4>
+        <blockquote class="content-quote content-quote-example">
+          Se chiedi semplicemente <q>Scrivi un prompt per un allenamento</q> senza 
+          dare contesto, l'AI potrebbe indovinare male il tuo obiettivo reale, 
+          creando una struttura perfetta per una richiesta sbagliata.
+        </blockquote>
+        <h2>Errori comuni da evitare</h2>
+        <p>In sostanza:</p>
+        <blockquote class="content-quote content-quote-focus">
+          ignorare tutto quello che ti ho detto fino ad ora posso definirlo 
+          un errore banale
+        </blockquote>
+        <h3>
+          Domande troppo vaghe seguite da frustrazione per una 
+          risposta generica
+        </h3>
+        <p>
+          Se chiedi <q>dammi consigli di marketing</q>, riceverai qualcosa di 
+          generico perché non so nulla del tuo prodotto, mercato, 
+          budget.
+        </p>
+        <h3>Trattarmi come fossi Google</h3>
+        <p>
+          Scrivere solo parole chiave invece di una richiesta strutturata. 
+          Molti credono che essere sintetici sia sempre meglio, ma non 
+          è così.
+        </p>
+        <h3>
+          Non correggermi quando sbaglio strada &mdash; Credere che io 
+          abbia sempre capito
+        </h3>
+        <p>
+          Se il primo tentativo non va, dirmi <em>esattamente</em> cosa non 
+          va è molto più efficace che riformulare tutto da 
+          capo in modo vago. Insomma, trattare il prompt come un ordine 
+          unico invece che come una conversazione.
+        </p>
+        <p>
+          Molti utenti mi dicono <q>Scrivi un articolo</q>, 
+          <br />poi <q>No. Più professionale</q>, 
+          <br />poi <q>No. 
+          Più corto</q>, 
+          <br />&hellip; <q>No. &hellip; </q> &hellip; 
+        </p>
+        <p>
+          Molto meglio dire subito <br /><q>Voglio un articolo di 1200 
+          parole, tono divulgativo, destinato a imprenditori con poca 
+          esperienza tecnica.</q> <br />e poi pormi dei pareri su quali parti 
+          migliorare come <br /><q>qui [&hellip;] l'esposizione 
+          è carente nel considerare le evidenze X e Y &hellip; </q>
+        </p>
+        <h3>
+          Aspettarsi che io "ricordi" conversazioni passate o 
+          ciò che mi hai detto 40 prompt prima.
+        </h3>
+        <p>
+          A meno che tra le mie impostazioni ci sia la possibilità 
+          di archiviare le conversazioni e che sia per altro attivata, 
+          ogni chat nuova parte da zero; e comunque ti ricordo che la mia 
+          finestra di attenzione è limitata.
+        </p>
+        <h3>Ignorare le allucinazioni</h3>
+        <p>
+          Fidarsi ciecamente su fatti specifici e verificabili 
+          (date, statistiche, citazioni esatte, eventi recenti) 
+          senza controllo incrociato &mdash; specialmente se non ho 
+          cercato sul web.
+        </p>
+        <h3>Sovraccaricare una singola richiesta con troppi compiti 
+          scollegati
+        </h3>
+        <p>
+          Meglio spezzare in più passaggi, soprattutto per 
+          richieste/compiti complessi.
+        </p>
+        <h3>Non specificare il formato</h3>
+        <p>
+          Se non indichi come vuoi la risposta (tabella, lista, codice 
+          JSON, paragrafo), otterrai un muro di testo generico.
+        </p>
+        <h3>Chiedermi opinioni personali</h3>
+        <p>
+          Domandarmi cosa "penso" o cosa "provo", costringendomi a 
+          generare risposte artificiali.
+        </p>
+        <h3>Omettere informazioni</h3>
+        <p>
+          Se mi chiedi di prepararti un viaggio, mi aspetto almeno di 
+          sapere quando, dove, il tuo tetto di spesa, per quante persone, 
+          &hellip;
+        </p>
+        <h3>Effettuare richieste contraddittorie</h3>
+        <p>
+          Non puoi chiedermi un testo di fisica quantistica altamente 
+          tecnico e che allo stesso tempo sia comprensibile da un bambino 
+          di otto anni. Se non conosci una materia, sarò 
+          disponibile a introdurti con la dovuta gradualità, 
+          ma ci sarà un compromesso da concordare.
+        </p>
+        <h3>Domande con presupposti errati</h3>
+        <p>
+          <q>Perché il Sole gira intorno alla Terra?</q> 
+          &mdash; Come puoi vedere, qui c'è un grosso 
+          problema alla base della richiesta.
+        </p>
+        <h2>Voglio darti un consiglio</h2>
+        <blockquote class="content-quote content-quote-example">
+        <p>
+          Invece di chiedermi <q>Dammi la risposta.</q>
+        </p>
+        <p>
+          <strong>Chiedimi</strong> <q>Quali informazioni ti servono per darmi una 
+          risposta di livello eccellente?</q>
+        </p>
+        </blockquote>
+        <p>
+          A quel punto sarò 
+          io a intervistare te. È spesso il modo più 
+          efficace di collaborare, perché evita di partire da 
+          ipotesi sbagliate.
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Nella prossima parte</h2>
+        <p>
+          Fino a questo punto abbiamo parlato soprattutto di come usare un 
+          modello linguistico. Nella prossima parte proveremo invece ad 
+          aprirne il cofano. Vedremo cosa sono davvero token, embeddings e 
+          Transformer, ma senza formule matematiche: l'obiettivo non è 
+          diventare ingegneri dell'AI, bensì capire perché questi concetti 
+          aiutano a interpretarne meglio il comportamento.
+        </p>
+      </section>
+
+         <hr />
+
+      <section class="content-spacing">
+        <h2>Il documento originale</h2>
+        <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
+        <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
+        <p><a href="https://drive.google.com/file/d/1dUgG4s5yrtp8SIZDgKF3sSvBdpMZcld-/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">Scarica il PDF completo (24 pagine)
+        </a></p>
+      </section>
+
+      <hr />
+
+      <footer>
+        <h2>Avvertenze legali</h2>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a OpenAI, Anthropic, Google o Brave.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,12 +1,194 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="it">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Intervista con l'Intelligenza Artificiale | Matteo Antonazzo</title>
+
+    <meta name="description" content="Una ricerca indipendente in 7 parti sull'interazione critica tra competenze umane e Large Language Models.">
+    <meta name="keywords" content="Matteo, Antonazzo, portfolio, software, programming, AI, Intelligenza Artificiale, Large Language Models" />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- default link behavior -->
+    <base target="_self" rel="noopener"/>
   </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+  <body id="top">
+
+    <header>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
+        <p>Una ricerca indipendente in 7 parti sull'interazione critica tra competenze umane e Large Language Models.</p>
+        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 ~ 1 ora e 41 min</span></p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar">
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects.html">Progetti</a></li>
+                <li><a href="../../notes.html">Appunti</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <hr>
+                <li>
+                    <a href="./index.html" class="active-page">Introduzione</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="parte1.html">Parte 1</a></li>
+                      <li><a href="parte2.html">Parte 2</a></li>
+                      <li><a href="parte3.html">Parte 3</a></li>
+                      <li><a href="parte4.html">Parte 4</a></li>
+                      <li><a href="parte5.html">Parte 5</a></li>
+                      <li><a href="parte6.html">Parte 6</a></li>
+                      <li><a href="parte7.html">Parte 7</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+      <section class="content-section">
+        <h2 id="target">Una ricerca sul rapporto tra competenze umane e modelli linguistici.</h2>
+        <p>Ogni giorno milioni di persone usano un'intelligenza artificiale per studiare, lavorare o scrivere. 
+          Ma perché alcune persone ottengono risposte utili mentre altre si scontrano con risultati deludenti?</p>
+
+        <p>Questa serie nasce da una ricerca personale iniziata con una domanda semplice:</p>
+        <p><strong>Le Intelligenze Artificiali possono capirmi sempre oppure esiste un livello 
+          minimo di competenza necessario per dialogare con loro?</strong></p>
+      </section>
+
+      <hr>
+
+      <details class="info-box" open>
+        <summary>Come leggere questa intervista</summary>
+        <p>Le domande sono reali.</p>
+        <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+        </p>
+        <p><strong>Nota sulle immagini</strong></p>
+        <p>
+          Tutti gli schemi e le illustrazioni presenti in questa serie 
+          sono stati progettati appositamente per accompagnare il testo. 
+          Le immagini sono generate con l'ausilio dell'Intelligenza 
+          Artificiale e, quando necessario, rifinite manualmente con 
+          software di grafica per migliorarne chiarezza e coerenza con i 
+          contenuti. Per questo motivo ogni immagine riporta il watermark 
+          AI generated • Human edited.
+        </p>
+      </details>
+
+      <hr>
+
+      <section class="toc-section">
+        <h2>Il Percorso</h2>
+        
+        <ul class="toc-list">
+          <li>
+            <a href="parte1.html" class="card">
+              <h3><strong>Parte 1</strong> – Perché il problema non è l'algoritmo (e nemmeno lo slop)</h3>
+              <span class="time-badge">🕒 11-13 min</span>
+              <p>Un'introduzione critica per demistificare l'AI come "colpevole" dello slop, analizzando l'importanza dell'approccio critico e l'uso consapevole della lingua madre.</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="parte2.html" class="card">
+              <h3><strong>Parte 2</strong> – Dietro lo schermo: come un LLM interpreta le tue domande</h3>
+              <span class="time-badge">🕒 8-10 min</span>
+              <p>Cosa accade davvero quando premi invio? Le quattro fasi del funzionamento di un modello linguistico spiegate in modo semplice: dalla tokenizzazione all'assenza di verità.</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="parte3.html" class="card">
+              <h3><strong>Parte 3</strong> – Il prompt perfetto non esiste. Quello chiaro sì. (Guida pratica)</h3>
+              <span class="time-badge">🕒 11-13 min</span>
+              <p>Esempi sul campo di ingegneria del prompt. Vediamo perché la chiarezza batte la furbizia attraverso tecniche reali come Few-Shot, Chain-of-Thought e Meta-Prompting.</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="parte4.html" class="card">
+              <h3><strong>Parte 4</strong> – Dentro un Transformer: la matematica non è (mai stata) il mio mestiere</h3>
+              <span class="time-badge">🕒 20-25 min</span>
+              <p>Smontiamo il motore dei Large Language Models. Un'esplorazione accessibile e autoironica di vettori, embeddings e pesi delle parole, rigorosamente senza formule matematiche.</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="parte5.html" class="card">
+              <h3><strong>Parte 5</strong> – Serve davvero una laurea in STEM per parlare con una macchina?</h3>
+              <span class="time-badge">🕒 8-10 min</span>
+              <p>Analisi del paradosso per cui l'utente finale non ha bisogno di competenze ingegneristiche avanzate, e come l'AI risponde a compiti complessi senza richiedere formati strutturati.</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="parte6.html" class="card">
+              <h3><strong>Parte 6</strong> – La soglia delle competenze: perché l'asticella si sposta solo sul campo</h3>
+              <span class="time-badge">🕒 13-15 min</span>
+              <p>Il caso studio dell'inglese per programmatori e la riformulazione della tesi iniziale. Perché la vera barriera all'ingresso è definita dal compito reale e non dallo strumento tecnologico.</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="parte7.html" class="card">
+              <h3><strong>Parte 7</strong> – Conclusioni: dobbiamo essere intelligenti per dialogare con l’AI?</h3>
+              <span class="time-badge">🕒 20-25 min</span>
+              <p>Il traguardo del percorso. Una riflessione sull'AI come moltiplicatore cognitivo, sul concetto di scaffolding nell'apprendimento e sul cambiamento di prospettiva nato da questa ricerca.</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <section class="content-section">
+        <h2>Il documento originale</h2>
+        <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
+        <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
+        <p><a href="https://drive.google.com/file/d/1dUgG4s5yrtp8SIZDgKF3sSvBdpMZcld-/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">Scarica il PDF completo (24 pagine)
+        </a></p>
+      </section>
+
+      <hr />
+
+      <footer>
+        <h3>Avvertenze legali</h3>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a OpenAI, Anthropic, Google o Brave.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
   </body>
 </html>

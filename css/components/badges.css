@@ -1,0 +1,15 @@
+.tech-badge,
+.time-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  margin-top: auto;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: .03em;
+  padding: 0.35rem 0.8rem;
+  background-color: var(--accent-dark);
+  color: white;
+  border-radius: 4px;
+}

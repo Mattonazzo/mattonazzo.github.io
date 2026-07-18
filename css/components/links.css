@@ -1,0 +1,72 @@
+a:link {
+  color: var(--link);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+a:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0px;
+}
+
+sup a:link,
+sup a:visited {
+  text-decoration: none;
+  padding: 0 2px;
+}
+
+sup a::before {
+    content: "[";
+    opacity: 0.7;
+}
+
+sup a::after {
+    content: "]";
+    opacity: 0.7;
+}
+
+a.project-link{
+    padding: 5px 12px;
+    /*margin: 5px;*/
+    display: inline-block;
+    box-sizing: border-box;  /* padding does not add to the total width */
+    border-radius: 12px;
+    background-color: var(--accent-dark);
+    color: white;
+    margin-left:auto;
+    white-space: nowrap;
+}
+
+a.project-link:link,
+a.project-link:visited,
+a.project-link:hover {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: var(--accent-dark);
+  border-radius: 12px;
+}
+
+a.project-link::after {
+    content: " →";
+    /*font-size:1.4em;*/
+    display: inline-block;
+}
+
+a.project-link:hover {
+    background-color: var(--link-peculiar);
+}
+a.project-link:hover::after {
+    transform: translateX(4px);
+}
+
+p:has(a.project-link) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}

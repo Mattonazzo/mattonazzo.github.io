@@ -1,0 +1,133 @@
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.toc-list a:link,
+.toc-list a:hover,
+.toc-list a:visited{
+  text-decoration: none;
+}
+
+.toc-list:last-child {
+  padding-bottom: 20px;
+}
+
+.brick-list li {
+  padding: 5px;
+  margin: 5px;
+  display: inline-block; 
+  box-sizing: border-box;  /* padding does not add to the total width */
+  border-radius: 12px;
+  background-color: var(--accent-dark);
+  color: white;
+}
+
+.content-ordered-list-focus,
+.content-unordered-list-focus {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  margin: 2rem 0;
+  border-top: 5px solid var(--accent);
+  border-bottom: 5px solid var(--accent);
+}
+
+.content-ordered-list-focus {
+  counter-reset: step-counter; /* Inizialize a personal counter */
+}
+
+.content-ordered-list-focus > li,
+.content-unordered-list-focus > li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 2.5rem;   
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.content-ordered-list-focus > li {
+  counter-increment: step-counter; /* Increase the counter on every <li> */
+}
+
+/* circles fixed on the first <li> line */
+.content-unordered-list-focus > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;                /* fixed on the first line */
+  width: 14px;             
+  height: 14px;
+  border-radius: 50%;      
+  border: 2px solid var(--visited);  
+  background-color: white;  
+  z-index: 2;              /* a level hover the link's line */
+  transition: background-color 0.3s ease;
+}
+/* 2. LO STILE DEI NUMERI (FASE STATICA) */
+.content-ordered-list-focus > li::before {
+  content: counter(step-counter); /* show the counter's number */
+  position: absolute;
+  left: 0;
+  top: 2px;                  /* Align the number to thr first line */
+  
+  /* circle with number */
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: white;
+  color: var(---link-dark);   /* Number's color */
+  font-weight: bold;
+  font-size: 1rem;
+  
+  /* fix the number in the circle's center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.content-ordered-list-focus > li:hover,
+.content-unordered-list-focus > li:hover {
+  background: linear-gradient(
+        to right,
+        transparent,
+        rgba(var(--accent-light-gold-rgb), 0.4),
+        rgba(var(--accent-light-gold-rgb), 0.5),
+        rgba(var(--accent-light-gold-rgb), 0.4),
+        transparent
+    );
+}
+
+.content-ordered-list-focus > li:hover::before,
+.content-unordered-list-focus > li:hover::before {
+  background-color: var(--link-dark);
+  color: var(--accent-light-gold);
+  transform: scale(1.15);
+}
+
+/* 2. LA LINEA VERTICALE (Agganciata al singolo LI) */
+.content-unordered-list-focus > li::after {
+  content: '';
+  position: absolute;
+  left: 8px;               /* to start from the middle of the circle */
+  top: 11px;               /* to start from the bottom of the cirlce */
+  bottom: -2.8rem;         /* to end exactly under the circle */
+  width: 2px;
+  background-color: var(--link); 
+  z-index: 1;              /* under the circle */
+}
+
+.content-unordered-list-focus > li:last-child::after {
+  display: none;
+}
+
+.content-ordered-list-focus > li:last-child,
+.content-unordered-list-focus > li:last-child {
+  margin-bottom: 0;
+}
