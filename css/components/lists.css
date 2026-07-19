@@ -1,3 +1,15 @@
+/* designed for lists */
+.container-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-bottom: 15px;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .toc-list {
     list-style: none;
     padding: 0;
@@ -7,6 +19,7 @@
     gap: 1.5rem;
 }
 
+/* this is needed because of lists that have .card directly in <a> */
 .toc-list a:link,
 .toc-list a:hover,
 .toc-list a:visited{

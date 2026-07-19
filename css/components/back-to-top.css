@@ -4,10 +4,10 @@
     right: 30px;
 
     background: radial-gradient(
-        circle at 20% 30%, 
+        circle at 25% 30%, 
         var(--bg-color) 0%,
-        var(--accent) 20%,
-        var(--accent-light-gold) 40%,
+        var(--accent-light-gold) 20%,
+        var(--accent) 40%,
         var(--accent-gold) 60%,
         var(--accent-dark) 80%,
         var(--accent-darkest) 100%);

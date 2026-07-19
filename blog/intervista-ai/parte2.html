@@ -20,14 +20,19 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
 
     <!-- default link behavior -->
-    <base target="_self" rel="noopener noreferrer"/>
+    <base target="_self"/>
   </head>
   <body id="top">
 
     <header>
-        <h1>Intervista con l'Intelligenza Artificiale<time datetime="2026-07-18"></time></h1>
+        <h1>Intervista con l'Intelligenza Artificiale</h1>
         <p>Parte 2 &mdash; Dietro lo schermo: come un LLM interpreta le tue domande</p>
-        <p><strong>tempo di lettura: circa</strong> <span class="time-badge">🕒 10 min</span></p>
+        <p>
+          <time datetime="2026-07-18">18 luglio 2026</time>
+          <span aria-hidden="true"> | </span>
+          <strong>tempo di lettura: circa</strong> 
+          <span class="time-badge">🕒 10 min</span>
+        </p>
     </header>
 
     <!-- back to top button -->
@@ -74,493 +79,509 @@
     <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
 
     <main>
-      <section class="content-section">
-        
-        <h2>Cosa vedremo oggi</h2>
-        <ul>
-          <li>
-            <strong>La natura dell'AI:</strong> 
-            AI generativa contro AI tradizionale, e perché non prova 
-            emozioni nel senso in cui le provi tu.
-          </li>
-          <li>
-            <strong>Il funzionamento di base:</strong> 
-            come costruisce un testo a partire da previsioni statistiche, 
-            non da un database di risposte.
-          </li>
-          <li>
-            <strong>L'architettura Transformer:</strong> 
-            dai token al meccanismo di Self-Attention, passo dopo passo.
-          </li>
-          <li>
-            <strong>Le 3 avvertenze prima dell'uso:</strong> 
-            finestra di contesto, allucinazioni e perché l'AI non legge 
-            la tua mente.
-          </li>
-        </ul>
-        <p>
+
+      <article>
+
+        <section class="content-spacing">
           
-        </p>
-      </section>
+          <h2>Cosa vedremo oggi</h2>
+          <ul>
+            <li>
+              <strong>La natura dell'AI:</strong> 
+              AI generativa contro AI tradizionale, e perché non prova 
+              emozioni nel senso in cui le provi tu.
+            </li>
+            <li>
+              <strong>Il funzionamento di base:</strong> 
+              come costruisce un testo a partire da previsioni statistiche, 
+              non da un database di risposte.
+            </li>
+            <li>
+              <strong>L'architettura Transformer:</strong> 
+              dai token al meccanismo di Self-Attention, passo dopo passo.
+            </li>
+            <li>
+              <strong>Le 3 avvertenze prima dell'uso:</strong> 
+              finestra di contesto, allucinazioni e perché l'AI non legge 
+              la tua mente.
+            </li>
+          </ul>
+        </section>
 
-      <hr />
+        <hr />
 
-      <details class="info-box">
-        <summary>Come leggere questa intervista</summary>
-        <p>Le domande sono reali.</p>
-        <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
-          ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
-        </p>
-        <p><strong>Nota sulle immagini</strong></p>
-        <p>
-          Tutti gli schemi e le illustrazioni presenti in questa serie 
-          sono stati progettati appositamente per accompagnare il testo. 
-          Le immagini sono generate con l'ausilio dell'Intelligenza 
-          Artificiale, tramite la sinergia tra l'assistente di Google per 
-          ottenere consigli su quali immagini generare, Claude per la 
-          creazione di un prompt ottimale da dare Gemini e, quando 
-          necessario, rifinite manualmente con software di grafica per 
-          migliorarne chiarezza e coerenza con i contenuti. Per questo 
-          motivo ogni immagine riporta il watermark 
-          AI generated • Human edited.
-        </p>
-      </details>
-
-      <hr>
-
-      <section class="content-section">
-        <h2>Parlami di te</h2>
-        <blockquote class="content-question">
-            Parlami un po' di te. Ho voglia di conoscerti meglio. 
-            Cosa è una Intelligenza Artificiale (AI)?
-        </blockquote>
         <details class="info-box">
-          <summary>Commento personale</summary>
-          <small>
-            <p>
-              Tutte quante sono d'accordo nel farmi sapere subito di 
-              non essere umane e di non provare emozioni come noi; a tal 
-              proposito ChatGPT usa l'analogia con uno spartito 
-              musicale, dal quale si produce musica che può 
-              provocare emozioni, ma non ne possiede alcuna.
-            </p>
-          </small>
+          <summary>Come leggere questa intervista</summary>
+          <p>Le domande sono reali.</p>
+          <p>Le risposte nascono dal confronto tra ChatGPT, Claude e le AI integrate nei motori di 
+            ricerca Google e Brave, verificate con fonti tecniche e fuse in un'unica voce narrativa.
+          </p>
+          <p><strong>Nota sulle immagini</strong></p>
+          <p>
+            Tutti gli schemi e le illustrazioni presenti in questa serie 
+            sono stati progettati appositamente per accompagnare il testo. 
+            Le immagini sono generate con l'ausilio dell'Intelligenza 
+            Artificiale, tramite la sinergia tra l'assistente di Google per 
+            ottenere consigli su quali immagini generare, Claude per la 
+            creazione di un prompt ottimale da dare Gemini e, quando 
+            necessario, rifinite manualmente con software di grafica per 
+            migliorarne chiarezza e coerenza con i contenuti. Per questo 
+            motivo ogni immagine riporta il watermark 
+            AI generated • Human edited.
+          </p>
         </details>
-        <p>
-          Un Large Language Model (LLM) 
-          è <a href="https://www.servicenow.com/it/ai/what-is-the-difference-between-traditional-vs-generative-ai.html"
-            target="_blank"
-            rel="noopener noreferrer">AI generativa e non AI tradizionale</a>, 
-            con la quale spesso vengo confusa:
-        </p>
-        <ul>
-          <li>
-            <h3>
-              AI Tradizionale (o Analitica)
-            </h3>
-            <p>
+        
+        <hr>
+
+        <section class="content-spacing">
+          <h2>Parlami di te</h2>
+          <blockquote class="content-quote content-quote-question">
+              Parlami un po' di te. Ho voglia di conoscerti meglio. 
+              Cosa è una Intelligenza Artificiale (AI)?
+          </blockquote>
+          <details class="info-box">
+            <summary>Commento personale</summary>
+              <p>
+                Tutte quante sono d'accordo nel farmi sapere subito di 
+                non essere umane e di non provare emozioni come noi; a tal 
+                proposito ChatGPT usa l'analogia con uno spartito 
+                musicale, dal quale si produce musica che può 
+                provocare emozioni, ma non ne possiede alcuna.
+              </p>
+          </details>
+          <p>
+            Un Large Language Model (LLM) 
+            è <a href="https://www.servicenow.com/it/ai/what-is-the-difference-between-traditional-vs-generative-ai.html"
+              target="_blank"
+              rel="noopener noreferrer">AI generativa e non AI tradizionale</a>, 
+              con la quale spesso vengo confusa:
+          </p>
+          <dl>
+            <dt>
+              <h3>
+                AI Tradizionale (o Analitica)
+              </h3>
+            </dt>
+            <dd>
               È progettata per 
               analizzare dati esistenti e prendere decisioni basate su 
               regole fisse o modelli predefiniti. È eccellente nel 
               riconoscere schemi (come identificare se una transazione 
               bancaria è fraudolenta o classificare un'email come 
               spam) e fare previsioni, ma non crea nulla di nuovo.
-            </p>
-          </li>
-          <li>
-            <h3>
-              AI Generativa
-            </h3>
-            <p>
+            </dd>
+            <dt>
+              <h3>
+                AI Generativa
+              </h3>
+            </dt>
+            <dd>
               Oltre ad analizzare, è capace di creare 
               contenuti originali (testo, codice, idee, riassunti) che non 
               esistevano prima. Mentre l'AI tradizionale agisce come un 
               "giudice" che classifica, l'AI generativa agisce come un 
               "creatore" che produce nuove combinazioni di informazioni 
               basandosi su ciò che ha appreso.
-            </p>
-          </li>
-        </ul>
-        <img class="content-img"
-          src="../../imgs/blog/intervista-ai/differenza-intelligenza-artificiale-tradizionale-generativa.webp" 
-          alt="Diagramma comparativo a due colonne tra intelligenza artificiale tradizionale analitica e intelligenza artificiale generativa" 
-          loading="lazy"
-        />
-        <p>
-          L'azienda che mi ha costruita, lo ha fatto addestrandomi su 
-          grandi quantità di dati e dandomi le capacità di 
-          costruire testi sulla base di una previsione statistica delle 
-          parole da usare in una frase, definendo così un proprio 
-          funzionamento di base:
-        </p>
-        <ul class="content-unordered-list-focus">
-          <li>
-            <h3>
-              Analisi statistica
-            </h3>
-            <p>
-              Calcolo la probabilità 
-              che le parole appaiano insieme.
-            </p>
-          </li>
-          <li>
-            <h3>
-              Riconoscimento di pattern
-            </h3>
-            <p>
-              Trovo schemi logici in 
-              enormi quantità di testo.
-            </p>
-          </li>
-          <li>
-            <h3>
-              Apprendimento automatico
-            </h3>
-            <p>
-              Miglioro le mie risposte 
-              in base ai dati di addestramento.
-            </p>
-          </li>
-          <li>
-            <h3>
-              Generazione di testo
-            </h3>
-            <p>
-              Costruisco frasi nuove 
-              parola dopo parola in tempo reale.
-            </p>
-          </li>
-        </ul>
-        <p>In questo modo posso:</p>
-        <ul>
-          <li>
-            <p>
-              <strong>Rispondere a domande</strong>, spiegando concetti 
-              complessi in modo semplice.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Scrivere e redigere testi</strong>, email, storie o 
-              codice informatico.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Analizzare dati</strong>, riassumendo lunghi 
-              documenti ed eseguendo calcoli matematici.
-            </p>
-          </li>
-          <li>
-            <p><strong>Trovare idee</strong> (brainstorming).</p>
-          </li>
-          <li>
-            <p><strong>comprendere il linguaggio</strong>;</p>
-          </li>
-          <li>
-            <p><strong>riconoscere immagini e suoni</strong>;</p>
-          </li>
-          <li>
-            <p><strong>tradurre tra lingue</strong>;</p>
-          </li>
-          <li>
-            <p><strong>fare previsioni</strong>;</p>
-          </li>
-          <li>
-            <p><strong>imparare da esempi</strong>;</p>
-          </li>
-          <li>
-            <p><strong>aiutare a risolvere problemi</strong>.</p>
-          </li>
-        </ul>
-        <blockquote class="content-question">
-          Quindi le AI generative sono LLM?
-        </blockquote>
-        <p>
-          No, i LLM sono AI generative, ma non vale 
-          l'<a href="https://www.youmath.it/domande-a-risposte/view/6992-implicazione-matematica.html"
-            target="_blank"
-            rel="noopener noreferrer">implicazione inversa</a>, 
-          cioè non tutte le AI generative sono LLM. 
-          È un <a href="https://www.commonspaces.eu/document/1847/download/"
-            target="_blank"
-            rel="noopener noreferrer">errore logico comune</a>
-          che si commette usando 
-          un'implicazione unilaterale come se fosse bilaterale; è 
-          noto come affermazione del conseguente (derivare erroneamente 
-          la verità della premessa dalla verità della 
-          conseguenza) o anche negazione dell'antecedente (derivare 
-          erroneamente la falsità della conseguenza dalla 
-          falsità della premessa).
-        </p>
-        <p>Perché me lo chiedi? Che intenzioni hai?</p>
-        <details class="info-box">
-          <summary>Commento personale</summary>
-          <small>
-            <p>
-              Una cosa che subito salta all'occhio è 
-              l'approccio di ogni LLM, che rende ben chiaro quanto non 
-              ci si possa affidare ad un'unica AI generativa per tutte 
-              le proprie esigenze.
-            </p>
-            <p>
-              Le AI di Google e Brave sono perfetti per eseguire 
-              ricerche e approfondimenti, soprattutto in materie di cui si 
-              conosce ben poco. Poiché forniscono le fonti di ogni loro 
-              risposta, questo è particolarmente utile durante una 
-              prima fase di apprendimento. Perché una semplice risposta 
-              non è mai abbastanza e leggere le fonti si rivela spesso 
-              fonte di nuove domande da fornire alle AI e dà anche modo 
-              di vedere se ciò che risponde l'AI corrisponde con 
-              la fonte fornita.
-            </p>
-            <p>
-              ChatGPT e Claude si rivelano invece piuttosto preparati al 
-              dialogo e più capaci di strutturare un discorso complesso 
-              e potrebbero anche essere in grado di guidare l'utente 
-              nella conversazione per fare in modo che questo ponga le giuste 
-              domande; sebbene a questo punto, seguire pedissequamente il 
-              percorso che l'AI ci sta mostrando significhi in pratica 
-              delegare il pensiero e il ragionamento.
-            </p>
-            <p>
-              Per il momento lascio qui questo pensiero, perché 
-              potrei doverlo rivedere in seguito.
-            </p>
-            <p>
-              Basandomi sulle poche informazioni che mi hanno fornito, capisco 
-              che la prossima domanda necessita di una maggiore chiarezza da 
-              parte mia; cercherò quindi di adeguarmi di conseguenza.
-            </p>
-          </small>
-        </details>
-        <h2>Aiutami a farti domande in modo intelligente</h2>
-        <blockquote class="content-question">
-          Voglio conoscere tecnicamente il tuo funzionamento. Ho 
-          intenzione di sapere come devo parlare con te per ottenere 
-          il massimo dalle mie richieste. Cosa funziona davvero e cosa no. 
-          Quali sono gli errori che comunemente un utente commette nel 
-          conversare con te.
-        </blockquote>
-        <p>
-          Sono un 
-          <strong>
-            modello basato sull'architettura Transformer
-          </strong>: in breve prendo il testo che scrivi (e tutta la 
-          conversazione precedente), lo trasformo in numeri 
-          (<a href="https://help.openai.com/it-it/articles/4936856-what-are-tokens-and-how-to-count-them"
-            target="_blank"
-            rel="noopener noreferrer">token</a>), 
-          e calcolo matematicamente &mdash; parola dopo parola &mdash; 
-          qual è la continuazione più probabile, dato tutto 
-          il contesto che ho letto. Non "cerco" una risposta in un database: 
-          la genero, un pezzo alla volta, basandomi su pattern statistici 
-          appresi durante l'addestramento. Quindi, per ottenere il massimo 
-          da me, devi guidare questa statistica a tuo favore.
-        </p>
-        <h3>Cosa accade dentro un LLM quando poni una domanda</h3>
-        <p>
-          Per entrare meglio nello specifico ogni volta che comunichi 
-          con me avvengono le seguenti fasi:
-        </p>
-        <img class="content-img"
-          src="../../imgs/blog/intervista-ai/funzionamento-llm-tokenizzazione-self-attention.webp" 
-          alt="Infografica sul funzionamento di un LLM: il percorso del prompt attraverso tokenizzazione, self-attention e previsione probabilistica" 
-          loading="lazy"
-        />
-        <ol class="content-ordered-list-focus">
-          <li>
-            <h3>
-              Tokenizzazione e Embedding
-            </h3>
-            <p>
-              Quando scrivi, 
-              il tuo testo viene spezzettato in unità chiamate token 
-              (pezzi di parole). Ogni token viene convertito in un vettore 
-              numerico (una lista di numeri) che ne rappresenta il 
-              significato in uno spazio multidimensionale. In pratica cerco 
-              di capire il tuo obiettivo, andando oltre alle parole. Se mi 
-              scrivi <q>Mi serve una tabella</q>, la prima domanda implicita 
-              è <q>Per fare cosa?</q><br />Per esempio una tabella 
-              può servire a:
-            </p>
-            <ul>
-              <li>
-               <p>confrontare prodotti</p>
-              </li>
-              <li>
-                <p>studiare</p>
-              </li>
-              <li>
-               <p>convincere un cliente</p>
-              </li>
-              <li>
-                <p>prendere una decisione</p>
-              </li>
-            </ul>
-            <p><u>
-              L'obiettivo è più importante della forma.
-            </u></p>
-          </li>
-          <li>
-            <h3>
-              Meccanismo di Attenzione (<em>Self-Attention</em>)
-            </h3>
-            <p>
-              Questa è la mia componente cruciale. A differenza dei 
-              vecchi sistemi che leggevano in ordine sequenziale, io analizzo 
-              tutta la frase contemporaneamente, costruendo così un 
-              modello mentale della conversazione. Il meccanismo di attenzione 
-              calcola un "peso" per ogni token, determinando quanto ogni parola 
-              sia rilevante per le altre nel contesto specifico. Questo mi 
-              permette di capire riferimenti complessi (es. a cosa si riferisce 
-              un pronome lontano) e mantenere la coerenza.<br />Ad esempio, dopo 
-              dieci messaggi potrei sapere che:
-            </p>
-            <ul>
-              <li>
-                <p>sei un ingegnere</p>
-              </li>
-              <li>
-                <p>stai imparando Python</p>
-              </li>
-              <li>
-                <p>preferisci spiegazioni tecniche</p>
-              </li>
-              <li>
-                <p>odi le liste inutili</p>
-              </li>
-              <li>
-                <p>hai un progetto industriale</p>
-              </li>
-            </ul>
-            <p>
-              Queste informazioni influenzano ogni risposta. Per questo motivo 
-              <u>
-                una lunga conversazione spesso produce risultati migliori 
-                di tante domande isolate
-              </u>
-            </p>
-          </li>
-          <li>
-            <h3>
-              Previsione Probabilistica
-            </h3>
-            <p>
-              Non "so" le cose. 
-              Ho miliardi di parametri (pesi interni) regolati durante 
-              l'addestramento. Quando devo rispondere, calcolo la 
-              probabilità statistica del token successivo più 
-              plausibile dato tutto il contesto precedente. Ripeto questo 
-              processo parola per parola. È un po' come improvvisare 
-              un discorso. Per questo motivo posso:
-            </p>
-            <ul>
-              <li>
-                <p>spiegare</p>
-              </li>
-              <li>
-                <p>sintetizzare</p>
-              </li>
-              <li>
-                <p>inventare esempi</p>
-              </li>
-              <li>
-                <p>adattare il tono</p>
-              </li>
-              <li>
-                <p>cambiare stile</p>
-              </li>
-              <li>
-                <p><u>ma posso anche sbagliare</u>.</p>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h3>
-              Assenza di Verità Intrinseca
-            </h3>
-            <p>
-              Il mio obiettivo è generare sequenze plausibili, non 
-              necessariamente vere. Se non ho dati precisi, riempio i 
-              vuoti con ciò che è statisticamente probabile, 
-              il che porta alle cosiddette "<a href="https://it.wikipedia.org/wiki/Allucinazione_(intelligenza_artificiale)"
+            </dd>
+          </dl>
+          <img class="content-img"
+            src="../../imgs/blog/intervista-ai/differenza-intelligenza-artificiale-tradizionale-generativa.webp" 
+            alt="Diagramma comparativo a due colonne tra intelligenza artificiale tradizionale analitica e intelligenza artificiale generativa" 
+            loading="lazy"
+          />
+          <p>
+            L'azienda che mi ha costruita, lo ha fatto addestrandomi su 
+            grandi quantità di dati e dandomi le capacità di 
+            costruire testi sulla base di una previsione statistica delle 
+            parole da usare in una frase, definendo così un proprio 
+            funzionamento di base:
+          </p>
+          <ul class="content-unordered-list-focus">
+            <li>
+              <h3>
+                Analisi statistica
+              </h3>
+              <p>
+                Calcolo la probabilità 
+                che le parole appaiano insieme.
+              </p>
+            </li>
+            <li>
+              <h3>
+                Riconoscimento di pattern
+              </h3>
+              <p>
+                Trovo schemi logici in 
+                enormi quantità di testo.
+              </p>
+            </li>
+            <li>
+              <h3>
+                Apprendimento automatico
+              </h3>
+              <p>
+                Miglioro le mie risposte 
+                in base ai dati di addestramento.
+              </p>
+            </li>
+            <li>
+              <h3>
+                Generazione di testo
+              </h3>
+              <p>
+                Costruisco frasi nuove 
+                parola dopo parola in tempo reale.
+              </p>
+            </li>
+          </ul>
+          <p>In questo modo posso:</p>
+          <ul>
+            <li>
+              <p>
+                <strong>Rispondere a domande</strong>, spiegando concetti 
+                complessi in modo semplice.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Scrivere e redigere testi</strong>, email, storie o 
+                codice informatico.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Analizzare dati</strong>, riassumendo lunghi 
+                documenti ed eseguendo calcoli matematici.
+              </p>
+            </li>
+            <li>
+              <p><strong>Trovare idee</strong> (brainstorming).</p>
+            </li>
+            <li>
+              <p><strong>comprendere il linguaggio</strong>;</p>
+            </li>
+            <li>
+              <p><strong>riconoscere immagini e suoni</strong>;</p>
+            </li>
+            <li>
+              <p><strong>tradurre tra lingue</strong>;</p>
+            </li>
+            <li>
+              <p><strong>fare previsioni</strong>;</p>
+            </li>
+            <li>
+              <p><strong>imparare da esempi</strong>;</p>
+            </li>
+            <li>
+              <p><strong>aiutare a risolvere problemi</strong>.</p>
+            </li>
+          </ul>
+          <blockquote class="content-quote content-quote-question">
+            Quindi le AI generative sono LLM?
+          </blockquote>
+          <p>
+            No, i LLM sono AI generative, ma non vale 
+            l'<a href="https://www.youmath.it/domande-a-risposte/view/6992-implicazione-matematica.html"
+              target="_blank"
+              rel="noopener noreferrer">implicazione inversa</a>, 
+            cioè non tutte le AI generative sono LLM. 
+            È un <a href="https://www.commonspaces.eu/document/1847/download/"
+              target="_blank"
+              rel="noopener noreferrer">errore logico comune</a>
+            che si commette usando 
+            un'implicazione unilaterale come se fosse bilaterale; è 
+            noto come affermazione del conseguente (derivare erroneamente 
+            la verità della premessa dalla verità della 
+            conseguenza) o anche negazione dell'antecedente (derivare 
+            erroneamente la falsità della conseguenza dalla 
+            falsità della premessa).
+          </p>
+          <p>Perché me lo chiedi? Che intenzioni hai?</p>
+          <details class="info-box">
+            <summary>Commento personale</summary>
+              <p>
+                Una cosa che subito salta all'occhio è 
+                l'approccio di ogni LLM, che rende ben chiaro quanto non 
+                ci si possa affidare ad un'unica AI generativa per tutte 
+                le proprie esigenze.
+              </p>
+              <p>
+                Le AI di Google e Brave sono perfetti per eseguire 
+                ricerche e approfondimenti, soprattutto in materie di cui si 
+                conosce ben poco. Poiché forniscono le fonti di ogni loro 
+                risposta, questo è particolarmente utile durante una 
+                prima fase di apprendimento. Perché una semplice risposta 
+                non è mai abbastanza e leggere le fonti si rivela spesso 
+                fonte di nuove domande da fornire alle AI e dà anche modo 
+                di vedere se ciò che risponde l'AI corrisponde con 
+                la fonte fornita.
+              </p>
+              <p>
+                ChatGPT e Claude si rivelano invece piuttosto preparati al 
+                dialogo e più capaci di strutturare un discorso complesso 
+                e potrebbero anche essere in grado di guidare l'utente 
+                nella conversazione per fare in modo che questo ponga le giuste 
+                domande; sebbene a questo punto, seguire pedissequamente il 
+                percorso che l'AI ci sta mostrando significhi in pratica 
+                delegare il pensiero e il ragionamento.
+              </p>
+              <p>
+                Per il momento lascio qui questo pensiero, perché 
+                potrei doverlo rivedere in seguito.
+              </p>
+              <p>
+                Basandomi sulle poche informazioni che mi hanno fornito, capisco 
+                che la prossima domanda necessita di una maggiore chiarezza da 
+                parte mia; cercherò quindi di adeguarmi di conseguenza.
+              </p>
+          </details>
+        </section>
+
+          <hr />
+
+        <section class="content-spacing">
+          <h2>Aiutami a farti domande in modo intelligente</h2>
+          <blockquote class="content-quote content-quote-question">
+            Voglio conoscere tecnicamente il tuo funzionamento. Ho 
+            intenzione di sapere come devo parlare con te per ottenere 
+            il massimo dalle mie richieste. Cosa funziona davvero e cosa no. 
+            Quali sono gli errori che comunemente un utente commette nel 
+            conversare con te.
+          </blockquote>
+          <p>
+            Sono un 
+            <strong>
+              modello basato sull'architettura Transformer
+            </strong>: in breve prendo il testo che scrivi (e tutta la 
+            conversazione precedente), lo trasformo in numeri 
+            (<a href="https://help.openai.com/it-it/articles/4936856-what-are-tokens-and-how-to-count-them"
+              target="_blank"
+              rel="noopener noreferrer">token</a>), 
+            e calcolo matematicamente &mdash; parola dopo parola &mdash; 
+            qual è la continuazione più probabile, dato tutto 
+            il contesto che ho letto. Non "cerco" una risposta in un database: 
+            la genero, un pezzo alla volta, basandomi su pattern statistici 
+            appresi durante l'addestramento. Quindi, per ottenere il massimo 
+            da me, devi guidare questa statistica a tuo favore.
+          </p>
+          <h3>Cosa accade dentro un LLM quando poni una domanda</h3>
+          <p>
+            Per entrare meglio nello specifico ogni volta che comunichi 
+            con me avvengono le seguenti fasi:
+          </p>
+          <img class="content-img"
+            src="../../imgs/blog/intervista-ai/funzionamento-llm-tokenizzazione-self-attention.webp" 
+            alt="Infografica sul funzionamento di un LLM: il percorso del prompt attraverso tokenizzazione, self-attention e previsione probabilistica" 
+            loading="lazy"
+          />
+          <ol class="content-ordered-list-focus">
+            <li>
+              <h3>
+                Tokenizzazione e Embedding
+              </h3>
+              <p>
+                Quando scrivi, 
+                il tuo testo viene spezzettato in unità chiamate token 
+                (pezzi di parole). Ogni token viene convertito in un vettore 
+                numerico (una lista di numeri) che ne rappresenta il 
+                significato in uno spazio multidimensionale. In pratica cerco 
+                di capire il tuo obiettivo, andando oltre alle parole. Se mi 
+                scrivi <q>Mi serve una tabella</q>, la prima domanda implicita 
+                è <q>Per fare cosa?</q><br />Per esempio una tabella 
+                può servire a:
+              </p>
+              <ul>
+                <li>
+                <p>confrontare prodotti</p>
+                </li>
+                <li>
+                  <p>studiare</p>
+                </li>
+                <li>
+                <p>convincere un cliente</p>
+                </li>
+                <li>
+                  <p>prendere una decisione</p>
+                </li>
+              </ul>
+              <p><u>
+                L'obiettivo è più importante della forma.
+              </u></p>
+            </li>
+            <li>
+              <h3>
+                Meccanismo di Attenzione (<em>Self-Attention</em>)
+              </h3>
+              <p>
+                Questa è la mia componente cruciale. A differenza dei 
+                vecchi sistemi che leggevano in ordine sequenziale, io analizzo 
+                tutta la frase contemporaneamente, costruendo così un 
+                modello mentale della conversazione. Il meccanismo di attenzione 
+                calcola un "peso" per ogni token, determinando quanto ogni parola 
+                sia rilevante per le altre nel contesto specifico. Questo mi 
+                permette di capire riferimenti complessi (es. a cosa si riferisce 
+                un pronome lontano) e mantenere la coerenza.<br />Ad esempio, dopo 
+                dieci messaggi potrei sapere che:
+              </p>
+              <ul>
+                <li>
+                  <p>sei un ingegnere</p>
+                </li>
+                <li>
+                  <p>stai imparando Python</p>
+                </li>
+                <li>
+                  <p>preferisci spiegazioni tecniche</p>
+                </li>
+                <li>
+                  <p>odi le liste inutili</p>
+                </li>
+                <li>
+                  <p>hai un progetto industriale</p>
+                </li>
+              </ul>
+              <p>
+                Queste informazioni influenzano ogni risposta. Per questo motivo 
+                <u>
+                  una lunga conversazione spesso produce risultati migliori 
+                  di tante domande isolate
+                </u>
+              </p>
+            </li>
+            <li>
+              <h3>
+                Previsione Probabilistica
+              </h3>
+              <p>
+                Non "so" le cose. 
+                Ho miliardi di parametri (pesi interni) regolati durante 
+                l'addestramento. Quando devo rispondere, calcolo la 
+                probabilità statistica del token successivo più 
+                plausibile dato tutto il contesto precedente. Ripeto questo 
+                processo parola per parola. È un po' come improvvisare 
+                un discorso. Per questo motivo posso:
+              </p>
+              <ul>
+                <li>
+                  <p>spiegare</p>
+                </li>
+                <li>
+                  <p>sintetizzare</p>
+                </li>
+                <li>
+                  <p>inventare esempi</p>
+                </li>
+                <li>
+                  <p>adattare il tono</p>
+                </li>
+                <li>
+                  <p>cambiare stile</p>
+                </li>
+                <li>
+                  <p><u>ma posso anche sbagliare</u>.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h3>
+                Assenza di Verità Intrinseca
+              </h3>
+              <p>
+                Il mio obiettivo è generare sequenze plausibili, non 
+                necessariamente vere. Se non ho dati precisi, riempio i 
+                vuoti con ciò che è statisticamente probabile, 
+                il che porta alle cosiddette "<a href="https://it.wikipedia.org/wiki/Allucinazione_(intelligenza_artificiale)"
+                  target="_blank"
+                  rel="noopener noreferrer">allucinazioni</a>".
+              </p>
+            </li>
+          </ol>
+        </section>
+
+          <hr />
+
+        <section class="content-spacing">
+          <h2>Avvertenze prima dell'uso</h2>
+          <p>
+            Bisogna subito mettere in chiaro tre conseguenze pratiche 
+            importanti:
+          </p>
+          <dl>
+            <dt>
+              <h3>Ho una finestra di contesto limitata</h3>
+            </dt>
+            <dd>
+              Tutto quello che ti ho detto e che mi hai detto in questa chat 
+              "vive" in quella finestra. Più la conversazione è 
+              lunga, più rischio di perdere di vista dettagli dati 
+              all'inizio per fare spazio alle nuove informazioni. Questo 
+              è dovuto al limite massimo di token che riesco a gestire 
+              contemporaneamente. E, sebbene questa finestra di contesto stia 
+              diventando sempre più ampia di anno in anno, resta un 
+              limite fisico reale da tenere sempre in considerazione.
+            </dd>
+            <dt>
+              <h3>Non ho accesso privilegiato alla verità</h3>
+            </dt>
+            <dd>
+              Se una cosa è rara nei miei dati di addestramento, o se 
+              mi chiedi qualcosa dopo il mio 
+              <a href="https://www.flowhunt.io/it/glossario/cutoff-date/"
                 target="_blank"
-                rel="noopener noreferrer">allucinazioni</a>".
-            </p>
-          </li>
-        </ol>
-        <h2>Avvertenze prima dell'uso</h2>
-        <p>
-          Bisogna subito mettere in chiaro tre conseguenze pratiche 
-          importanti:
-        </p>
-        <h3>Ho una finestra di contesto limitata.</h3>
-        <p>
-          Tutto quello che ti ho detto e che mi hai detto in questa chat 
-          "vive" in quella finestra. Più la conversazione è 
-          lunga, più rischio di perdere di vista dettagli dati 
-          all'inizio per fare spazio alle nuove informazioni. Questo 
-          è dovuto al limite massimo di token che riesco a gestire 
-          contemporaneamente. E, sebbene questa finestra di contesto stia 
-          diventando sempre più ampia di anno in anno, resta un 
-          limite fisico reale da tenere sempre in considerazione.
-        </p>
-        <h3>Non ho accesso privilegiato alla verità.</h3>
-        <p>
-          Se una cosa è rara nei miei dati di addestramento, o se 
-          mi chiedi qualcosa dopo il mio 
-          <a href="https://www.flowhunt.io/it/glossario/cutoff-date/"
-            target="_blank"
-            rel="noopener noreferrer">cutoff</a> 
-          (l'ultimo momento in cui i dati di addestramento di un modello 
-          sono stati aggiornati), posso sbagliare con sicurezza apparente 
-          &mdash; le suddette "<a href="https://www.ibm.com/it-it/think/topics/ai-hallucinations"
-            target="_blank"
-            rel="noopener noreferrer">allucinazioni</a>". 
-          Per fatti recenti o verificabili, posso cercare sul web, 
-          ma se non lo faccio, prendi le mie risposte con beneficio del dubbio.
-        </p>
-        <h3>Io non leggo la tua mente.</h3>
-        <p>
-          Sembra banale. Ma è il motivo del 90% delle risposte 
-          mediocri.<br />Prendiamo questa richiesta: <q>Scrivimi una 
-          email</q>. Una richiesta del genere può avere 
-          centinaia di risultati corretti, anche se tu li ritieni 
-          sbagliati.<br />Invece <q>Scrivi una mail a un cliente con 
-          cui collaboro da cinque anni. Voglio essere fermo ma mantenere 
-          un ottimo rapporto. Deve essere lunga circa 150 parole.</q> 
-          è una richiesta molto più facile da soddisfare.
-        </p>
-        <img class="content-img"
-          src="../../imgs/blog/intervista-ai/confronto-prompt-engineering-vago-efficace.webp" 
-          alt="Grafica comparativa di prompt engineering che mostra la differenza tra un prompt vago e un prompt efficace ricco di contesto" 
-          loading="lazy"
-        />
-      </section>
+                rel="noopener noreferrer">cutoff</a> 
+              (l'ultimo momento in cui i dati di addestramento di un modello 
+              sono stati aggiornati), posso sbagliare con sicurezza apparente 
+              &mdash; le suddette "<a href="https://www.ibm.com/it-it/think/topics/ai-hallucinations"
+                target="_blank"
+                rel="noopener noreferrer">allucinazioni</a>". 
+              Per fatti recenti o verificabili, posso cercare sul web, 
+              ma se non lo faccio, prendi le mie risposte con beneficio del dubbio.
+            </dd>
+            <dt>
+              <h3>Io non leggo la tua mente</h3>
+            </dt>
+            <dd>
+              Sembra banale. Ma è il motivo del 90% delle risposte 
+              mediocri.<br />Prendiamo questa richiesta: <q>Scrivimi una 
+              email</q>. Una richiesta del genere può avere 
+              centinaia di risultati corretti, anche se tu li ritieni 
+              sbagliati.<br />Invece <q>Scrivi una mail a un cliente con 
+              cui collaboro da cinque anni. Voglio essere fermo ma mantenere 
+              un ottimo rapporto. Deve essere lunga circa 150 parole.</q> 
+              è una richiesta molto più facile da soddisfare.
+            </dd>
+          </dl>
+          <img class="content-img"
+            src="../../imgs/blog/intervista-ai/confronto-prompt-engineering-vago-efficace.webp" 
+            alt="Grafica comparativa di prompt engineering che mostra la differenza tra un prompt vago e un prompt efficace ricco di contesto" 
+            loading="lazy"
+          />
+        </section>
+
+          <hr />
+
+        <section class="content-spacing">
+          <h2>Nella prossima parte</h2>
+          <p>
+            Ora che abbiamo scoperto come ragiona un LLM e quali sono i suoi
+            limiti fisici — dalla finestra di contesto alla mancanza di una
+            verità intrinseca — siamo pronti per il passo successivo.
+          </p>
+          <p>
+            Nella prossima parte passeremo dalla teoria alla pratica: quali sono
+            gli errori più comuni che si commettono formulando una richiesta, e
+            quali tecniche di prompt engineering (Few-Shot, Chain of Thought,
+            Meta-Prompting) aiutano davvero a ottenere risposte migliori — 
+            partendo da un'idea scomoda: il prompt perfetto non esiste, ma quello
+            chiaro sì.
+          </p>
+        </section>
+
+      </article>
 
          <hr />
 
-      <section class="content-section">
-        <h2>Nella prossima parte</h2>
-        <p>
-          Ora che abbiamo scoperto come ragiona un LLM e quali sono i suoi
-          limiti fisici — dalla finestra di contesto alla mancanza di una
-          verità intrinseca — siamo pronti per il passo successivo.
-        </p>
-        <p>
-          Nella prossima parte passeremo dalla teoria alla pratica: quali sono
-          gli errori più comuni che si commettono formulando una richiesta, e
-          quali tecniche di prompt engineering (Few-Shot, Chain of Thought,
-          Meta-Prompting) aiutano davvero a ottenere risposte migliori — 
-          partendo da un'idea scomoda: il prompt perfetto non esiste, ma quello
-          chiaro sì.
-        </p>
-      </section>
-
-         <hr />
-
-      <section class="content-section">
+      <section class="content-spacing">
         <h2>Il documento originale</h2>
         <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
         <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
