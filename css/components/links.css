@@ -49,7 +49,7 @@ a.project-link:hover {
   text-decoration: none;
   font-weight: 600;
   background-color: var(--accent-dark);
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 a.project-link::after {
@@ -69,4 +69,8 @@ p:has(a.project-link) {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+
+a:has(.card) {
+  text-decoration: none;
 }

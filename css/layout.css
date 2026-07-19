@@ -1,5 +1,4 @@
 main {
-  grid-column: 2;
   max-width: 850px;
   padding: 0px 20px;
   margin: 0 auto;
@@ -15,72 +14,4 @@ article,
   background-color: var(--bg-color);
   line-height: 1.6;
   border-radius: 10px;
-}
-
-.toc-section,
-#projects-preview,
-#notes-preview {
-  padding: 5px 20px;
-  margin: 5px 0px;
-}
-
-.container * {
-  border-radius: 0;
-}
-
-.container{
-  display: block;
-  padding: 20px;
-}
-.container section,
-.container article div {
-  display: flex;
-  gap: 2rem; /* fixed distance between title and content */
-  align-items: flex-start; /*center; /* Aligns both on center (optional) */
-}
-.container section,
-.container article {
-  margin-bottom: 2rem; /* Space between sections */
-  border-bottom: 2px solid var(--accent); /* Optional: separator */
-  padding-bottom: 1.5rem;
-}
-.container:last-child,
-.container section:last-child,
-.container article:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.container section h3 {
-  flex-grow: 0; /*the element doesn't expand if ther isn't space enough*/
-  flex-shrink: 0; /* the element doesn't shrink if ther isn't space enough */
-  flex-basis: 20%; /* widht is 20% of parent's eritage */
-  margin: 0; /* Remove default margins for a better alignement */
-}
-.container article div a {
-  flex-shrink: 0;
-}
-.container section p,
-.container article div p,
-.container section ul,
-.container section div {
-  flex: 1; /* paragraf takes the remaign space */
-  margin: 0;
-  text-align: left;
-}
-.container section img {
-  max-width: 100%;      /* remains inside parent's lenght  */
-  height: auto;         /* aspect ratio */
-  display: inline-block;
-
-  /* Optional: to have a grid */
-  width: 45%; /**/
-  margin: 2%; /**/
-}
-.container section video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 0 1rem 0;
 }

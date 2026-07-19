@@ -64,7 +64,7 @@
         <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
 
         <main>
-            <section class="content-section">
+            <section class="content-spacing">
                 <p>
                     Questo spazio è il mio blocco note tecnico. Qui raccolgo snippet di codice,
                     appunti di architettura software e guide rapide scritti per fissare i concetti
@@ -72,33 +72,38 @@
                     Condivido queste note con l'idea che ciò che ha aiutato me possa essere utile
                     anche ad altri sviluppatori.
                 </p>
-            </section>
-            <hr />
-            <div class="container">
-                <article>
-                    <h2>
-                        La persistenza degli oggetti e la serializzazione in Java<time datetime="2026-06-20"></time>
-                    </h2>
-                    <div>
-                        <p>
-                            La gestione della persistenza degli oggetti è un pilastro 
-                            fondamentale nello sviluppo di applicazioni robuste e scalabili. 
-                            Questo articolo fornisce una panoramica tecnica della serializzazione 
-                            in Java, analizzando il funzionamento interno dei meccanismi binari 
-                            e delle alternative testuali basate su JSON e XML. Vengono esaminate 
-                            le differenze pratiche tra le interfacce disponibili, i criteri di 
-                            controllo della versione, i casi d'uso specifici per ciascun formato 
-                            e le principali buone pratiche per garantire la sicurezza del codice 
-                            in ambienti di produzione.
-                        </p>
-                        <a class="project-link"
-                            href="https://drive.google.com/file/d/1pI5U1OxgbFe8AQ974EtCuRCAHTaAZlFu/view?usp=sharing"
+                <ul class="container-column">
+                    <li>
+                        <a href="https://drive.google.com/file/d/1pI5U1OxgbFe8AQ974EtCuRCAHTaAZlFu/view?usp=sharing"
                             target="_blank">
-                            Vedi gli appunti
+                            <article class="card">
+                                <h3>
+                                    <time datetime="2026-06-20">20 giugno 2026</time> &mdash;
+                                    La persistenza degli oggetti e la serializzazione in Java
+                                </h3>
+                                <p>
+                                    La gestione della persistenza degli oggetti è un pilastro 
+                                    fondamentale nello sviluppo di applicazioni robuste e scalabili. 
+                                    Questo articolo fornisce una panoramica tecnica della serializzazione 
+                                    in Java, analizzando il funzionamento interno dei meccanismi binari 
+                                    e delle alternative testuali basate su JSON e XML. 
+                                </p>
+                                <p>
+                                    Vengono esaminate le differenze pratiche tra le interfacce disponibili,
+                                    i criteri di controllo della versione, i casi d'uso specifici per ciascun 
+                                    formato e le principali buone pratiche per garantire la sicurezza del 
+                                    codice in ambienti di produzione.
+                                </p>
+                                <ul class="brick-list">
+                                    <li>Java</li>
+                                    <li>JSON</li>
+                                    <li>XML</li>
+                                </ul>
+                            </article>
                         </a>
-                    </div>
-                </article>
-            </div>
+                    </li>
+                </ul>
+            </section>
             <hr />
             <footer>
                 <p><small>🄯 2026 Matteo Antonazzo. Tutti i rovesci riversati.</small></p>

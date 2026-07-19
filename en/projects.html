@@ -52,7 +52,8 @@
                         My GitHub</a>
                     </li>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="notes.html">Notes &mdash; Italian</a></li>
+                    <li><a href="blog.html">Blog &mdash; Italian</a></li>
                 </ul>
             </nav>
         </aside>
@@ -61,7 +62,7 @@
         <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
 
         <main>
-            <section class="content-section">
+            <section class="content-spacing">
                 <p>
                     Welcome to my project showcase. 
                     Each of these works was born out of a real-world need: 
@@ -69,48 +70,61 @@
                     or solving a specific problem. I write code prioritizing cleanliness, 
                     maintainability, and performance, without relying on unnecessary frameworks.
                 </p>
+
+                <ul class="container-column">
+
+                    <li>
+                        <a href="./projects/graph-sorting.html">
+                            <article class="card">
+                                <h3>
+                                    <time datetime="2026-06-24">24 june 2026</time> &mdash; 
+                                    Graph Sorting Visualizer
+                                </h3>
+                                <p>
+                                    An interactive Python application that visualizes topological 
+                                    sorting on Directed Acyclic Graphs (DAGs).Built using a custom 
+                                    Turtle-based graphics library, the engine dynamically demonstrates 
+                                    stack behaviorand order-list updates step-by-step, making complex 
+                                    graph algorithms intuitive to watch and learn.
+                                </p>
+                                <ul class="brick-list">
+                                    <li>Python</li>
+                                </ul>
+                            </article>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="./projects/procedural-tree-generator.html">
+                            <article class="card">
+                                <h3>
+                                    <time datetime="2026-06-19">19 June 2026</time> &mdash; 
+                                    Procedural tree generator
+                                </h3>
+                                <p>
+                                    A recursive procedural tree generator built from scratch with 
+                                    Python’s Turtle graphics.By leveraging randomized branching angles,
+                                    deep recursion, and probabilistic math,the algorithm simulates
+                                    natural growth patterns to generate completely unique, 
+                                    organic-looking trees with every execution.
+                                </p>
+                                <ul class="brick-list">
+                                    <li>Python</li>
+                                </ul>
+                            </article>
+                        </a>
+                    </li>
+
+                </ul>
+
             </section>
+
             <hr />
-            <div class="container">
-                <article>
-                    <h2>
-                        Procedural tree generator<time datetime="2026-06-19"></time>
-                    </h2>
-                    <div>
-                        <p>
-                            A recursive procedural tree generator built from scratch with 
-                            Python’s Turtle graphics.By leveraging randomized branching angles,
-                            deep recursion, and probabilistic math,the algorithm simulates
-                            natural growth patterns to generate completely unique, 
-                            organic-looking trees with every execution.
-                        </p>
-                        <a class="project-link"
-                                href="./projects/procedural-tree-generator.html">
-                                See more</a>
-                    </div>
-                </article>
-                <article>
-                    <h2>
-                        Graph Sorting Visualizer<time datetime="2026-06-24"></time>
-                    </h2>
-                    <div>
-                        <p>
-                            An interactive Python application that visualizes topological 
-                            sorting on Directed Acyclic Graphs (DAGs).Built using a custom 
-                            Turtle-based graphics library, the engine dynamically demonstrates 
-                            stack behaviorand order-list updates step-by-step, making complex 
-                            graph algorithms intuitive to watch and learn.
-                        </p>
-                        <a class="project-link"
-                                href="./projects/graph-sorting.html">
-                                See more</a>
-                    </div>
-                </article>
-            </div>
-            <hr />
+
             <footer>
                 <p><small>🄯 2026 Matteo Antonazzo. All left reversed.</small></p>
             </footer>
+
         </main>
     </body>
 </html>

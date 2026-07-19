@@ -52,8 +52,8 @@
                         My GitHub</a>
                     </li>
                     <li><a href="projects.html">Projects</a></li>
-                    <li><a href="notes.html">Notes</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="notes.html">Notes &mdash; Italian</a></li>
+                    <li><a href="blog.html">Blog &mdash; Italian</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -63,7 +63,7 @@
         <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
 
         <main>
-            <section class="content-section">
+            <section class="content-spacing">
                 <h2 id="about">Who am I?</h2>
                 <p>I was born in 1988 and have lived in Italy ever since.</p>
                 <p>I obtained a High School Diploma in Science.</p>
@@ -84,7 +84,9 @@
                 <br />
                 Since then, I have been learning programming on my own.
             </section>
+
             <hr>
+
             <div class="container">
                 <h2 id="skills">Technical Skills</h2>
                 <section>
@@ -147,13 +149,15 @@
                 </section>
             </div>
             <hr />
-            <section id="projects-preview">
+            <section class="content-spacing" id="projects-preview">
                 <h2>Featured Projects</h2>
-                <p>Here there is a selection of some relevant project
-                    <a class="project-link"
+                <p>
+                    Here there is a selection of some relevant project
+                </p>
+
+                <a class="project-link"
                     href="./projects.html">
                     See all</a>
-                </p>
                                             
                 <div class="container-grid">
                     
@@ -183,25 +187,79 @@
 
                 </div>
             </section>
+
             <hr />
-            <section id="notes-preview">
-                <h2>Learning Notes - Italian</h2>
-                <p>Here is a small selection of the notes I took during my studies.
+
+            <section class="content-spacing" id="blog-preview">
+                <h2>Learning Notes &mdash; Italian</h2>
+                <p>
+                    Here is a small selection of the notes I took during my studies.
                     Please note that they are written in Italian, as it is my native language.
-                    <a class="project-link"
+                </p>
+                        
+                <a class="project-link"
                     href="./notes.html">
                     See all</a>
-                </p>
 
-                <ul class="notes-list">
-                    <li>
-                    <time datetime="2026-06-25">25 June 2026</time>
+                <div class="container-grid">
+                    
                     <a href="https://drive.google.com/file/d/1pI5U1OxgbFe8AQ974EtCuRCAHTaAZlFu/view?usp=sharing"
-                    target="_blank" lang="it"> Object persistency and serialization in Java</a>
-                    </li>
-                </ul>
+                    target="_blank" lang="it">
+                        <div class="card">
+                            <h3>
+                                <time datetime="2026-06-25">25 June 2026</time> &mdash; 
+                                Object persistency and serialization in Java
+                            </h3>
+                            <p>
+                                Notes on serialization in Java: native binary mechanisms vs 
+                                textual alternatives (JSON, XML). Includes a comparison between 
+                                available interfaces, versioning management, format-specific 
+                                use cases, and security best practices in production.
+                            </p>
+                            <ul class="brick-list">
+                                <li>Java</li>
+                                <li>JSON</li>
+                                <li>XML</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
             </section>
+
             <hr />
+
+            <section class="content-spacing" id="blog-preview">
+                <h2>My blog &mdash; Italian</h2>
+                <p>
+                    Here is a small selection of articles I wrote when I need to say something.
+                </p>
+                        
+                <a class="project-link"
+                    href="./blog.html">
+                    See all</a>
+
+                <div class="container-grid">
+                    
+                    <a href="../blog/intervista-ai/index.html">
+                        <div class="card">
+                            <h3>
+                                <time datetime="2026-07-18">18 July 2026</time> &mdash; 
+                                Interview with Artificial Intelligence
+                            </h3>
+                            <p>
+                                Every day, millions of people use AI to study, work, or write 
+                                — but only a few get truly useful answers. This series stems 
+                                from one question: can AI understand everyone, or does it 
+                                require a minimum level of competence to interact with it?
+                            </p>
+                            <span class="tech-badge">Prompt</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <hr />
+
             <footer>
                 <h2 id="contact">Contact</h2>
                 <p><a href="https://it.linkedin.com/in/matteo-antonazzo-690689166" target="_blank">
