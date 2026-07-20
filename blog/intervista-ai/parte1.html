@@ -26,19 +26,52 @@
 
     <!-- JSON-LD BLOCK -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Intervista con l'AI: Perché il problema non è l'algoritmo",
-      "description": "Quando una risposta dell'AI è mediocre, dipende dalla macchina o da come poniamo le domande? Scopri le competenze chiave per dialogare con un LLM.",
-      "image": "https://mattonazzo.github.io/imgs/blog/intervista-ai/meme-lettera-dimissioni-ai.webp",
-      "url": "https://mattonazzo.github.io/blog/intervista-ai/parte1.html",
-      "author": {
-        "@type": "Person",
-        "name": "Matteo Antonazzo",
-        "url": "https://mattonazzo.github.io/"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Intervista con l'AI: Perché il problema non è l'algoritmo",
+            "description": "Quando una response dell'AI è mediocre, dipende dalla macchina o da come poniamo le domande? Scopri le competenze chiave per dialogare con un LLM.",
+            "image": "https://mattonazzo.github.io/imgs/blog/intervista-ai/meme-lettera-dimissioni-ai.webp",
+            "url": "https://mattonazzo.github.io/blog/intervista-ai/parte1.html",
+            "author": {
+              "@type": "Person",
+              "name": "Matteo Antonazzo",
+              "url": "https://mattonazzo.github.io/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mattonazzo.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://mattonazzo.github.io/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Intervista con l'AI (Indice)",
+                "item": "https://mattonazzo.github.io/blog/intervista-ai/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Parte 1 — Il problema non è l'algoritmo",
+                "item": "https://mattonazzo.github.io/blog/intervista-ai/parte1.html"
+              }
+            ]
+          }
+        ]
       }
-    }
     </script>
 
     <meta name="description" content="L'AI produce risposte mediocri? Scopri perché la colpa non è dei modelli LLM o dello slop, ma del modo in cui formuliamo i nostri prompt.">

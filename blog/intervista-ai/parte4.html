@@ -28,16 +28,49 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Intervista con l'AI: Parte 4 — Tokenizzazione, Pesi e Self-Attention",
-        "description": "Come elabora le parole un modello linguistico? Un'immersione tecnica ma accessibile nei concetti di token, pesi sinaptici e meccanismi di attenzione.",
-        "image": "https://mattonazzo.github.io/imgs/blog/intervista-ai/cruscotto-auto-interfaccia.webp",
-        "url": "https://mattonazzo.github.io/blog/intervista-ai/parte4.html",
-        "author": {
-          "@type": "Person",
-          "name": "Matteo Antonazzo",
-          "url": "https://mattonazzo.github.io/"
-        }
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Intervista con l'AI: Parte 4 — Tokenizzazione, Pesi e Self-Attention",
+            "description": "Come elabora le parole un modello linguistico? Un'immersione tecnica ma accessibile nei concetti di token, pesi sinaptici e meccanismi di attenzione.",
+            "image": "https://mattonazzo.github.io/imgs/blog/intervista-ai/cruscotto-auto-interfaccia.webp",
+            "url": "https://mattonazzo.github.io/blog/intervista-ai/parte4.html",
+            "author": {
+              "@type": "Person",
+              "name": "Matteo Antonazzo",
+              "url": "https://mattonazzo.github.io/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mattonazzo.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://mattonazzo.github.io/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Intervista con l'AI (Indice)",
+                "item": "https://mattonazzo.github.io/blog/intervista-ai/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Parte 4 — Tokenizzazione, Pesi e Self-Attention",
+                "item": "https://mattonazzo.github.io/blog/intervista-ai/parte4.html"
+              }
+            ]
+          }
+        ]
       }
     </script>
     

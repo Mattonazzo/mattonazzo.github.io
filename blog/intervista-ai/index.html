@@ -26,18 +26,45 @@
 
     <!-- JSON-LD block -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "headline": "Intervista con l'Intelligenza Artificiale — La Serie Completa",
-        "description": "Un'indagine indipendente in 7 parti per capire come dialogare con i modelli linguistici, strutturare i prompt e usare l'AI con senso critico.",
-        "url": "https://mattonazzo.github.io/blog/intervista-ai/index.html",
-        "author": {
-          "@type": "Person",
-          "name": "Matteo Antonazzo",
-          "url": "https://mattonazzo.github.io/"
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "headline": "Intervista con l'Intelligenza Artificiale — La Serie Completa",
+          "description": "Un'indagine indipendente in 7 parti per capire come dialogare con i modelli linguistici, strutturare i prompt e usare l'AI con senso critico.",
+          "url": "https://mattonazzo.github.io/blog/intervista-ai/index.html",
+          "author": {
+            "@type": "Person",
+            "name": "Matteo Antonazzo",
+            "url": "https://mattonazzo.github.io/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mattonazzo.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://mattonazzo.github.io/blog/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Intervista con l'AI (Indice)",
+              "item": "https://mattonazzo.github.io/blog/intervista-ai/"
+            }
+          ]
         }
-      }
+      ]
+    }
     </script>
 
     <meta name="description" content="Una ricerca indipendente in 7 parti sull'interazione critica tra competenze umane e Large Language Models.">

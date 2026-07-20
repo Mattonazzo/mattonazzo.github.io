@@ -28,16 +28,49 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Intervista con l'AI: Parte 2 — Come interpreta le richieste un LLM?",
-        "description": "Come funziona davvero la mente di un modello linguistico? Scopriamo i meccanismi con cui un LLM analizza ed elabora i nostri prompt.",
-        "image": "https://mattonazzo.github.io/imgs/blog/intervista-ai/collaborazione-umano-ia-puzzle.webp",
-        "url": "https://mattonazzo.github.io/blog/intervista-ai/parte2.html",
-        "author": {
-          "@type": "Person",
-          "name": "Matteo Antonazzo",
-          "url": "https://mattonazzo.github.io/"
-        }
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Intervista con l'AI: Parte 2 — Come interpreta le richieste un LLM?",
+            "description": "Come funziona davvero la mente di un modello linguistico? Scopriamo i meccanismi con cui un LLM analizza ed elabora i nostri prompt.",
+            "image": "https://mattonazzo.github.io/imgs/blog/intervista-ai/collaborazione-umano-ia-puzzle.webp",
+            "url": "https://mattonazzo.github.io/blog/intervista-ai/parte2.html",
+            "author": {
+              "@type": "Person",
+              "name": "Matteo Antonazzo",
+              "url": "https://mattonazzo.github.io/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mattonazzo.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://mattonazzo.github.io/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Intervista con l'AI (Indice)",
+                "item": "https://mattonazzo.github.io/blog/intervista-ai/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Parte 2 — Come interpreta le richieste un LLM?",
+                "item": "https://mattonazzo.github.io/blog/intervista-ai/parte2.html"
+              }
+            ]
+          }
+        ]
       }
     </script>
 
