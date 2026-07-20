@@ -2,49 +2,49 @@
 <urlset xmlns="http://sitemaps.org">
   <!-- Home Page -->
   <url>
-    <loc>https://github.io</loc>
+    <loc>https://mattonazzo.github.io</loc>
     <priority>1.00</priority>
   </url>
   
   <!-- Indice del Blog -->
   <url>
-    <loc>https://github.io/blog/</loc>
+    <loc>https://mattonazzo.github.io/blog/</loc>
     <priority>0.90</priority>
   </url>
   
   <!-- Indice dell'Intervista AI -->
   <url>
-    <loc>https://github.io/blog/intervista-ai/</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/</loc>
     <priority>0.85</priority>
   </url>
   
   <!-- Articoli - Serie Intervista AI -->
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte1.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte1.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte2.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte2.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte3.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte3.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte4.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte4.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte5.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte5.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte6.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte6.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://github.io/blog/intervista-ai/parte7.html</loc>
+    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte7.html</loc>
     <priority>0.80</priority>
   </url>
 </urlset>
