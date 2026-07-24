@@ -5,6 +5,7 @@
 
   main {
     grid-column: 1;
+    min-width: 0;
     padding: 0px 2px 60px 2px;
     max-width: 100%;
   }
@@ -68,8 +69,8 @@
     width: auto;
     margin:0 auto;
     margin-bottom: 30px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: clamp(0.5rem, 5%, 3rem);
+    padding-right: clamp(0.5rem, 5%, 3rem);
     padding-bottom: 1px;
     background: linear-gradient(
         to right,
@@ -91,4 +92,15 @@
       right: 30px;
       background-color: var(--accent-gold);
   }
+}
+@media (max-width: 400px) {
+  .container h3 {
+    font-size: 0.9em;
+  }
+  header h1 {
+  font-size: 1.8em;
+  }
+  header {
+  padding: 25px 15px;
+}
 }

@@ -61,8 +61,8 @@
 
 .container-grid {
   display: grid;
-  /* Crea colonne affiancate se c'è spazio (minimo 300px l'una), altrimenti le impila */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Crea colonne affiancate se c'è spazio (limite 300px l'una), altrimenti le impila */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
   padding-bottom: 15px;
