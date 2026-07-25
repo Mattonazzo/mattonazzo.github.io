@@ -2,49 +2,59 @@
 <urlset xmlns="http://sitemaps.org">
   <!-- Home Page -->
   <url>
-    <loc>https://mattonazzo.github.io</loc>
+    <loc>https://mattonazzo.dev</loc>
+    <lastmod>2026-05-25</lastmod>
     <priority>1.00</priority>
   </url>
   
   <!-- Indice del Blog -->
   <url>
-    <loc>https://mattonazzo.github.io/blog/</loc>
+    <loc>https://mattonazzo.dev/blog/</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.90</priority>
   </url>
   
   <!-- Indice dell'Intervista AI -->
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.85</priority>
   </url>
   
   <!-- Articoli - Serie Intervista AI -->
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte1.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte1.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte2.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte2.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte3.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte3.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte4.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte4.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte5.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte5.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte6.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte6.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://mattonazzo.github.io/blog/intervista-ai/parte7.html</loc>
+    <loc>https://mattonazzo.dev/blog/intervista-ai/parte7.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
   </url>
 </urlset>
