@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Meta tags for SEO and authorship -->
+    <meta name="author" content="Matteo Antonazzo">
+
+    <title>Ho usato gli LLM per scrivere da zero un articolo di Wikipedia</title>
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mattonazzo.github.io/blog/scrivere-wikipedia-con-ai/index.html" />
+    <meta property="og:title" content="Ho usato gli LLM per scrivere da zero un articolo di Wikipedia" />
+    <meta property="og:description" content="Il resoconto di un esperimento: scrivere da zero una voce tecnica su Wikipedia usando gli LLM. Tra allucinazioni, fonti a ritroso e tre giorni di verifiche." />
+    <meta property="og:image" content="https://mattonazzo.github.io/imgs/blog/scrivere-wikipedia-con-ai/verifica-fonti-ia-wikipedia.webp" />
+    <meta property="og:site_name" content="Matteo Antonazzo" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://mattonazzo.github.io/blog/scrivere-wikipedia-con-ai/index.html" />
+    <meta name="twitter:title" content="Ho usato gli LLM per scrivere da zero un articolo di Wikipedia" />
+    <meta name="twitter:description" content="Il resoconto di un esperimento: scrivere da zero una voce tecnica su Wikipedia usando gli LLM. Tra allucinazioni, fonti a ritroso e tre giorni di verifiche." />
+    <meta name="twitter:image" content="https://mattonazzo.github.io/imgs/blog/scrivere-wikipedia-con-ai/verifica-fonti-ia-wikipedia.webp" />
+
+  <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Ho usato gli LLM per scrivere da zero un articolo di Wikipedia",
+                "description": "Il resoconto di un esperimento: scrivere da zero una voce tecnica su Wikipedia usando gli LLM. Tra allucinazioni, fonti a ritroso e tre giorni di verifiche.",
+                "image": "https://mattonazzo.github.io/imgs/blog/scrivere-wikipedia-con-ai/verifica-fonti-ia-wikipedia.webp",
+                "url": "https://mattonazzo.github.io/blog/scrivere-wikipedia-con-ai/",
+                "datePublished": "2026-08-06",
+                "author": {
+                "@type": "Person",
+                "name": "Matteo Antonazzo",
+                "url": "https://mattonazzo.github.io/"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://mattonazzo.github.io/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://mattonazzo.github.io/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Ho usato gli LLM per scrivere da zero un articolo di Wikipedia",
+                    "item": "https://mattonazzo.github.io/blog/scrivere-wikipedia-con-ai/"
+                }
+                ]
+            }
+            ]
+        }
+    </script>
+
+
+    <meta name="description" content="Il resoconto di un esperimento: scrivere da zero una voce tecnica su Wikipedia usando gli LLM. Tra allucinazioni, fonti a ritroso e tre giorni di verifiche.">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+    <!-- icon in tabs -->
+    <link rel="icon" href="../../imgs/mattonazzo-favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../imgs/mattonazzo-apple-touch-icon.png" type="image/png"/>
+
+    <!-- comunication for google about domain migration -->
+    <link rel="canonical" href="https://mattonazzo.dev/blog/scrivere-wikipedia-con-ai/index.html">
+
+    <!-- default link behavior -->
+    <base target="_self"/>
+  </head>
+  <body id="top">
+
+    <header>
+      <nav aria-label="Breadcrumb" id="breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="https://mattonazzo.github.io/index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="https://mattonazzo.github.io/blog/index.html">Blog</a></li>
+          <li class="breadcrumb-item active-page" aria-current="page">scrivere-wikipedia-con-ai</li>
+        </ol>
+      </nav>
+        <h1>Ho usato gli LLM per scrivere da zero un articolo di Wikipedia</h1>
+        <p>(e perché non dovresti farlo anche tu)</p>
+        <p>
+          <time datetime="2026-08-06">6 agosto 2026</time>
+          <span aria-hidden="true"> | </span>
+          <strong>tempo di lettura: circa</strong> 
+          <span class="time-badge">🕒 5 min</span>
+        </p>
+    </header>
+
+    <!-- back to top button -->
+    <a href="#top" target="_self">
+        <img id="back-to-top" src="../../imgs/Top-Arrow-512px.png" alt="Top Arrow" />
+    </a>
+
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menu-check" class="menu-check">
+
+    <!-- Lateral navigation menu -->
+    <aside id="sidebar">
+        <!-- "X" icon for closing menu on mobile view -->
+        <label for="menu-check" class="menu-close">✕</label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a id="github-link"
+                    href="https://github.com/Mattonazzo"
+                    target="_blank">
+                    My GitHub</a>
+                </li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects/index.html">Progetti</a></li>
+                <li><a href="../../notes/index.html">Appunti</a></li>
+                <li><a href="../index.html">Blog</a></li>
+                <li>
+                    <a class="active-page">Indice</a>
+                    <ul class="sub-nav-links">
+                      <li><a href="#problem">Il problema</a></li>
+                      <li><a href="#empty-voice">La voce vuota</a></li>
+                      <li><a href="#google-ai">Il tentativo con Google AI</a></li>
+                      <li><a href="#claude">Il passaggio a Claude</a></li>
+                      <li><a href="#chaos-notes">Il caos delle note</a></li>
+                      <li><a href="#still-not-enough">Ancora non basta</a></li>
+                      <li><a href="#publication">La pubblicazione</a></li>
+                      <li><a href="#why-not-recommend">Perché non te lo consiglio</a></li>
+                      <li><a href="#post-scriptum">Post scriptum</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Using Hamburger character, label became a button -->
+    <label for="menu-check" class="menu-toggle" aria-label="Open menu">☰</label>
+
+    <main>
+
+      <article>
+
+      <section class="content-spacing">
+        <img class="content-img" 
+          src="../../imgs/blog/scrivere-wikipedia-con-ai/verifica-fonti-ia-wikipedia.webp" 
+          alt="Illustrazione di un robot che scrive a macchina mentre un uomo verifica i fogli con una lente d'ingrandimento davanti a uno schema di connettori auto" 
+          loading="lazy" 
+        />
+        <h2 id="problem">Il problema</h2>
+        <p>
+          Tutto è iniziato da una richiesta: il solito genere di richiesta che viene fatta a 
+          chiunque ne capisca un minimo di informatica, quella per cui chi chiede dà per 
+          scontato che risolverla sia una sciocchezza. (E allora perché non lo fai te?)
+        </p>
+        <p>
+            Una persona, proprietaria di una <strong>Fiat Panda del 2017</strong>, mi ha chiesto come poter 
+            migliorare l'esperienza audio della sua auto; in particolare se sulla versione 
+            di base fosse possibile installare un <b>jack AUX</b> e una <b>presa USB</b> per leggere le chiavette.
+        </p>
+        <p>
+            Ora, io di audiofilia in ambiente automotive ne capisco quanto un gatto ne sa 
+            del volo: può accadere che cada giù da un albero e atterri in piedi, ma ciò 
+            non significa che sappia volare.
+        </p>
+        <p>
+            Ho dovuto pertanto estrarre la sua radio per verificare il tipo di collegamenti 
+            presenti. Ho fatto una foto allo schema elettrico e allo spinotto posteriore e 
+            ho chiesto a <strong>Gemini</strong> di dirmi cosa vede. Ho scoperto quindi che la sua radio è un 
+            modello Continental, tipico su questo genere di auto del gruppo Fiat-Alfa-Lancia, 
+            e che il connettore è un <strong>ISO 10487</strong>.
+        </p>
+        <p>
+            Ho iniziato la solita ricerca su Amazon per capire cosa si trovi in giro, e 
+            principalmente ho trovato connettori jack AUX, e in alcuni prodotti è persino 
+            presente una presa USB. Prezzo medio di queste soluzioni: 22€. A questo punto 
+            mi è salito un dubbio: se costa davvero così poco aggiungere un modulo AUX/USB, 
+            perché la casa madre non ha pensato di inserirlo da subito?
+        </p>
+        <p>
+            Ho iniziato a leggere le recensioni di ogni prodotto e ho capito la magagna: 
+            tra chi diceva che la presa USB bruciava le chiavette e chi diceva che non 
+            funzionava, ho cominciato a pensare che quella non fosse una presa dati, ma solo 
+            di ricarica; per carità, sempre buona, ma non quello che un utente medio si 
+            aspetta di trovare andando a collegare una presa USB dietro uno stereo.
+        </p>
+      </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="empty-voice">La voce vuota</h2>
+          <p>
+            A quel punto ho cercato informazioni sul connettore ISO 10487 e, come spesso accade, 
+            il primo risultato è l'articolo italiano di Wikipedia. L'ho aperto e... niente. 
+            Proprio niente. Qualche informazione sui connettori principali, con persino una 
+            tabella dei collegamenti principali, ma della parte del connettore di cui avevo 
+            bisogno non c'era traccia.
+          </p>
+          <p>
+            A quanto pare, anni fa un utente ha tradotto la pagina inglese di Wikipedia 
+            <a href="https://en.wikipedia.org/w/index.php?title=Connectors_for_car_audio&oldid=380044280" 
+            target="_blank" rel="noopener noreferrer"
+            >Connector for car audio</a> senza verificarne le fonti né aggiungere contenuti originali. 
+            Nel frattempo quella voce è stata persino eliminata e reindirizzata a 
+            <a href="https://en.wikipedia.org/wiki/Vehicle_audio" 
+            target="_blank" rel="noopener noreferrer">Vehicle audio</a>, dove lo standard viene 
+            appena citato senza alcuna spiegazione. Anche quella strada, quindi, si è rivelata un 
+            vicolo cieco. Inoltre, l'unica fonte citata nell'articolo tradotto parlava di 
+            tutt'altro: il tuning delle auto Audi, senza mai menzionare l'ISO 10487. Da una 
+            <a href="https://forum.mx5oc.co.uk/t/help-any-ideas-about-vehicle-speed-sensor/40010/6"
+            target="_blank" rel="noopener noreferrer"
+            >discussione su un forum</a> ho poi scoperto che, nel tempo, quella pagina era stata 
+            completamente riscritta per trattare le Electronic Control Unit (ECU), facendo così 
+            sparire ogni riferimento allo standard.
+          </p>
+          <p>
+            Ho anche guardato le pagine in altre lingue, ma anche lì le informazioni sono scarse. 
+            In alcune veniva fatta menzione persino di un connettore aggiuntivo usato per il 
+            satellitare; solo più tardi scoprirò che quel connettore non fa parte dello standard, 
+            e per dimostrarlo ci perderò praticamente un pomeriggio.
+          </p>
+          <p>
+            A quel punto non mi restava che fare una cosa: cercare manuali, documentazione tecnica 
+            e qualunque fonte parlasse davvero di questo connettore. Dopo aver consultato diverse 
+            fonti, ho capito che quanto scritto su Wikipedia andava cambiato, per evitare che 
+            altri, come me, si ritrovassero nella stessa situazione.
+          </p>
+          <p>
+            E lo dico perché sono rimasto davvero stupito nel trovare una voce così incompleta e 
+            poco documentata per quello che è stato, per decenni, uno degli standard più diffusi 
+            per gli impianti audio automotive. 
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="google-ai">Il tentativo con Google AI</h2>
+          <p>
+            Ho deciso di muovermi con cautela e ho continuato a leggere varie fonti per farmi 
+            un'idea dell'argomento. Dopodiché però ho dovuto dare spazio alla mia ignoranza, 
+            perché non possedevo tutte le competenze necessarie per scrivere un articolo su 
+            Wikipedia che tratti un argomento così specifico.
+          </p>
+          <p>
+            Mi sono affidato così al parere dell'intelligenza artificiale del motore di ricerca 
+            di Google (AI Overview) per costruire sommariamente le dinamiche storiche che hanno 
+            portato alla pubblicazione di questo standard, e devo dire che è riuscita a 
+            sorprendermi davvero molto. È stata in grado di effettuare dei collegamenti storici 
+            importantissimi, alcuni talmente sottili da sembrare delle vere e proprie 
+            allucinazioni, ma che poi si sono rivelate non esserlo. Mi sono poi fatto dare 
+            alcuni schemi di base e anche qualche informazione su come lo standard venga usato 
+            ad oggi, poiché nella scrittura della parte storica è uscito fuori il formato 
+            Quadlock.
+          </p>
+          <p>
+            E non nascondo che ho dovuto chiederle più volte di non farmi la solita lista di tre 
+            componenti, perché a quanto pare è una cosa che le piace molto fare.
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="claude">Il passaggio a Claude</h2>
+          <p>
+            Preso questo elaborato molto grezzo e senza fonti, ho scelto di farlo vedere a 
+            Claude per una critica seria sulla fattibilità, spiegando che il mio intento era di 
+            poter usare quelle informazioni per scrivere un articolo su Wikipedia. Claude è 
+            stato brutale: articolo completamente bocciato. A quanto pare ogni cosa scritta al 
+            suo interno sembrava inventata, e ovviamente veniva richiesto di portare le fonti 
+            per rispettare le linee guida di Wikipedia. (Un approccio simile a quello che ho 
+            esplorato nella mia <a href="../intervista-ai/">intervista con l'AI</a>).
+          </p>
+          <p>
+            Ho chiesto pertanto a Claude di fare finta che ogni cosa scritta all'interno 
+            dell'elaborato fosse vera. Doveva pertanto usare tutte le informazioni per scrivere 
+            un articolo da poter pubblicare su Wikipedia usando lo standard (e quindi anche la 
+            formattazione), lasciando a me il compito di inserire le fonti là dove lui inseriva 
+            la stringa <code><ref>Fonte necessaria.</ref></code>.
+          </p>
+          <p>
+            Da qui è iniziata la ricerca delle fonti tramite Google AI Overview, perché chi, 
+            meglio di quest’ultima, poteva darmi i giusti riferimenti a ciò che aveva affermato?
+          </p>
+          <p>
+            A quanto pare non era così semplice come pensavo.
+          </p>
+          <p>
+            Premetto che non c'è stata alcuna acquisizione di fonti senza la verifica personale 
+            di ognuna di esse. Più volte mi sono ritrovato a dover dire all'intelligenza 
+            artificiale che la fonte non dichiarava in alcun punto quanto doveva verificare. 
+            Quindi questo non è stato un semplice lavoro di prompting senza supervisione.
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="chaos-notes">Il caos delle note</h2>
+          <figure class="content-img-post-right">
+            <img src="../../imgs/blog/scrivere-wikipedia-con-ai/esempio-note-invasive-ia.webp" 
+                alt="Screenshot di una pagina di testo divisa in due blocchi di colore: la metà superiore in verde evidenzia il testo principale, mentre la metà inferiore in rosso mostra una sezione di note a piè di pagina estremamente lunga e densa." 
+                loading="lazy">
+            <figcaption>Una pagina presa dall'elaborato per dare un'idea di quanto fosse stato prodotto con le note invasive: la parte in verde è il testo principale.</figcaption>
+          </figure>
+          <p>
+            Ho deciso di procedere paragrafo per paragrafo, chiedendo esplicitamente di aiutarmi 
+            a completare le note che dovrei inserire su Wikipedia tramite una fonte, e ogni volta 
+            ho cercato di farmi dare una fonte diversa per avere quanta più ridondanza possibile, 
+            per poter diluire i possibili errori all'interno delle fonti stesse. E qui Google AI 
+            Overview ha fatto qualcosa che non mi sarei aspettato, ma che mi ha fatto comprendere 
+            come rintracciare i testi divulgativi scritti sciattamente con l'intelligenza 
+            artificiale.
+          </p>
+          <p>
+            Ad ogni nota che mi veniva fornita, Google AI Overview applicava lo schema 
+            dell'approfondimento con anche la dovuta fonte: in pratica ogni nota era un piccolo 
+            saggio.
+          </p>
+          <p>
+            Questo potrebbe sembrare un bene, ma vi assicuro che non lo è. Mi ricorda un testo 
+            divulgativo sulla cybersicurezza (venduto a quasi 20€) che ho letto tempo fa: non 
+            ho prove schiaccianti, quindi non posso affermare che sia stato scritto dall'IA, ma 
+            trovo criminale vendere un libro in cui la sezione delle note occupa più della metà 
+            della pagina.Un testo del genere diventa semplicemente illeggibile. È come cercare di 
+            ascoltare qualcuno mentre si viene costantemente distratti da ciò che accade sotto le 
+            sue spalle.
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="still-not-enough">Ancora non basta</h2>
+          <p>
+            Al termine della ricerca delle fonti, l'elaborato, che prima occupava 5-6 pagine, 
+            ora ne occupava 14! Ovviamente l'articolo era impubblicabile.
+          </p>
+          <p>
+            Ho chiesto quindi a Claude di darmi una mano a correggere questo scempio. Le note 
+            c'erano ed erano ben trattate, sebbene spesso si trovassero a ripetere molte delle 
+            cose scritte nel testo principale. La mia richiesta, in poche parole, è stata di 
+            riscrivere tutto il testo, integrando le informazioni aggiuntive nelle note 
+            direttamente nel testo principale e relegando a poche il "privilegio" di essere una 
+            nota a fondo pagina, quando davvero non necessaria alla lettura, ovviamente
+            rispettando la sintassi di Wikipedia.
+          </p>
+          <p>
+            L'elaborato uscente era pressoché prossimo alla pubblicazione, salvo qualche errore 
+            di sintassi e qualche link da eliminare perché superfluo.
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="publication">La pubblicazione</h2>
+          <figure class="content-img-post-right" style="max-width:30%;">
+            <img src="../../imgs/blog/scrivere-wikipedia-con-ai/iso-10487-2-1995-connector.webp" 
+            alt="Schema dei collegamenti del connettore ISO 10487-2:1995">
+          </figure>
+          <p>
+            Ho disegnato pertanto tre immagini SVG dei connettori che mi interessa inserire 
+            nella pagina; dopo averle incorporate insieme ad altre già disponibili su Wikimedia 
+            Commons, l'articolo è finalmente pubblico. Puoi leggerlo a
+            <a href="https://it.wikipedia.org/wiki/ISO_10487" 
+            target="_blank" rel="noopener noreferrer">questo link</a>.
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="why-not-recommend">Perché non te lo consiglio</h2>
+          <p>
+            Perché allora dico che non ti consiglierei di farlo? Cioè, perché non dovresti 
+            scrivere un articolo da zero usando un LLM?
+          </p>
+          <p>
+            Principalmente per due ragioni.
+          </p>
+          <p>
+            La prima potrei definirla quasi un'accortezza da tenere. Fidarsi dello stile 
+            descrittivo degli LLM può portare a situazioni come quella che lamentavo prima 
+            (le note che diventano il corpo principale). Se non si hanno delle buone basi su 
+            come scrivere un articolo divulgativo, il risultato sarà mediocre. E in generale 
+            questo non viene percepito bene dai revisori di Wikipedia, che devono spendere del 
+            tempo per leggere il tuo articolo scritto male. Quindi è sempre bene partire da un 
+            proprio elaborato e poi decidere se sia il caso di ampliarlo o approfondirlo, magari 
+            chiedendo anche un parere a un LLM, o magari chiedendolo a un amico o collega in 
+            carne e ossa.
+          </p>
+          <p>
+            La seconda ragione è il tempo. In totale ho impiegato circa tre giornate lavorative: 
+            non conoscendo l'argomento, una fase di studio e comprensione era comunque 
+            necessaria. Tuttavia, farsi scrivere prima il testo dall'IA per poi andare alla 
+            disperata ricerca delle fonti si è rivelata una scelta inefficiente. Alla fine, 
+            questo processo a ritroso ha raddoppiato i tempi rispetto al metodo classico: 
+            studiare l'argomento, capirlo e poi scriverlo di proprio pugno.
+          </p>
+          <p>
+            Devo certamente ammettere che i collegamenti storici riportati dall’AI sono stati 
+            abbastanza importanti per la stesura di questo articolo, ma sarebbe stato meglio 
+            inserirli in una seconda fase di approfondimento slegata dalla scrittura della parte 
+            tecnica. Ed è proprio perché ritengo molto potente la possibilità di utilizzare gli 
+            LLM per scopi di ricerca, che li ho impiegati per questo lavoro — d'altronde, come 
+            facevo notare nel <a href="../intervista-ai/">precedente post</a>, il problema reale 
+            non è mai l'algoritmo in sé, ma come decidiamo di orchestrarlo. In ogni caso si 
+            ritorna comunque sui due punti sopracitati: la necessità assoluta di spendere del 
+            tempo per verificare criticamente quanto detto dall’AI.
+          </p>
+          <p>
+            Tutto questo vale se non ti fidi ciecamente di un'IA. Perché, se ti fidi, 
+            quell'informazione non verificata, che pubblicherai su Wikipedia, rimarrà lì per 
+            molto tempo, ad aspettare la prossima persona che farà la tua stessa ricerca. 
+            E quella persona, un giorno, potresti essere di nuovo tu.
+          </p>
+        </section>
+
+      <hr>
+
+        <section class="content-spacing">
+          <h2 id="post-scriptum">Post scriptum</h2>
+          <p>
+            A chi mi aveva chiesto aiuto, una soluzione alla fine l'ho trovata: 
+            un'<a href="https://www.car-interface.com/vendita/it/bluetooth-fiat/1659-fiat-nuova-panda-interfaccia-usb-aux-bluetooth-vivavoce-e-streaming-audio.html" 
+            target="_blank" rel="noopener noreferrer">interfaccia USB/AUX/Bluetooth WEFA</a> 
+            che emula il caricatore CD fisico della radio, l'unico modo 
+            in cui quel connettore ISO può davvero ricevere dati e non solo ricaricare. 
+            Costa quattro volte tanto un semplice cavo AUX, ma offre anche il quadruplo delle 
+            funzioni. Non l'ho scelta a caso: senza aver passato tre giorni a capire come 
+            funziona davvero questo connettore, avrei probabilmente comprato anch'io uno dei 
+            tanti adattatori sbagliati.
+          </p>
+        </section>
+
+      <hr />
+
+      <footer>
+        <h3>Avvertenze legali</h3>
+        <p><small>Questa ricerca è stata condotta in modo indipendente e non è affiliata a Anthropic o Google.</small></p>
+        <p><small>Le informazioni ivi contenute sono fornite a scopo informativo e non costituiscono consulenza professionale.</small></p>
+        <p><small>&copy; 2026 Matteo Antonazzo. Tutti i diritti riservati.</small></p>
+      </footer>
+    </main>
+  </body>
+</html>

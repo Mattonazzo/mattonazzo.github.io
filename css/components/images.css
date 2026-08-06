@@ -4,3 +4,18 @@
     padding: 1rem 0;
     display: block;
 }
+
+.content-img-post-right {
+  float: right;
+  margin: 0 0 1.5rem 1.5rem;
+  padding-top: 1em;
+  max-width: 40%;
+  height: auto;
+  box-sizing: border-box;    /* Include padding e bordi nel calcolo della larghezza */
+}
+
+.content-img-post-right img {
+  display: block;            /* Elimina spazi vuoti sotto l'immagine */
+  width: 100%;               /* Costringe l'immagine a stare nei limiti della figure */
+  height: auto;
+}
