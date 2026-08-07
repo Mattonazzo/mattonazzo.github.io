@@ -3,14 +3,14 @@
 <!-- Home Page -->
   <url>
     <loc>https://mattonazzo.dev/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <priority>1.00</priority>
   </url>
 
 <!-- Home Page english -->
   <url>
     <loc>https://mattonazzo.dev/en/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <priority>0.95</priority>
   </url>
 
@@ -66,7 +66,7 @@
 <!-- Indice del Blog -->
   <url>
     <loc>https://mattonazzo.dev/blog/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <priority>0.90</priority>
   </url>
   

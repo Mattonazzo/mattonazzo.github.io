@@ -11,6 +11,14 @@
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+.card > p {
+    margin: 0;
+}
+
+.card > ul {
+    margin: 1em 0.5em 0.5em 0.5em;
+}
+
 .card:hover {
   transform: translateY(-2px);
   border-color: var(--link);
