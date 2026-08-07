@@ -4,12 +4,36 @@
     grid-column: 1;
     align-self: start; 
     position: sticky;
-    top: 40px;
+    top: var(--page-padding);
+
+    max-height: calc(100vh - var(--page-padding) - var(--page-padding));
+    overflow-y: auto;
+    /* Custom scrollbar styles for Firefox, Brave */
+    scrollbar-width: thick;
+    scrollbar-color: rgba(0,0,0,.35) transparent;
 
     border-radius: 10px;
 
     background-color: var(--bg-color);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Custom scrollbar styles for WebKit browsers: Chrome, Safari */
+#sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.35);
+    border-radius: 999px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,.6);
 }
 
 #sidebar ul {
@@ -64,6 +88,27 @@
 #sidebar .sub-nav-links {
     padding-left: 1rem;
 }
+
+/*
+#sidebar li:has(.sub-nav-links) {
+    display: block;
+    position: relative;
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+#sidebar li:has(.sub-nav-links)::before {
+    content: "";
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    top: 0;
+
+    height: 5px;
+    background: var(--accent-gold);
+    border-radius: 999px;
+}*/
+
 #sidebar .active-page {
     background: linear-gradient( to right, transparent, var(--accent), transparent );
 }

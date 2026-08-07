@@ -1,4 +1,8 @@
 :root {
+    /* Measurements */
+    --page-padding: 30px;
+
+    /* Color palette */
     --bg-color: rgb(248, 212, 144);
     --bg-color-rgb: 248,212,144;
 

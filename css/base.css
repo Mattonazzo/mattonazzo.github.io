@@ -19,7 +19,7 @@ body {
     overflow-wrap: break-word;
     min-height: 100vh;
     margin: 0;
-    padding:30px 24px;
+    padding: var(--page-padding) 24px;
     gap:15px;
 
     background-image: url("../imgs/brick_wall.webp");
