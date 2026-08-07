@@ -1,27 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home Page -->
+<!-- Home Page -->
   <url>
     <loc>https://mattonazzo.dev/</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>1.00</priority>
   </url>
-  
-  <!-- Indice del Blog -->
+
+<!-- Home Page english -->
+  <url>
+    <loc>https://mattonazzo.dev/en/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+<!-- Indice delle note -->
+  <url>
+    <loc>https://mattonazzo.dev/notes/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+<!-- Indice dei progetti -->
+  <url>
+    <loc>https://mattonazzo.dev/projects/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+<!-- Indice dei progetti english -->
+  <url>
+    <loc>https://mattonazzo.dev/en/projects/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+<!-- Progetto graph-sorting -->
+  <url>
+    <loc>https://mattonazzo.dev/projects/graph-sorting/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+<!-- Progetto graph-sorting english -->
+  <url>
+    <loc>https://mattonazzo.dev/en/projects/graph-sorting/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+<!-- Progetto procedural-tree-generator -->
+  <url>
+    <loc>https://mattonazzo.dev/projects/procedural-tree-generator/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+<!-- Progetto procedural-tree-generator english -->
+  <url>
+    <loc>https://mattonazzo.dev/en/projects/procedural-tree-generator/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+<!-- Indice del Blog -->
   <url>
     <loc>https://mattonazzo.dev/blog/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.90</priority>
   </url>
   
-  <!-- Indice dell'Intervista AI -->
+<!-- Indice dell'Intervista AI -->
   <url>
     <loc>https://mattonazzo.dev/blog/intervista-ai/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.85</priority>
   </url>
   
-  <!-- Articoli - Serie Intervista AI -->
+<!-- Articoli - Serie Intervista AI -->
   <url>
     <loc>https://mattonazzo.dev/blog/intervista-ai/parte1.html</loc>
     <lastmod>2026-07-18</lastmod>
@@ -56,5 +112,12 @@
     <loc>https://mattonazzo.dev/blog/intervista-ai/parte7.html</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.80</priority>
+  </url>
+
+<!-- Articolo riguardo scrittura su wikipedia con AI -->
+  <url>
+    <loc>https://mattonazzo.dev/blog/scrivere-wikipedia-con-ai/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.85</priority>
   </url>
 </urlset>
