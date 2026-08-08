@@ -89,26 +89,6 @@
     padding-left: 1rem;
 }
 
-/*
-#sidebar li:has(.sub-nav-links) {
-    display: block;
-    position: relative;
-    padding-top: 1.2rem;
-    margin-top: 1.5rem;
-}
-
-#sidebar li:has(.sub-nav-links)::before {
-    content: "";
-    position: absolute;
-    left: 15%;
-    right: 15%;
-    top: 0;
-
-    height: 5px;
-    background: var(--accent-gold);
-    border-radius: 999px;
-}*/
-
 #sidebar .active-page {
     background: linear-gradient( to right, transparent, var(--accent), transparent );
 }

@@ -37,19 +37,33 @@
   }
 
   #sidebar {
+    display:flex;
+    flex-direction: column;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: fit-content;
-    max-width: min(260px, 90vw);
-    height: 100vh;
+    top: 15px;
+    left: 15px;
+    width: 260px;
+    max-width: 90vw;
+    max-height: calc(100vh - 30px);
     z-index: 1001;
-    overflow-y: auto;
-    transform: translateX(-100%);  /* hides the bar completly on left */
-    transition: left 0.3s ease; /* an easy transition when opened */
-    border-radius: 0;
-    padding-top: 4rem; /*  put the first link above the X button */
+    overflow: hidden;
+    transform: translateX(-115%);  /* hides the bar completly on left */
+    transition: transform 0.3s ease; /* an easy transition when opened */
+    border-radius: 10px;
   }
+
+  .scrollable-menu {
+    flex: 1; /* Takes up all remaining vertical space */
+    overflow-y: auto; /* Allows scrolling inside this container only */
+    margin-top: 2rem; /* Adds some margin to the top of the scrollable area */
+    padding-top: 1rem; /* Pushes links down so they clear the absolute 'X' button */
+    padding-bottom: 1rem; /* Adds breathing room at the bottom of the scroll */
+    
+    /* Optional: Custom scrollbar styles for Firefox/Brave transferred here */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,.35) transparent;
+  }
+
 
   .menu-check:checked ~ #sidebar {
     transform: translateX(0);
