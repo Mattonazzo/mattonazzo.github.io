@@ -95,9 +95,9 @@
     <header>
       <nav aria-label="Breadcrumb" id="breadcrumb-nav">
         <ol class="breadcrumb-list">
-          <li class="breadcrumb-item"><a href="https://mattonazzo.dev/index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="https://mattonazzo.dev/blog/index.html">Blog</a></li>
-          <li class="breadcrumb-item"><a href="https://mattonazzo.dev/blog/intervista-ai/index.html">Intervista con l'AI</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Blog</a></li>
+          <li class="breadcrumb-item"><a href="./index.html">Intervista con l'AI</a></li>
           <li class="breadcrumb-item active-page" aria-current="page">Parte 4</li>
         </ol>
       </nav>
@@ -127,7 +127,7 @@
             <ul class="nav-links">
                 <li><a id="github-link"
                     href="https://github.com/Mattonazzo"
-                    target="_blank">
+                    target="_blank" title="Si apre in una nuova scheda">
                     My GitHub</a>
                 </li>
                 <li><a href="../../index.html">Home</a></li>
@@ -236,7 +236,7 @@
           una parola intera. Non lavoro lettera per lettera né 
           parola per parola: 
           <a href="https://www.nexsoft.it/token-large-language-model/"
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >lavoro per pezzi che stanno nel mezzo</a>. 
           Per un computer il testo non esiste, esistono i numeri. A seconda della 
           lingua e della rarità e complessità del 
@@ -266,14 +266,14 @@
         <p>
           Questo processo di scomposizione si chiama 
           <a href="https://www.fastweb.it/fastweb-plus/intelligenza-artificiale/openai-gpt-token-cosa-sono-come-funzionano-come-contarli/"
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >tokenizzazione</a>. 
           Per l'inglese, una regola pratica comune è che 750 
           parole corrispondono a circa 1.000 token (rapporto 3:4), 
           mentre in italiano il rapporto può variare a causa della 
           maggiore complessità morfologica delle parole
           (<a href="https://help.openai.com/it-it/articles/4936856-what-are-tokens-and-how-to-count-them"
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >fonte</a>).
         </p>
         <p>
@@ -316,7 +316,7 @@
           <span class="heading-topic">Il ruolo del Transformer</span>
           &mdash; <q><a 
             href="https://research.google/pubs/attention-is-all-you-need/" 
-            target="_blank" rel="noopener noreferrer"
+            target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
             >Attention is all you need</a></q>
         </h3>
         <p>
@@ -324,10 +324,10 @@
           inventata da Google nel 2017 &mdash; soverchiando il primato 
           tenuto dai modelli <a 
           href="https://it.wikipedia.org/wiki/Rete_neurale_ricorrente" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >Recurrent Neural Network</a> (RNN), 
           <a href="https://arxiv.org/abs/2107.02248 " 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >senza però mandarli davvero in pensione</a>.</p>
         <p>È il "cervello" che mi permette di capire le relazioni tra i token all'interno di una frase grazie a tre concetti chiave:</p>
         <ul class="content-unordered-list-focus">
@@ -397,13 +397,13 @@
         </blockquote>
         <h4><a 
           href="https://www.ibm.com/it-it/think/topics/vector-embedding" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >Embedding</a> (o incorporazione)</h4>
         <p>
           Prima di calcolare i pesi, devo trasformare gli indici dei token in 
           posizioni geometrie. Ogni token è associato a un 
           <a href="https://mimir.bot/intelligenza-artificiale-generativa-come-funziona/" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >vettore di embedding</a> 
           (una lista di migliaia di numeri che ne definisce le coordinate). 
           Questi numeri posizionano il token in uno spazio a 
@@ -447,7 +447,7 @@
           genera tre vettori diversi a partire dal suo embedding</strong>, 
           tramite tre trasformazioni matematiche (<a 
           href="https://andreailmatematico.it/matematica/algebra-lineare/operazioni-con-le-matrici/" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >moltiplicazioni per matrici</a> 
            apprese durante l'addestramento):
         </p>
@@ -540,14 +540,14 @@
         <p>
           Il peso (o punteggio di attenzione) tra due token si calcola 
           facendo il <a href="https://andreailmatematico.it/matematica/algebra-lineare/prodotto-scalare-e-vettoriale/" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >prodotto scalare</a> tra la Query del 
           token attuale e la Key di ogni token precedente. Più 
           questo prodotto è alto, più i due vettori sono 
           "allineati" nello spazio matematico, più quel token del 
           passato è considerato rilevante per quello che sto per 
           generare ora. (<a href="https://mbrenndoerfer.com/writing/query-key-value-attention-mechanism" 
-          target="_blank" 
+          target="_blank" title="Si apre in una nuova scheda" 
           rel="noopener noreferrer">fonte</a>)
         </p>
         <blockquote class="content-quote content-quote-example">
@@ -573,7 +573,7 @@
           <span class="heading-topic">Dal punteggio al peso reale</span> 
           &mdash; la funzione <a 
           href="https://apxml.com/courses/foundations-transformers-architecture/chapter-2-attention-mechanism-core-concepts/softmax-attention-weights?__cf_chl_f_tk=MJ4kkXQLpT5tq0ycXLQCeBrZ3lEH3ofk4JfEwKEx39U-1783166580-1.0.1.1-UesJe39p9MHOpfzNnoA7iFtpeoPEY8Gm5BaQq.h9di8" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >softmax</a>
         </h3>
         <p>
@@ -643,7 +643,7 @@
           </p>
         <blockquote class="content-quote content-quote-focus">
         <p><a href="https://medium.com/@maitydi567/why-do-we-use-softmax-in-transformers-fdfd50f5f4c1" 
-          target="_blank" rel="noopener noreferrer">
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer">
           Senza la Softmax, il modello non riuscirebbe a gestire la 
           competizione tra i vari token per definire il contesto</a>
         </p>
@@ -694,14 +694,14 @@
             Gli esperti, invece, appartengono a un'architettura specifica 
             chiamata <a 
             href="https://blog.desigeek.com/post/2025/01/intro-to-mixture-of-experts/" 
-            target="_blank" rel="noopener noreferrer"
+            target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
             >Mixture of Experts (MoE)</a>. In questo caso, all'interno 
             degli strati feed-forward (e non in quelli di attenzione), invece 
             di avere un unico blocco di calcolo, ce ne sono diversi (gli 
             'esperti', da pochi a centinaia). Per ogni token, un meccanismo 
             chiamato <a 
             href="https://www.buildfastwithai.com/blogs/mixture-of-experts-moe-explained" 
-            target="_blank" rel="noopener noreferrer"
+            target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
             >router</a> decide quali pochi esperti attivare (solitamente 
             1 o 2), lasciando gli altri inattivi.
           </p>
@@ -745,18 +745,18 @@
           possibili candidati. Da questa proiezione ottengo, per ogni 
           token, un punteggio grezzo e non normalizzato chiamato 
           <a href="https://it.wikipedia.org/wiki/Logit" 
-          target="_blank" rel="noopener noreferrer">logit</a> (per approfondire &mdash; <a
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer">logit</a> (per approfondire &mdash; <a
           href="https://www.abstractalgorithms.dev/logits-explained"
-          target="_blank" rel="noopener noreferrer">link 1</a> &mdash; <a
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer">link 1</a> &mdash; <a
           href="https://telnyx.com/learn-ai/logits-ai"
-          target="_blank" rel="noopener noreferrer">link 2</a>). 
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer">link 2</a>). 
           Applicando la funzione softmax, questi 
           punteggi vengono trasformati in una distribuzione di 
           probabilità: in altre parole, stimo quanto sia probabile 
           che ciascun token sia quello corretto da generare in quel 
           preciso istante, dato tutto il contesto che ho elaborato.(<a
           href="https://machinelearningmastery.com/how-llms-choose-their-words-a-practical-walk-through-of-logits-softmax-and-sampling/"
-          target="_blank" rel="noopener noreferrer">fonte</a>)
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer">fonte</a>)
         </p>
         <p>
           Se il contesto fosse <q>Il gatto ha fatto&hellip;</q>, il token "miao" 
@@ -777,7 +777,7 @@
           e discesa del gradiente, fino a produrre distribuzioni di probabilità 
           sempre più accurate (come illustrato nell'<a
           href="https://sebastianraschka.com/faq/docs/next-token-prediction.html"
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >analisi sulla Next-Token Prediction di Sebastian Raschka</a>).
         </p>
         <details class="info-box">
@@ -794,10 +794,10 @@
             parametri nella direzione che riduce l'errore nelle previsioni 
             successive(per i dettagli matematici si veda il <a
              href="https://www.deeplearningbook.org/contents/mlp.html" 
-             target="_blank" rel="noopener noreferrer"
+             target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
              >capitolo sulla Backpropagation</a> 
              del <a href="https://www.deeplearningbook.org/" 
-             target="_blank" rel="noopener noreferrer"
+             target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
              >Deep Learning Book</a>).
           </p>
         </details>
@@ -811,7 +811,7 @@
             parametri appresi durante l'addestramento e rimangono invariati 
             durante una normale conversazione (<a 
             href="https://research.google/pubs/attention-is-all-you-need/" 
-            target="_blank" rel="noopener noreferrer"
+            target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
             >fonte</a>). Gli 
             <strong>attention weights</strong>, invece, vengono calcolati 
             ogni volta che ricevo un nuovo input e stabiliscono quanto 
@@ -831,7 +831,7 @@
           sempre quello con la probabilità più alta, una 
           strategia nota come <a 
           href="https://arxiv.org/abs/2407.10457" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >greedy decoding</a>. Tuttavia, questo 
           renderebbe le mie risposte molto ripetitive e prevedibili.
         </p>
@@ -842,22 +842,22 @@
           considerazione anche alternative plausibili. Parametri come la 
           <a 
           href="https://www.hopsworks.ai/dictionary/llm-temperature" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >temperature</a> regolano il grado di 
           casualità della scelta: una temperatura bassa produce 
           risposte più stabili e prevedibili; una temperatura 
           più alta aumenta la varietà e la creatività, 
           ma anche il rischio di incoerenze (come spiegato nella guida di 
           <a href="https://codesignal.com/learn/courses/behavioral-benchmarking-of-llms/lessons/exploring-temperature-sensitivity-in-llm-outputs " 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >CodeSignal sulla Temperature negli LLM</a>). Tecniche come il 
           <a href="https://docs.pawa-ai.com/guides/top-p" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >top-p</a> limitano la scelta al più piccolo 
           insieme di token che, sommati, coprono una certa probabilità 
           cumulativa (es. 90%), come approfondito nell'analisi sul
           <a href="https://medium.com/@kangusundaresh/top-k-and-top-p-nucleus-sampling-understanding-the-differences-1aa06eecdc48" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >Nucleus Sampling di Angu Sundaresh</a>.
         </p>
         <h4>
@@ -872,19 +872,19 @@
           distribuzione di probabilità per il token successivo
           (questo meccanismo ciclico e autoregressivo è descritto nell'approfondimento di 
           <a href="https://www.codecademy.com/article/transformer-architecture-self-attention-mechanism" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >Codecademy sull'Architettura dei Transformer</a>).
         </p>
         <p>
           Ripeto questo ciclo un token dopo l'altro finché non 
           produco uno speciale 
           <a href="https://www.natebrake.com/blog/end-of-sequence-explained"
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >token di fine sequenza</a>, che indica che la 
           risposta è completa (il funzionamento di questa 
           condizione d'arresto tramite l'identificativo EOS è dettagliato 
           nelle <a href="https://huggingface.co/docs/transformers/en/internal/generation_utils" 
-          target="_blank" rel="noopener noreferrer"
+          target="_blank" title="Si apre in una nuova scheda" rel="noopener noreferrer"
           >linee guida di generazione di Hugging Face</a>).
         </p>
         <h4>
@@ -943,7 +943,7 @@
         <p>Questa serie è l'adattamento per il web di una ricerca personale più ampia.</p>
         <p>Nel PDF troverai il testo integrale, la bibliografia completa e tutti gli approfondimenti tecnici.</p>
         <p><a href="https://drive.google.com/file/d/1ykc5mys2IWQd4DNk6aCJiXy7MIKqDt_M/view?usp=sharing"
-          target="_blank"
+          target="_blank" title="Si apre in una nuova scheda"
           rel="noopener noreferrer">Scarica il PDF completo (25 pagine)
         </a></p>
       </section>
